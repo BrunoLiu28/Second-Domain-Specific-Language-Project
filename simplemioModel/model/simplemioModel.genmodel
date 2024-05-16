@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/simplemioModel/src" modelPluginID="simplemioModel"
+    modelName="SimplemioModel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>file:/C:/Users/User/Desktop/Projeto%20LD/projecto-2-ld/simplemioModel/model/simplemioModel.ecore</foreignModel>
+  <genPackages prefix="SimplemioModel" disposableProviderFactory="true" ecorePackage="simplemioModel.ecore#/">
+    <genClasses ecoreClass="simplemioModel.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//Model/program"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//Program/events"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//Event">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//Event/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//Event/conditionalsensor"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplemioModel.ecore#//Action/strength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplemioModel.ecore#//Action/actionName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplemioModel.ecore#//Action/actionSpecifier"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//Sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplemioModel.ecore#//Sensor/sensorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplemioModel.ecore#//Sensor/sensorSpecifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplemioModel.ecore#//Sensor/strength"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//Not">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//Not/conditionalsensor"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//And">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//And/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//And/right"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//Or">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//Or/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//Or/right"/>
+    </genClasses>
+    <genClasses ecoreClass="simplemioModel.ecore#//ConditionalSensor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//ConditionalSensor/and"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//ConditionalSensor/or"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//ConditionalSensor/not"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplemioModel.ecore#//ConditionalSensor/sensor"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
