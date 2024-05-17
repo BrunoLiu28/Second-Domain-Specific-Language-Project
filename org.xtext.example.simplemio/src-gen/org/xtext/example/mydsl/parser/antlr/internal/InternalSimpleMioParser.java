@@ -21,10 +21,10 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'#'", "'->'", "','", "'move'", "'led'", "'turn'", "'left'", "'right'", "'forward'", "'backward'", "'stop'", "'red'", "'green'", "'blue'", "'@'", "'or'", "'and'", "'not'", "'('", "')'", "'obstacle'", "'sound'", "'line'", "'button'", "'motor'", "'front'", "'back'", "'up'", "'down'", "'center'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'#'", "'->'", "','", "'move'", "'led'", "'turn'", "'left'", "'right'", "'forward'", "'backward'", "'stop'", "'red'", "'green'", "'blue'", "'@'", "'or'", "'and'", "'not'", "'('", "')'", "'obstacle'", "'sound'", "'line'", "'button'", "'motor'", "'front'", "'back'", "'up'", "'down'", "'center'", "'-'"
     };
     public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_SL_COMMENT=7;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__37=37;
@@ -54,7 +54,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
     public static final int RULE_INT=6;
     public static final int T__29=29;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
@@ -293,7 +293,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                 int alt2=3;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==28||(LA2_0>=31 && LA2_0<=35)) ) {
+                if ( ((LA2_0>=28 && LA2_0<=29)||(LA2_0>=31 && LA2_0<=35)) ) {
                     alt2=1;
                 }
                 else if ( (LA2_0==11) ) {
@@ -1433,7 +1433,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNot"
-    // InternalSimpleMio.g:572:1: ruleNot returns [EObject current=null] : ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor ) ;
+    // InternalSimpleMio.g:572:1: ruleNot returns [EObject current=null] : ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor | this_Paren_4= ruleParen ) ;
     public final EObject ruleNot() throws RecognitionException {
         EObject current = null;
 
@@ -1442,30 +1442,45 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
         EObject this_Sensor_3 = null;
 
+        EObject this_Paren_4 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalSimpleMio.g:578:2: ( ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor ) )
-            // InternalSimpleMio.g:579:2: ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor )
+            // InternalSimpleMio.g:578:2: ( ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor | this_Paren_4= ruleParen ) )
+            // InternalSimpleMio.g:579:2: ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor | this_Paren_4= ruleParen )
             {
-            // InternalSimpleMio.g:579:2: ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
-
-            if ( (LA9_0==28) ) {
+            // InternalSimpleMio.g:579:2: ( ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) ) | this_Sensor_3= ruleSensor | this_Paren_4= ruleParen )
+            int alt9=3;
+            switch ( input.LA(1) ) {
+            case 28:
+                {
                 alt9=1;
-            }
-            else if ( ((LA9_0>=31 && LA9_0<=35)) ) {
+                }
+                break;
+            case 31:
+            case 32:
+            case 33:
+            case 34:
+            case 35:
+                {
                 alt9=2;
-            }
-            else {
+                }
+                break;
+            case 29:
+                {
+                alt9=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
+
             switch (alt9) {
                 case 1 :
                     // InternalSimpleMio.g:580:3: ( () (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) ) )
@@ -1487,7 +1502,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                     // InternalSimpleMio.g:588:4: (otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) ) )
                     // InternalSimpleMio.g:589:5: otherlv_1= 'not' ( (lv_conditionalsensor_2_0= ruleParen ) )
                     {
-                    otherlv_1=(Token)match(input,28,FOLLOW_14); 
+                    otherlv_1=(Token)match(input,28,FOLLOW_12); 
 
                     					newLeafNode(otherlv_1, grammarAccess.getNotAccess().getNotKeyword_0_1_0());
                     				
@@ -1549,6 +1564,24 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 3 :
+                    // InternalSimpleMio.g:624:3: this_Paren_4= ruleParen
+                    {
+
+                    			newCompositeNode(grammarAccess.getNotAccess().getParenParserRuleCall_2());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Paren_4=ruleParen();
+
+                    state._fsp--;
+
+
+                    			current = this_Paren_4;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
 
             }
 
@@ -1572,7 +1605,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParen"
-    // InternalSimpleMio.g:627:1: entryRuleParen returns [EObject current=null] : iv_ruleParen= ruleParen EOF ;
+    // InternalSimpleMio.g:636:1: entryRuleParen returns [EObject current=null] : iv_ruleParen= ruleParen EOF ;
     public final EObject entryRuleParen() throws RecognitionException {
         EObject current = null;
 
@@ -1580,8 +1613,8 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSimpleMio.g:627:46: (iv_ruleParen= ruleParen EOF )
-            // InternalSimpleMio.g:628:2: iv_ruleParen= ruleParen EOF
+            // InternalSimpleMio.g:636:46: (iv_ruleParen= ruleParen EOF )
+            // InternalSimpleMio.g:637:2: iv_ruleParen= ruleParen EOF
             {
              newCompositeNode(grammarAccess.getParenRule()); 
             pushFollow(FOLLOW_1);
@@ -1608,7 +1641,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParen"
-    // InternalSimpleMio.g:634:1: ruleParen returns [EObject current=null] : (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' ) ;
+    // InternalSimpleMio.g:643:1: ruleParen returns [EObject current=null] : (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' ) ;
     public final EObject ruleParen() throws RecognitionException {
         EObject current = null;
 
@@ -1621,11 +1654,11 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSimpleMio.g:640:2: ( (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' ) )
-            // InternalSimpleMio.g:641:2: (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' )
+            // InternalSimpleMio.g:649:2: ( (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' ) )
+            // InternalSimpleMio.g:650:2: (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' )
             {
-            // InternalSimpleMio.g:641:2: (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' )
-            // InternalSimpleMio.g:642:3: otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')'
+            // InternalSimpleMio.g:650:2: (otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')' )
+            // InternalSimpleMio.g:651:3: otherlv_0= '(' this_Or_1= ruleOr otherlv_2= ')'
             {
             otherlv_0=(Token)match(input,29,FOLLOW_12); 
 
@@ -1634,7 +1667,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
             			newCompositeNode(grammarAccess.getParenAccess().getOrParserRuleCall_1());
             		
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_14);
             this_Or_1=ruleOr();
 
             state._fsp--;
@@ -1670,7 +1703,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSensor"
-    // InternalSimpleMio.g:662:1: entryRuleSensor returns [EObject current=null] : iv_ruleSensor= ruleSensor EOF ;
+    // InternalSimpleMio.g:671:1: entryRuleSensor returns [EObject current=null] : iv_ruleSensor= ruleSensor EOF ;
     public final EObject entryRuleSensor() throws RecognitionException {
         EObject current = null;
 
@@ -1678,8 +1711,8 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSimpleMio.g:662:47: (iv_ruleSensor= ruleSensor EOF )
-            // InternalSimpleMio.g:663:2: iv_ruleSensor= ruleSensor EOF
+            // InternalSimpleMio.g:671:47: (iv_ruleSensor= ruleSensor EOF )
+            // InternalSimpleMio.g:672:2: iv_ruleSensor= ruleSensor EOF
             {
              newCompositeNode(grammarAccess.getSensorRule()); 
             pushFollow(FOLLOW_1);
@@ -1706,7 +1739,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSensor"
-    // InternalSimpleMio.g:669:1: ruleSensor returns [EObject current=null] : ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? ) ;
+    // InternalSimpleMio.g:678:1: ruleSensor returns [EObject current=null] : ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? ) ;
     public final EObject ruleSensor() throws RecognitionException {
         EObject current = null;
 
@@ -1730,14 +1763,14 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSimpleMio.g:675:2: ( ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? ) )
-            // InternalSimpleMio.g:676:2: ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? )
+            // InternalSimpleMio.g:684:2: ( ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? ) )
+            // InternalSimpleMio.g:685:2: ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? )
             {
-            // InternalSimpleMio.g:676:2: ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? )
-            // InternalSimpleMio.g:677:3: () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )?
+            // InternalSimpleMio.g:685:2: ( () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )? )
+            // InternalSimpleMio.g:686:3: () ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) ) ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )? (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )?
             {
-            // InternalSimpleMio.g:677:3: ()
-            // InternalSimpleMio.g:678:4: 
+            // InternalSimpleMio.g:686:3: ()
+            // InternalSimpleMio.g:687:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1747,13 +1780,13 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSimpleMio.g:684:3: ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) )
-            // InternalSimpleMio.g:685:4: ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) )
+            // InternalSimpleMio.g:693:3: ( ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) ) )
+            // InternalSimpleMio.g:694:4: ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) )
             {
-            // InternalSimpleMio.g:685:4: ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) )
-            // InternalSimpleMio.g:686:5: (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' )
+            // InternalSimpleMio.g:694:4: ( (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' ) )
+            // InternalSimpleMio.g:695:5: (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' )
             {
-            // InternalSimpleMio.g:686:5: (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' )
+            // InternalSimpleMio.g:695:5: (lv_sensorName_1_1= 'obstacle' | lv_sensorName_1_2= 'sound' | lv_sensorName_1_3= 'line' | lv_sensorName_1_4= 'button' | lv_sensorName_1_5= 'motor' )
             int alt10=5;
             switch ( input.LA(1) ) {
             case 31:
@@ -1790,9 +1823,9 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
             switch (alt10) {
                 case 1 :
-                    // InternalSimpleMio.g:687:6: lv_sensorName_1_1= 'obstacle'
+                    // InternalSimpleMio.g:696:6: lv_sensorName_1_1= 'obstacle'
                     {
-                    lv_sensorName_1_1=(Token)match(input,31,FOLLOW_16); 
+                    lv_sensorName_1_1=(Token)match(input,31,FOLLOW_15); 
 
                     						newLeafNode(lv_sensorName_1_1, grammarAccess.getSensorAccess().getSensorNameObstacleKeyword_1_0_0());
                     					
@@ -1806,9 +1839,9 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSimpleMio.g:698:6: lv_sensorName_1_2= 'sound'
+                    // InternalSimpleMio.g:707:6: lv_sensorName_1_2= 'sound'
                     {
-                    lv_sensorName_1_2=(Token)match(input,32,FOLLOW_16); 
+                    lv_sensorName_1_2=(Token)match(input,32,FOLLOW_15); 
 
                     						newLeafNode(lv_sensorName_1_2, grammarAccess.getSensorAccess().getSensorNameSoundKeyword_1_0_1());
                     					
@@ -1822,9 +1855,9 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSimpleMio.g:709:6: lv_sensorName_1_3= 'line'
+                    // InternalSimpleMio.g:718:6: lv_sensorName_1_3= 'line'
                     {
-                    lv_sensorName_1_3=(Token)match(input,33,FOLLOW_16); 
+                    lv_sensorName_1_3=(Token)match(input,33,FOLLOW_15); 
 
                     						newLeafNode(lv_sensorName_1_3, grammarAccess.getSensorAccess().getSensorNameLineKeyword_1_0_2());
                     					
@@ -1838,9 +1871,9 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalSimpleMio.g:720:6: lv_sensorName_1_4= 'button'
+                    // InternalSimpleMio.g:729:6: lv_sensorName_1_4= 'button'
                     {
-                    lv_sensorName_1_4=(Token)match(input,34,FOLLOW_16); 
+                    lv_sensorName_1_4=(Token)match(input,34,FOLLOW_15); 
 
                     						newLeafNode(lv_sensorName_1_4, grammarAccess.getSensorAccess().getSensorNameButtonKeyword_1_0_3());
                     					
@@ -1854,9 +1887,9 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalSimpleMio.g:731:6: lv_sensorName_1_5= 'motor'
+                    // InternalSimpleMio.g:740:6: lv_sensorName_1_5= 'motor'
                     {
-                    lv_sensorName_1_5=(Token)match(input,35,FOLLOW_16); 
+                    lv_sensorName_1_5=(Token)match(input,35,FOLLOW_15); 
 
                     						newLeafNode(lv_sensorName_1_5, grammarAccess.getSensorAccess().getSensorNameMotorKeyword_1_0_4());
                     					
@@ -1878,7 +1911,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSimpleMio.g:744:3: ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )?
+            // InternalSimpleMio.g:753:3: ( ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) ) )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1887,12 +1920,12 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalSimpleMio.g:745:4: ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) )
+                    // InternalSimpleMio.g:754:4: ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) )
                     {
-                    // InternalSimpleMio.g:745:4: ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) )
-                    // InternalSimpleMio.g:746:5: (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' )
+                    // InternalSimpleMio.g:754:4: ( (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' ) )
+                    // InternalSimpleMio.g:755:5: (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' )
                     {
-                    // InternalSimpleMio.g:746:5: (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' )
+                    // InternalSimpleMio.g:755:5: (lv_sensorSpecifier_2_1= 'front' | lv_sensorSpecifier_2_2= 'back' | lv_sensorSpecifier_2_3= 'left' | lv_sensorSpecifier_2_4= 'right' | lv_sensorSpecifier_2_5= 'up' | lv_sensorSpecifier_2_6= 'down' | lv_sensorSpecifier_2_7= 'center' )
                     int alt11=7;
                     switch ( input.LA(1) ) {
                     case 36:
@@ -1939,7 +1972,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
                     switch (alt11) {
                         case 1 :
-                            // InternalSimpleMio.g:747:6: lv_sensorSpecifier_2_1= 'front'
+                            // InternalSimpleMio.g:756:6: lv_sensorSpecifier_2_1= 'front'
                             {
                             lv_sensorSpecifier_2_1=(Token)match(input,36,FOLLOW_9); 
 
@@ -1955,7 +1988,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalSimpleMio.g:758:6: lv_sensorSpecifier_2_2= 'back'
+                            // InternalSimpleMio.g:767:6: lv_sensorSpecifier_2_2= 'back'
                             {
                             lv_sensorSpecifier_2_2=(Token)match(input,37,FOLLOW_9); 
 
@@ -1971,7 +2004,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // InternalSimpleMio.g:769:6: lv_sensorSpecifier_2_3= 'left'
+                            // InternalSimpleMio.g:778:6: lv_sensorSpecifier_2_3= 'left'
                             {
                             lv_sensorSpecifier_2_3=(Token)match(input,17,FOLLOW_9); 
 
@@ -1987,7 +2020,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // InternalSimpleMio.g:780:6: lv_sensorSpecifier_2_4= 'right'
+                            // InternalSimpleMio.g:789:6: lv_sensorSpecifier_2_4= 'right'
                             {
                             lv_sensorSpecifier_2_4=(Token)match(input,18,FOLLOW_9); 
 
@@ -2003,7 +2036,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 5 :
-                            // InternalSimpleMio.g:791:6: lv_sensorSpecifier_2_5= 'up'
+                            // InternalSimpleMio.g:800:6: lv_sensorSpecifier_2_5= 'up'
                             {
                             lv_sensorSpecifier_2_5=(Token)match(input,38,FOLLOW_9); 
 
@@ -2019,7 +2052,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 6 :
-                            // InternalSimpleMio.g:802:6: lv_sensorSpecifier_2_6= 'down'
+                            // InternalSimpleMio.g:811:6: lv_sensorSpecifier_2_6= 'down'
                             {
                             lv_sensorSpecifier_2_6=(Token)match(input,39,FOLLOW_9); 
 
@@ -2035,7 +2068,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 7 :
-                            // InternalSimpleMio.g:813:6: lv_sensorSpecifier_2_7= 'center'
+                            // InternalSimpleMio.g:822:6: lv_sensorSpecifier_2_7= 'center'
                             {
                             lv_sensorSpecifier_2_7=(Token)match(input,40,FOLLOW_9); 
 
@@ -2062,7 +2095,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalSimpleMio.g:826:3: (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )?
+            // InternalSimpleMio.g:835:3: (otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) ) )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2071,17 +2104,17 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalSimpleMio.g:827:4: otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) )
+                    // InternalSimpleMio.g:836:4: otherlv_3= '@' ( (lv_strength_4_0= ruleEInt ) )
                     {
                     otherlv_3=(Token)match(input,25,FOLLOW_10); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getSensorAccess().getCommercialAtKeyword_3_0());
                     			
-                    // InternalSimpleMio.g:831:4: ( (lv_strength_4_0= ruleEInt ) )
-                    // InternalSimpleMio.g:832:5: (lv_strength_4_0= ruleEInt )
+                    // InternalSimpleMio.g:840:4: ( (lv_strength_4_0= ruleEInt ) )
+                    // InternalSimpleMio.g:841:5: (lv_strength_4_0= ruleEInt )
                     {
-                    // InternalSimpleMio.g:832:5: (lv_strength_4_0= ruleEInt )
-                    // InternalSimpleMio.g:833:6: lv_strength_4_0= ruleEInt
+                    // InternalSimpleMio.g:841:5: (lv_strength_4_0= ruleEInt )
+                    // InternalSimpleMio.g:842:6: lv_strength_4_0= ruleEInt
                     {
 
                     						newCompositeNode(grammarAccess.getSensorAccess().getStrengthEIntParserRuleCall_3_1_0());
@@ -2137,7 +2170,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalSimpleMio.g:855:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalSimpleMio.g:864:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -2145,8 +2178,8 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSimpleMio.g:855:47: (iv_ruleEString= ruleEString EOF )
-            // InternalSimpleMio.g:856:2: iv_ruleEString= ruleEString EOF
+            // InternalSimpleMio.g:864:47: (iv_ruleEString= ruleEString EOF )
+            // InternalSimpleMio.g:865:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -2173,7 +2206,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalSimpleMio.g:862:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalSimpleMio.g:871:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2184,10 +2217,10 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSimpleMio.g:868:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalSimpleMio.g:869:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalSimpleMio.g:877:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalSimpleMio.g:878:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalSimpleMio.g:869:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalSimpleMio.g:878:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -2205,7 +2238,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalSimpleMio.g:870:3: this_STRING_0= RULE_STRING
+                    // InternalSimpleMio.g:879:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -2218,7 +2251,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSimpleMio.g:878:3: this_ID_1= RULE_ID
+                    // InternalSimpleMio.g:887:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -2253,7 +2286,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalSimpleMio.g:889:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalSimpleMio.g:898:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -2261,8 +2294,8 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSimpleMio.g:889:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalSimpleMio.g:890:2: iv_ruleEInt= ruleEInt EOF
+            // InternalSimpleMio.g:898:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalSimpleMio.g:899:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -2289,7 +2322,7 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalSimpleMio.g:896:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalSimpleMio.g:905:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2300,13 +2333,13 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSimpleMio.g:902:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalSimpleMio.g:903:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalSimpleMio.g:911:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalSimpleMio.g:912:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalSimpleMio.g:903:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalSimpleMio.g:904:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalSimpleMio.g:912:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalSimpleMio.g:913:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalSimpleMio.g:904:3: (kw= '-' )?
+            // InternalSimpleMio.g:913:3: (kw= '-' )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -2315,9 +2348,9 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
             }
             switch (alt15) {
                 case 1 :
-                    // InternalSimpleMio.g:905:4: kw= '-'
+                    // InternalSimpleMio.g:914:4: kw= '-'
                     {
-                    kw=(Token)match(input,41,FOLLOW_17); 
+                    kw=(Token)match(input,41,FOLLOW_16); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -2363,8 +2396,8 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000F90000802L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000F90000832L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000FB0000802L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000FB0000832L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000001C000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002002L});
@@ -2372,11 +2405,10 @@ public class InternalSimpleMioParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000002000002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000020000000040L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000F90000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000FB0000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000001F002060002L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000001F002060002L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000040L});
 
 }

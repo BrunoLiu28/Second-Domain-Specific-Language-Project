@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleMioLexer extends Lexer {
     public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_SL_COMMENT=7;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__37=37;
@@ -43,7 +43,7 @@ public class InternalSimpleMioLexer extends Lexer {
     public static final int RULE_INT=6;
     public static final int T__29=29;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
@@ -710,361 +710,29 @@ public class InternalSimpleMioLexer extends Lexer {
     }
     // $ANTLR end "T__41"
 
-    // $ANTLR start "RULE_ID"
-    public final void mRULE_ID() throws RecognitionException {
-        try {
-            int _type = RULE_ID;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1969:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalSimpleMio.g:1969:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
-            {
-            // InternalSimpleMio.g:1969:11: ( '^' )?
-            int alt1=2;
-            int LA1_0 = input.LA(1);
-
-            if ( (LA1_0=='^') ) {
-                alt1=1;
-            }
-            switch (alt1) {
-                case 1 :
-                    // InternalSimpleMio.g:1969:11: '^'
-                    {
-                    match('^'); 
-
-                    }
-                    break;
-
-            }
-
-            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            // InternalSimpleMio.g:1969:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
-            loop2:
-            do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
-
-                if ( ((LA2_0>='0' && LA2_0<='9')||(LA2_0>='A' && LA2_0<='Z')||LA2_0=='_'||(LA2_0>='a' && LA2_0<='z')) ) {
-                    alt2=1;
-                }
-
-
-                switch (alt2) {
-            	case 1 :
-            	    // InternalSimpleMio.g:
-            	    {
-            	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;}
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop2;
-                }
-            } while (true);
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_ID"
-
-    // $ANTLR start "RULE_INT"
-    public final void mRULE_INT() throws RecognitionException {
-        try {
-            int _type = RULE_INT;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1971:10: ( ( '0' .. '9' )+ )
-            // InternalSimpleMio.g:1971:12: ( '0' .. '9' )+
-            {
-            // InternalSimpleMio.g:1971:12: ( '0' .. '9' )+
-            int cnt3=0;
-            loop3:
-            do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
-
-                if ( ((LA3_0>='0' && LA3_0<='9')) ) {
-                    alt3=1;
-                }
-
-
-                switch (alt3) {
-            	case 1 :
-            	    // InternalSimpleMio.g:1971:13: '0' .. '9'
-            	    {
-            	    matchRange('0','9'); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt3 >= 1 ) break loop3;
-                        EarlyExitException eee =
-                            new EarlyExitException(3, input);
-                        throw eee;
-                }
-                cnt3++;
-            } while (true);
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_INT"
-
-    // $ANTLR start "RULE_STRING"
-    public final void mRULE_STRING() throws RecognitionException {
-        try {
-            int _type = RULE_STRING;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1973:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalSimpleMio.g:1973:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            {
-            // InternalSimpleMio.g:1973:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
-
-            if ( (LA6_0=='\"') ) {
-                alt6=1;
-            }
-            else if ( (LA6_0=='\'') ) {
-                alt6=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
-
-                throw nvae;
-            }
-            switch (alt6) {
-                case 1 :
-                    // InternalSimpleMio.g:1973:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
-                    {
-                    match('\"'); 
-                    // InternalSimpleMio.g:1973:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop4:
-                    do {
-                        int alt4=3;
-                        int LA4_0 = input.LA(1);
-
-                        if ( (LA4_0=='\\') ) {
-                            alt4=1;
-                        }
-                        else if ( ((LA4_0>='\u0000' && LA4_0<='!')||(LA4_0>='#' && LA4_0<='[')||(LA4_0>=']' && LA4_0<='\uFFFF')) ) {
-                            alt4=2;
-                        }
-
-
-                        switch (alt4) {
-                    	case 1 :
-                    	    // InternalSimpleMio.g:1973:21: '\\\\' .
-                    	    {
-                    	    match('\\'); 
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-                    	case 2 :
-                    	    // InternalSimpleMio.g:1973:28: ~ ( ( '\\\\' | '\"' ) )
-                    	    {
-                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
-                    	        input.consume();
-
-                    	    }
-                    	    else {
-                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
-                    	        recover(mse);
-                    	        throw mse;}
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop4;
-                        }
-                    } while (true);
-
-                    match('\"'); 
-
-                    }
-                    break;
-                case 2 :
-                    // InternalSimpleMio.g:1973:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
-                    {
-                    match('\''); 
-                    // InternalSimpleMio.g:1973:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop5:
-                    do {
-                        int alt5=3;
-                        int LA5_0 = input.LA(1);
-
-                        if ( (LA5_0=='\\') ) {
-                            alt5=1;
-                        }
-                        else if ( ((LA5_0>='\u0000' && LA5_0<='&')||(LA5_0>='(' && LA5_0<='[')||(LA5_0>=']' && LA5_0<='\uFFFF')) ) {
-                            alt5=2;
-                        }
-
-
-                        switch (alt5) {
-                    	case 1 :
-                    	    // InternalSimpleMio.g:1973:54: '\\\\' .
-                    	    {
-                    	    match('\\'); 
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-                    	case 2 :
-                    	    // InternalSimpleMio.g:1973:61: ~ ( ( '\\\\' | '\\'' ) )
-                    	    {
-                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
-                    	        input.consume();
-
-                    	    }
-                    	    else {
-                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
-                    	        recover(mse);
-                    	        throw mse;}
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop5;
-                        }
-                    } while (true);
-
-                    match('\''); 
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_STRING"
-
-    // $ANTLR start "RULE_ML_COMMENT"
-    public final void mRULE_ML_COMMENT() throws RecognitionException {
-        try {
-            int _type = RULE_ML_COMMENT;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1975:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalSimpleMio.g:1975:19: '/*' ( options {greedy=false; } : . )* '*/'
-            {
-            match("/*"); 
-
-            // InternalSimpleMio.g:1975:24: ( options {greedy=false; } : . )*
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( (LA7_0=='*') ) {
-                    int LA7_1 = input.LA(2);
-
-                    if ( (LA7_1=='/') ) {
-                        alt7=2;
-                    }
-                    else if ( ((LA7_1>='\u0000' && LA7_1<='.')||(LA7_1>='0' && LA7_1<='\uFFFF')) ) {
-                        alt7=1;
-                    }
-
-
-                }
-                else if ( ((LA7_0>='\u0000' && LA7_0<=')')||(LA7_0>='+' && LA7_0<='\uFFFF')) ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // InternalSimpleMio.g:1975:52: .
-            	    {
-            	    matchAny(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop7;
-                }
-            } while (true);
-
-            match("*/"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_ML_COMMENT"
-
     // $ANTLR start "RULE_SL_COMMENT"
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1977:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalSimpleMio.g:1977:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalSimpleMio.g:1975:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalSimpleMio.g:1975:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
-            match("//"); 
-
-            // InternalSimpleMio.g:1977:24: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop8:
+            match('#'); 
+            // InternalSimpleMio.g:1975:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            loop1:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-                if ( ((LA8_0>='\u0000' && LA8_0<='\t')||(LA8_0>='\u000B' && LA8_0<='\f')||(LA8_0>='\u000E' && LA8_0<='\uFFFF')) ) {
-                    alt8=1;
+                if ( ((LA1_0>='\u0000' && LA1_0<='\t')||(LA1_0>='\u000B' && LA1_0<='\f')||(LA1_0>='\u000E' && LA1_0<='\uFFFF')) ) {
+                    alt1=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt1) {
             	case 1 :
-            	    // InternalSimpleMio.g:1977:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalSimpleMio.g:1975:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1080,31 +748,31 @@ public class InternalSimpleMioLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop1;
                 }
             } while (true);
 
-            // InternalSimpleMio.g:1977:40: ( ( '\\r' )? '\\n' )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalSimpleMio.g:1975:39: ( ( '\\r' )? '\\n' )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA10_0=='\n'||LA10_0=='\r') ) {
-                alt10=1;
+            if ( (LA3_0=='\n'||LA3_0=='\r') ) {
+                alt3=1;
             }
-            switch (alt10) {
+            switch (alt3) {
                 case 1 :
-                    // InternalSimpleMio.g:1977:41: ( '\\r' )? '\\n'
+                    // InternalSimpleMio.g:1975:40: ( '\\r' )? '\\n'
                     {
-                    // InternalSimpleMio.g:1977:41: ( '\\r' )?
-                    int alt9=2;
-                    int LA9_0 = input.LA(1);
+                    // InternalSimpleMio.g:1975:40: ( '\\r' )?
+                    int alt2=2;
+                    int LA2_0 = input.LA(1);
 
-                    if ( (LA9_0=='\r') ) {
-                        alt9=1;
+                    if ( (LA2_0=='\r') ) {
+                        alt2=1;
                     }
-                    switch (alt9) {
+                    switch (alt2) {
                         case 1 :
-                            // InternalSimpleMio.g:1977:41: '\\r'
+                            // InternalSimpleMio.g:1975:40: '\\r'
                             {
                             match('\r'); 
 
@@ -1131,15 +799,346 @@ public class InternalSimpleMioLexer extends Lexer {
     }
     // $ANTLR end "RULE_SL_COMMENT"
 
+    // $ANTLR start "RULE_ID"
+    public final void mRULE_ID() throws RecognitionException {
+        try {
+            int _type = RULE_ID;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalSimpleMio.g:1977:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalSimpleMio.g:1977:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            {
+            // InternalSimpleMio.g:1977:11: ( '^' )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0=='^') ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalSimpleMio.g:1977:11: '^'
+                    {
+                    match('^'); 
+
+                    }
+                    break;
+
+            }
+
+            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            // InternalSimpleMio.g:1977:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( ((LA5_0>='0' && LA5_0<='9')||(LA5_0>='A' && LA5_0<='Z')||LA5_0=='_'||(LA5_0>='a' && LA5_0<='z')) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // InternalSimpleMio.g:
+            	    {
+            	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_ID"
+
+    // $ANTLR start "RULE_INT"
+    public final void mRULE_INT() throws RecognitionException {
+        try {
+            int _type = RULE_INT;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalSimpleMio.g:1979:10: ( ( '0' .. '9' )+ )
+            // InternalSimpleMio.g:1979:12: ( '0' .. '9' )+
+            {
+            // InternalSimpleMio.g:1979:12: ( '0' .. '9' )+
+            int cnt6=0;
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( ((LA6_0>='0' && LA6_0<='9')) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // InternalSimpleMio.g:1979:13: '0' .. '9'
+            	    {
+            	    matchRange('0','9'); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt6 >= 1 ) break loop6;
+                        EarlyExitException eee =
+                            new EarlyExitException(6, input);
+                        throw eee;
+                }
+                cnt6++;
+            } while (true);
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_INT"
+
+    // $ANTLR start "RULE_STRING"
+    public final void mRULE_STRING() throws RecognitionException {
+        try {
+            int _type = RULE_STRING;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalSimpleMio.g:1981:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalSimpleMio.g:1981:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            {
+            // InternalSimpleMio.g:1981:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0=='\"') ) {
+                alt9=1;
+            }
+            else if ( (LA9_0=='\'') ) {
+                alt9=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 9, 0, input);
+
+                throw nvae;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalSimpleMio.g:1981:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    {
+                    match('\"'); 
+                    // InternalSimpleMio.g:1981:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    loop7:
+                    do {
+                        int alt7=3;
+                        int LA7_0 = input.LA(1);
+
+                        if ( (LA7_0=='\\') ) {
+                            alt7=1;
+                        }
+                        else if ( ((LA7_0>='\u0000' && LA7_0<='!')||(LA7_0>='#' && LA7_0<='[')||(LA7_0>=']' && LA7_0<='\uFFFF')) ) {
+                            alt7=2;
+                        }
+
+
+                        switch (alt7) {
+                    	case 1 :
+                    	    // InternalSimpleMio.g:1981:21: '\\\\' .
+                    	    {
+                    	    match('\\'); 
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+                    	case 2 :
+                    	    // InternalSimpleMio.g:1981:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    {
+                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
+                    	        input.consume();
+
+                    	    }
+                    	    else {
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop7;
+                        }
+                    } while (true);
+
+                    match('\"'); 
+
+                    }
+                    break;
+                case 2 :
+                    // InternalSimpleMio.g:1981:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    {
+                    match('\''); 
+                    // InternalSimpleMio.g:1981:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    loop8:
+                    do {
+                        int alt8=3;
+                        int LA8_0 = input.LA(1);
+
+                        if ( (LA8_0=='\\') ) {
+                            alt8=1;
+                        }
+                        else if ( ((LA8_0>='\u0000' && LA8_0<='&')||(LA8_0>='(' && LA8_0<='[')||(LA8_0>=']' && LA8_0<='\uFFFF')) ) {
+                            alt8=2;
+                        }
+
+
+                        switch (alt8) {
+                    	case 1 :
+                    	    // InternalSimpleMio.g:1981:54: '\\\\' .
+                    	    {
+                    	    match('\\'); 
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+                    	case 2 :
+                    	    // InternalSimpleMio.g:1981:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    {
+                    	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
+                    	        input.consume();
+
+                    	    }
+                    	    else {
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        recover(mse);
+                    	        throw mse;}
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop8;
+                        }
+                    } while (true);
+
+                    match('\''); 
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_STRING"
+
+    // $ANTLR start "RULE_ML_COMMENT"
+    public final void mRULE_ML_COMMENT() throws RecognitionException {
+        try {
+            int _type = RULE_ML_COMMENT;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalSimpleMio.g:1983:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalSimpleMio.g:1983:19: '/*' ( options {greedy=false; } : . )* '*/'
+            {
+            match("/*"); 
+
+            // InternalSimpleMio.g:1983:24: ( options {greedy=false; } : . )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
+
+                if ( (LA10_0=='*') ) {
+                    int LA10_1 = input.LA(2);
+
+                    if ( (LA10_1=='/') ) {
+                        alt10=2;
+                    }
+                    else if ( ((LA10_1>='\u0000' && LA10_1<='.')||(LA10_1>='0' && LA10_1<='\uFFFF')) ) {
+                        alt10=1;
+                    }
+
+
+                }
+                else if ( ((LA10_0>='\u0000' && LA10_0<=')')||(LA10_0>='+' && LA10_0<='\uFFFF')) ) {
+                    alt10=1;
+                }
+
+
+                switch (alt10) {
+            	case 1 :
+            	    // InternalSimpleMio.g:1983:52: .
+            	    {
+            	    matchAny(); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop10;
+                }
+            } while (true);
+
+            match("*/"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_ML_COMMENT"
+
     // $ANTLR start "RULE_WS"
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1979:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalSimpleMio.g:1979:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSimpleMio.g:1985:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalSimpleMio.g:1985:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalSimpleMio.g:1979:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSimpleMio.g:1985:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1193,8 +1192,8 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1981:16: ( . )
-            // InternalSimpleMio.g:1981:18: .
+            // InternalSimpleMio.g:1987:16: ( . )
+            // InternalSimpleMio.g:1987:18: .
             {
             matchAny(); 
 
@@ -1209,7 +1208,7 @@ public class InternalSimpleMioLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalSimpleMio.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalSimpleMio.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_SL_COMMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt12=38;
         alt12 = dfa12.predict(input);
         switch (alt12) {
@@ -1431,37 +1430,37 @@ public class InternalSimpleMioLexer extends Lexer {
                 }
                 break;
             case 32 :
-                // InternalSimpleMio.g:1:196: RULE_ID
+                // InternalSimpleMio.g:1:196: RULE_SL_COMMENT
+                {
+                mRULE_SL_COMMENT(); 
+
+                }
+                break;
+            case 33 :
+                // InternalSimpleMio.g:1:212: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 33 :
-                // InternalSimpleMio.g:1:204: RULE_INT
+            case 34 :
+                // InternalSimpleMio.g:1:220: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 34 :
-                // InternalSimpleMio.g:1:213: RULE_STRING
+            case 35 :
+                // InternalSimpleMio.g:1:229: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 35 :
-                // InternalSimpleMio.g:1:225: RULE_ML_COMMENT
+            case 36 :
+                // InternalSimpleMio.g:1:241: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
-
-                }
-                break;
-            case 36 :
-                // InternalSimpleMio.g:1:241: RULE_SL_COMMENT
-                {
-                mRULE_SL_COMMENT(); 
 
                 }
                 break;
@@ -1487,17 +1486,17 @@ public class InternalSimpleMioLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\14\36\1\uffff\1\63\2\uffff\2\36\2\uffff\1\34\2\uffff\3\34\2\uffff\1\36\1\uffff\16\36\1\120\1\121\2\36\5\uffff\2\36\7\uffff\2\36\1\130\4\36\1\135\11\36\2\uffff\2\36\1\151\1\152\1\153\1\36\1\uffff\1\155\1\156\1\157\1\36\1\uffff\2\36\1\164\1\165\1\36\1\167\3\36\1\173\1\36\3\uffff\1\175\3\uffff\1\176\1\36\1\u0080\1\36\2\uffff\1\36\1\uffff\1\u0083\1\u0084\1\36\1\uffff\1\36\2\uffff\1\36\1\uffff\1\36\1\u0089\2\uffff\1\36\1\u008b\1\u008c\1\36\1\uffff\1\36\2\uffff\1\u008f\1\u0090\2\uffff";
+        "\1\uffff\14\36\1\61\1\64\2\uffff\2\36\2\uffff\1\34\2\uffff\3\34\2\uffff\1\36\1\uffff\16\36\1\120\1\121\2\36\6\uffff\2\36\6\uffff\2\36\1\130\4\36\1\135\11\36\2\uffff\2\36\1\151\1\152\1\153\1\36\1\uffff\1\155\1\156\1\157\1\36\1\uffff\2\36\1\164\1\165\1\36\1\167\3\36\1\173\1\36\3\uffff\1\175\3\uffff\1\176\1\36\1\u0080\1\36\2\uffff\1\36\1\uffff\1\u0083\1\u0084\1\36\1\uffff\1\36\2\uffff\1\36\1\uffff\1\36\1\u0089\2\uffff\1\36\1\u008b\1\u008c\1\36\1\uffff\1\36\2\uffff\1\u008f\1\u0090\2\uffff";
     static final String DFA12_eofS =
         "\u0091\uffff";
     static final String DFA12_minS =
-        "\1\0\1\157\1\145\1\165\1\145\1\157\1\141\1\157\1\162\1\142\1\160\1\157\1\145\1\uffff\1\76\2\uffff\1\156\1\157\2\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\164\1\uffff\1\144\1\156\1\162\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\157\1\165\1\145\1\163\2\60\1\167\1\156\5\uffff\1\144\1\164\7\uffff\1\145\1\157\1\60\1\164\1\145\1\156\1\150\1\60\1\167\1\156\1\153\1\145\1\164\1\160\1\156\1\145\1\164\2\uffff\1\156\1\164\3\60\1\162\1\uffff\3\60\1\164\1\uffff\1\141\1\164\2\60\1\157\1\60\1\144\1\156\1\141\1\60\1\145\3\uffff\1\60\3\uffff\1\60\1\162\1\60\1\141\2\uffff\1\156\1\uffff\2\60\1\143\1\uffff\1\162\2\uffff\1\144\1\uffff\1\162\1\60\2\uffff\1\154\2\60\1\144\1\uffff\1\145\2\uffff\2\60\2\uffff";
+        "\1\0\1\157\1\145\1\165\1\145\1\157\1\141\1\157\1\162\1\142\1\160\1\157\1\145\1\0\1\76\2\uffff\1\156\1\157\2\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\164\1\uffff\1\144\1\156\1\162\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\157\1\165\1\145\1\163\2\60\1\167\1\156\6\uffff\1\144\1\164\6\uffff\1\145\1\157\1\60\1\164\1\145\1\156\1\150\1\60\1\167\1\156\1\153\1\145\1\164\1\160\1\156\1\145\1\164\2\uffff\1\156\1\164\3\60\1\162\1\uffff\3\60\1\164\1\uffff\1\141\1\164\2\60\1\157\1\60\1\144\1\156\1\141\1\60\1\145\3\uffff\1\60\3\uffff\1\60\1\162\1\60\1\141\2\uffff\1\156\1\uffff\2\60\1\143\1\uffff\1\162\2\uffff\1\144\1\uffff\1\162\1\60\2\uffff\1\154\2\60\1\144\1\uffff\1\145\2\uffff\2\60\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\157\1\151\1\165\1\151\1\162\1\165\1\164\2\162\1\160\1\157\1\145\1\uffff\1\76\2\uffff\1\156\1\157\2\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\166\1\uffff\1\146\1\156\1\162\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\157\1\165\1\145\1\163\2\172\1\167\1\156\5\uffff\1\144\1\164\7\uffff\1\145\1\157\1\172\1\164\1\145\1\156\1\150\1\172\1\167\1\156\1\153\1\145\1\164\1\160\1\156\1\145\1\164\2\uffff\1\156\1\164\3\172\1\162\1\uffff\3\172\1\164\1\uffff\1\141\1\164\2\172\1\157\1\172\1\144\1\156\1\141\1\172\1\145\3\uffff\1\172\3\uffff\1\172\1\162\1\172\1\141\2\uffff\1\156\1\uffff\2\172\1\143\1\uffff\1\162\2\uffff\1\144\1\uffff\1\162\1\172\2\uffff\1\154\2\172\1\144\1\uffff\1\145\2\uffff\2\172\2\uffff";
+        "\1\uffff\1\157\1\151\1\165\1\151\1\162\1\165\1\164\2\162\1\160\1\157\1\145\1\uffff\1\76\2\uffff\1\156\1\157\2\uffff\1\172\2\uffff\2\uffff\1\52\2\uffff\1\166\1\uffff\1\146\1\156\1\162\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\157\1\165\1\145\1\163\2\172\1\167\1\156\6\uffff\1\144\1\164\6\uffff\1\145\1\157\1\172\1\164\1\145\1\156\1\150\1\172\1\167\1\156\1\153\1\145\1\164\1\160\1\156\1\145\1\164\2\uffff\1\156\1\164\3\172\1\162\1\uffff\3\172\1\164\1\uffff\1\141\1\164\2\172\1\157\1\172\1\144\1\156\1\141\1\172\1\145\3\uffff\1\172\3\uffff\1\172\1\162\1\172\1\141\2\uffff\1\156\1\uffff\2\172\1\143\1\uffff\1\162\2\uffff\1\144\1\uffff\1\162\1\172\2\uffff\1\154\2\172\1\144\1\uffff\1\145\2\uffff\2\172\2\uffff";
     static final String DFA12_acceptS =
-        "\15\uffff\1\26\1\uffff\1\30\1\31\2\uffff\1\35\1\36\1\uffff\1\40\1\41\3\uffff\1\45\1\46\1\uffff\1\40\22\uffff\1\26\1\27\1\37\1\30\1\31\2\uffff\1\35\1\36\1\41\1\42\1\43\1\44\1\45\21\uffff\1\32\1\23\6\uffff\1\2\4\uffff\1\11\13\uffff\1\33\1\34\1\1\1\uffff\1\4\1\16\1\3\4\uffff\1\22\1\13\1\uffff\1\10\3\uffff\1\24\1\uffff\1\20\1\5\1\uffff\1\21\2\uffff\1\15\1\12\4\uffff\1\17\1\uffff\1\25\1\6\2\uffff\1\7\1\14";
+        "\17\uffff\1\30\1\31\2\uffff\1\35\1\36\1\uffff\1\41\1\42\3\uffff\1\45\1\46\1\uffff\1\41\22\uffff\1\26\1\40\1\27\1\37\1\30\1\31\2\uffff\1\35\1\36\1\42\1\43\1\44\1\45\21\uffff\1\32\1\23\6\uffff\1\2\4\uffff\1\11\13\uffff\1\33\1\34\1\1\1\uffff\1\4\1\16\1\3\4\uffff\1\22\1\13\1\uffff\1\10\3\uffff\1\24\1\uffff\1\20\1\5\1\uffff\1\21\2\uffff\1\15\1\12\4\uffff\1\17\1\uffff\1\25\1\6\2\uffff\1\7\1\14";
     static final String DFA12_specialS =
-        "\1\0\27\uffff\1\1\1\2\167\uffff}>";
+        "\1\1\14\uffff\1\2\12\uffff\1\3\1\0\167\uffff}>";
     static final String[] DFA12_transitionS = {
             "\11\34\2\33\2\34\1\33\22\34\1\33\1\34\1\30\1\15\3\34\1\31\1\23\1\24\2\34\1\17\1\16\1\34\1\32\12\27\6\34\1\20\32\26\3\34\1\25\1\26\1\34\1\21\1\6\1\14\1\13\1\26\1\5\1\10\4\26\1\2\1\1\1\22\1\11\2\26\1\4\1\7\1\3\1\12\5\26\uff85\34",
             "\1\35",
@@ -1512,20 +1511,20 @@ public class InternalSimpleMioLexer extends Lexer {
             "\1\56",
             "\1\57",
             "\1\60",
+            "\0\62",
+            "\1\63",
             "",
-            "\1\62",
             "",
-            "",
-            "\1\66",
             "\1\67",
+            "\1\70",
             "",
             "",
             "\32\36\4\uffff\1\36\1\uffff\32\36",
             "",
             "",
-            "\0\73",
-            "\0\73",
-            "\1\74\4\uffff\1\75",
+            "\0\74",
+            "\0\74",
+            "\1\75",
             "",
             "",
             "\1\100\1\uffff\1\77",
@@ -1553,9 +1552,9 @@ public class InternalSimpleMioLexer extends Lexer {
             "",
             "",
             "",
+            "",
             "\1\124",
             "\1\125",
-            "",
             "",
             "",
             "",
@@ -1676,13 +1675,23 @@ public class InternalSimpleMioLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_SL_COMMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA12_25 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_25>='\u0000' && LA12_25<='\uFFFF')) ) {s = 60;}
+
+                        else s = 28;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -1744,21 +1753,21 @@ public class InternalSimpleMioLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
-                        int LA12_24 = input.LA(1);
+                    case 2 : 
+                        int LA12_13 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_24>='\u0000' && LA12_24<='\uFFFF')) ) {s = 59;}
+                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 50;}
 
-                        else s = 28;
+                        else s = 49;
 
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
-                        int LA12_25 = input.LA(1);
+                    case 3 : 
+                        int LA12_24 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_25>='\u0000' && LA12_25<='\uFFFF')) ) {s = 59;}
+                        if ( ((LA12_24>='\u0000' && LA12_24<='\uFFFF')) ) {s = 60;}
 
                         else s = 28;
 

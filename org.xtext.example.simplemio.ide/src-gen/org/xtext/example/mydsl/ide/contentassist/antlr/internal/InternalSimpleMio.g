@@ -445,6 +445,12 @@ rule__Not__Alternatives
 		ruleSensor
 		{ after(grammarAccess.getNotAccess().getSensorParserRuleCall_1()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getNotAccess().getParenParserRuleCall_2()); }
+		ruleParen
+		{ after(grammarAccess.getNotAccess().getParenParserRuleCall_2()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1966,6 +1972,8 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+RULE_SL_COMMENT : '#' ~(('\n'|'\r'))* ('\r'? '\n')?;
+
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
@@ -1973,8 +1981,6 @@ RULE_INT : ('0'..'9')+;
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
-
-RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 

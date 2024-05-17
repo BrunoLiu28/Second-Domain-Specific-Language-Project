@@ -22,10 +22,10 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleMioParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'move'", "'led'", "'turn'", "'left'", "'right'", "'forward'", "'backward'", "'stop'", "'red'", "'green'", "'blue'", "'obstacle'", "'sound'", "'line'", "'button'", "'motor'", "'front'", "'back'", "'up'", "'down'", "'center'", "'#'", "'->'", "','", "'@'", "'or'", "'and'", "'not'", "'('", "')'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'move'", "'led'", "'turn'", "'left'", "'right'", "'forward'", "'backward'", "'stop'", "'red'", "'green'", "'blue'", "'obstacle'", "'sound'", "'line'", "'button'", "'motor'", "'front'", "'back'", "'up'", "'down'", "'center'", "'#'", "'->'", "','", "'@'", "'or'", "'and'", "'not'", "'('", "')'", "'-'"
     };
     public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_SL_COMMENT=7;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__37=37;
@@ -55,7 +55,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
     public static final int RULE_INT=6;
     public static final int T__29=29;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
@@ -957,7 +957,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( ((LA1_0>=22 && LA1_0<=26)||LA1_0==38) ) {
+            if ( ((LA1_0>=22 && LA1_0<=26)||(LA1_0>=38 && LA1_0<=39)) ) {
                 alt1=1;
             }
             else if ( (LA1_0==32) ) {
@@ -1328,28 +1328,41 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Alternatives"
-    // InternalSimpleMio.g:432:1: rule__Not__Alternatives : ( ( ( rule__Not__Group_0__0 ) ) | ( ruleSensor ) );
+    // InternalSimpleMio.g:432:1: rule__Not__Alternatives : ( ( ( rule__Not__Group_0__0 ) ) | ( ruleSensor ) | ( ruleParen ) );
     public final void rule__Not__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:436:1: ( ( ( rule__Not__Group_0__0 ) ) | ( ruleSensor ) )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==38) ) {
+            // InternalSimpleMio.g:436:1: ( ( ( rule__Not__Group_0__0 ) ) | ( ruleSensor ) | ( ruleParen ) )
+            int alt4=3;
+            switch ( input.LA(1) ) {
+            case 38:
+                {
                 alt4=1;
-            }
-            else if ( ((LA4_0>=22 && LA4_0<=26)) ) {
+                }
+                break;
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+                {
                 alt4=2;
-            }
-            else {
+                }
+                break;
+            case 39:
+                {
+                alt4=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
+
             switch (alt4) {
                 case 1 :
                     // InternalSimpleMio.g:437:2: ( ( rule__Not__Group_0__0 ) )
@@ -1395,6 +1408,25 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
                     }
                     break;
+                case 3 :
+                    // InternalSimpleMio.g:449:2: ( ruleParen )
+                    {
+                    // InternalSimpleMio.g:449:2: ( ruleParen )
+                    // InternalSimpleMio.g:450:3: ruleParen
+                    {
+                     before(grammarAccess.getNotAccess().getParenParserRuleCall_2()); 
+                    pushFollow(FOLLOW_2);
+                    ruleParen();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getNotAccess().getParenParserRuleCall_2()); 
+
+                    }
+
+
+                    }
+                    break;
 
             }
         }
@@ -1413,13 +1445,13 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__SensorNameAlternatives_1_0"
-    // InternalSimpleMio.g:453:1: rule__Sensor__SensorNameAlternatives_1_0 : ( ( 'obstacle' ) | ( 'sound' ) | ( 'line' ) | ( 'button' ) | ( 'motor' ) );
+    // InternalSimpleMio.g:459:1: rule__Sensor__SensorNameAlternatives_1_0 : ( ( 'obstacle' ) | ( 'sound' ) | ( 'line' ) | ( 'button' ) | ( 'motor' ) );
     public final void rule__Sensor__SensorNameAlternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:457:1: ( ( 'obstacle' ) | ( 'sound' ) | ( 'line' ) | ( 'button' ) | ( 'motor' ) )
+            // InternalSimpleMio.g:463:1: ( ( 'obstacle' ) | ( 'sound' ) | ( 'line' ) | ( 'button' ) | ( 'motor' ) )
             int alt5=5;
             switch ( input.LA(1) ) {
             case 22:
@@ -1456,10 +1488,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
             switch (alt5) {
                 case 1 :
-                    // InternalSimpleMio.g:458:2: ( 'obstacle' )
+                    // InternalSimpleMio.g:464:2: ( 'obstacle' )
                     {
-                    // InternalSimpleMio.g:458:2: ( 'obstacle' )
-                    // InternalSimpleMio.g:459:3: 'obstacle'
+                    // InternalSimpleMio.g:464:2: ( 'obstacle' )
+                    // InternalSimpleMio.g:465:3: 'obstacle'
                     {
                      before(grammarAccess.getSensorAccess().getSensorNameObstacleKeyword_1_0_0()); 
                     match(input,22,FOLLOW_2); 
@@ -1471,10 +1503,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalSimpleMio.g:464:2: ( 'sound' )
+                    // InternalSimpleMio.g:470:2: ( 'sound' )
                     {
-                    // InternalSimpleMio.g:464:2: ( 'sound' )
-                    // InternalSimpleMio.g:465:3: 'sound'
+                    // InternalSimpleMio.g:470:2: ( 'sound' )
+                    // InternalSimpleMio.g:471:3: 'sound'
                     {
                      before(grammarAccess.getSensorAccess().getSensorNameSoundKeyword_1_0_1()); 
                     match(input,23,FOLLOW_2); 
@@ -1486,10 +1518,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 3 :
-                    // InternalSimpleMio.g:470:2: ( 'line' )
+                    // InternalSimpleMio.g:476:2: ( 'line' )
                     {
-                    // InternalSimpleMio.g:470:2: ( 'line' )
-                    // InternalSimpleMio.g:471:3: 'line'
+                    // InternalSimpleMio.g:476:2: ( 'line' )
+                    // InternalSimpleMio.g:477:3: 'line'
                     {
                      before(grammarAccess.getSensorAccess().getSensorNameLineKeyword_1_0_2()); 
                     match(input,24,FOLLOW_2); 
@@ -1501,10 +1533,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 4 :
-                    // InternalSimpleMio.g:476:2: ( 'button' )
+                    // InternalSimpleMio.g:482:2: ( 'button' )
                     {
-                    // InternalSimpleMio.g:476:2: ( 'button' )
-                    // InternalSimpleMio.g:477:3: 'button'
+                    // InternalSimpleMio.g:482:2: ( 'button' )
+                    // InternalSimpleMio.g:483:3: 'button'
                     {
                      before(grammarAccess.getSensorAccess().getSensorNameButtonKeyword_1_0_3()); 
                     match(input,25,FOLLOW_2); 
@@ -1516,10 +1548,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 5 :
-                    // InternalSimpleMio.g:482:2: ( 'motor' )
+                    // InternalSimpleMio.g:488:2: ( 'motor' )
                     {
-                    // InternalSimpleMio.g:482:2: ( 'motor' )
-                    // InternalSimpleMio.g:483:3: 'motor'
+                    // InternalSimpleMio.g:488:2: ( 'motor' )
+                    // InternalSimpleMio.g:489:3: 'motor'
                     {
                      before(grammarAccess.getSensorAccess().getSensorNameMotorKeyword_1_0_4()); 
                     match(input,26,FOLLOW_2); 
@@ -1548,13 +1580,13 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__SensorSpecifierAlternatives_2_0"
-    // InternalSimpleMio.g:492:1: rule__Sensor__SensorSpecifierAlternatives_2_0 : ( ( 'front' ) | ( 'back' ) | ( 'left' ) | ( 'right' ) | ( 'up' ) | ( 'down' ) | ( 'center' ) );
+    // InternalSimpleMio.g:498:1: rule__Sensor__SensorSpecifierAlternatives_2_0 : ( ( 'front' ) | ( 'back' ) | ( 'left' ) | ( 'right' ) | ( 'up' ) | ( 'down' ) | ( 'center' ) );
     public final void rule__Sensor__SensorSpecifierAlternatives_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:496:1: ( ( 'front' ) | ( 'back' ) | ( 'left' ) | ( 'right' ) | ( 'up' ) | ( 'down' ) | ( 'center' ) )
+            // InternalSimpleMio.g:502:1: ( ( 'front' ) | ( 'back' ) | ( 'left' ) | ( 'right' ) | ( 'up' ) | ( 'down' ) | ( 'center' ) )
             int alt6=7;
             switch ( input.LA(1) ) {
             case 27:
@@ -1601,10 +1633,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
             switch (alt6) {
                 case 1 :
-                    // InternalSimpleMio.g:497:2: ( 'front' )
+                    // InternalSimpleMio.g:503:2: ( 'front' )
                     {
-                    // InternalSimpleMio.g:497:2: ( 'front' )
-                    // InternalSimpleMio.g:498:3: 'front'
+                    // InternalSimpleMio.g:503:2: ( 'front' )
+                    // InternalSimpleMio.g:504:3: 'front'
                     {
                      before(grammarAccess.getSensorAccess().getSensorSpecifierFrontKeyword_2_0_0()); 
                     match(input,27,FOLLOW_2); 
@@ -1616,10 +1648,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalSimpleMio.g:503:2: ( 'back' )
+                    // InternalSimpleMio.g:509:2: ( 'back' )
                     {
-                    // InternalSimpleMio.g:503:2: ( 'back' )
-                    // InternalSimpleMio.g:504:3: 'back'
+                    // InternalSimpleMio.g:509:2: ( 'back' )
+                    // InternalSimpleMio.g:510:3: 'back'
                     {
                      before(grammarAccess.getSensorAccess().getSensorSpecifierBackKeyword_2_0_1()); 
                     match(input,28,FOLLOW_2); 
@@ -1631,10 +1663,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 3 :
-                    // InternalSimpleMio.g:509:2: ( 'left' )
+                    // InternalSimpleMio.g:515:2: ( 'left' )
                     {
-                    // InternalSimpleMio.g:509:2: ( 'left' )
-                    // InternalSimpleMio.g:510:3: 'left'
+                    // InternalSimpleMio.g:515:2: ( 'left' )
+                    // InternalSimpleMio.g:516:3: 'left'
                     {
                      before(grammarAccess.getSensorAccess().getSensorSpecifierLeftKeyword_2_0_2()); 
                     match(input,14,FOLLOW_2); 
@@ -1646,10 +1678,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 4 :
-                    // InternalSimpleMio.g:515:2: ( 'right' )
+                    // InternalSimpleMio.g:521:2: ( 'right' )
                     {
-                    // InternalSimpleMio.g:515:2: ( 'right' )
-                    // InternalSimpleMio.g:516:3: 'right'
+                    // InternalSimpleMio.g:521:2: ( 'right' )
+                    // InternalSimpleMio.g:522:3: 'right'
                     {
                      before(grammarAccess.getSensorAccess().getSensorSpecifierRightKeyword_2_0_3()); 
                     match(input,15,FOLLOW_2); 
@@ -1661,10 +1693,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 5 :
-                    // InternalSimpleMio.g:521:2: ( 'up' )
+                    // InternalSimpleMio.g:527:2: ( 'up' )
                     {
-                    // InternalSimpleMio.g:521:2: ( 'up' )
-                    // InternalSimpleMio.g:522:3: 'up'
+                    // InternalSimpleMio.g:527:2: ( 'up' )
+                    // InternalSimpleMio.g:528:3: 'up'
                     {
                      before(grammarAccess.getSensorAccess().getSensorSpecifierUpKeyword_2_0_4()); 
                     match(input,29,FOLLOW_2); 
@@ -1676,10 +1708,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 6 :
-                    // InternalSimpleMio.g:527:2: ( 'down' )
+                    // InternalSimpleMio.g:533:2: ( 'down' )
                     {
-                    // InternalSimpleMio.g:527:2: ( 'down' )
-                    // InternalSimpleMio.g:528:3: 'down'
+                    // InternalSimpleMio.g:533:2: ( 'down' )
+                    // InternalSimpleMio.g:534:3: 'down'
                     {
                      before(grammarAccess.getSensorAccess().getSensorSpecifierDownKeyword_2_0_5()); 
                     match(input,30,FOLLOW_2); 
@@ -1691,10 +1723,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 7 :
-                    // InternalSimpleMio.g:533:2: ( 'center' )
+                    // InternalSimpleMio.g:539:2: ( 'center' )
                     {
-                    // InternalSimpleMio.g:533:2: ( 'center' )
-                    // InternalSimpleMio.g:534:3: 'center'
+                    // InternalSimpleMio.g:539:2: ( 'center' )
+                    // InternalSimpleMio.g:540:3: 'center'
                     {
                      before(grammarAccess.getSensorAccess().getSensorSpecifierCenterKeyword_2_0_6()); 
                     match(input,31,FOLLOW_2); 
@@ -1723,13 +1755,13 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EString__Alternatives"
-    // InternalSimpleMio.g:543:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
+    // InternalSimpleMio.g:549:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
     public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:547:1: ( ( RULE_STRING ) | ( RULE_ID ) )
+            // InternalSimpleMio.g:553:1: ( ( RULE_STRING ) | ( RULE_ID ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1747,10 +1779,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
             }
             switch (alt7) {
                 case 1 :
-                    // InternalSimpleMio.g:548:2: ( RULE_STRING )
+                    // InternalSimpleMio.g:554:2: ( RULE_STRING )
                     {
-                    // InternalSimpleMio.g:548:2: ( RULE_STRING )
-                    // InternalSimpleMio.g:549:3: RULE_STRING
+                    // InternalSimpleMio.g:554:2: ( RULE_STRING )
+                    // InternalSimpleMio.g:555:3: RULE_STRING
                     {
                      before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
                     match(input,RULE_STRING,FOLLOW_2); 
@@ -1762,10 +1794,10 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalSimpleMio.g:554:2: ( RULE_ID )
+                    // InternalSimpleMio.g:560:2: ( RULE_ID )
                     {
-                    // InternalSimpleMio.g:554:2: ( RULE_ID )
-                    // InternalSimpleMio.g:555:3: RULE_ID
+                    // InternalSimpleMio.g:560:2: ( RULE_ID )
+                    // InternalSimpleMio.g:561:3: RULE_ID
                     {
                      before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
                     match(input,RULE_ID,FOLLOW_2); 
@@ -1794,14 +1826,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__0"
-    // InternalSimpleMio.g:564:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
+    // InternalSimpleMio.g:570:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
     public final void rule__Model__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:568:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
-            // InternalSimpleMio.g:569:2: rule__Model__Group__0__Impl rule__Model__Group__1
+            // InternalSimpleMio.g:574:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
+            // InternalSimpleMio.g:575:2: rule__Model__Group__0__Impl rule__Model__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Model__Group__0__Impl();
@@ -1832,21 +1864,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__0__Impl"
-    // InternalSimpleMio.g:576:1: rule__Model__Group__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:582:1: rule__Model__Group__0__Impl : ( () ) ;
     public final void rule__Model__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:580:1: ( ( () ) )
-            // InternalSimpleMio.g:581:1: ( () )
+            // InternalSimpleMio.g:586:1: ( ( () ) )
+            // InternalSimpleMio.g:587:1: ( () )
             {
-            // InternalSimpleMio.g:581:1: ( () )
-            // InternalSimpleMio.g:582:2: ()
+            // InternalSimpleMio.g:587:1: ( () )
+            // InternalSimpleMio.g:588:2: ()
             {
              before(grammarAccess.getModelAccess().getModelAction_0()); 
-            // InternalSimpleMio.g:583:2: ()
-            // InternalSimpleMio.g:583:3: 
+            // InternalSimpleMio.g:589:2: ()
+            // InternalSimpleMio.g:589:3: 
             {
             }
 
@@ -1869,14 +1901,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__1"
-    // InternalSimpleMio.g:591:1: rule__Model__Group__1 : rule__Model__Group__1__Impl ;
+    // InternalSimpleMio.g:597:1: rule__Model__Group__1 : rule__Model__Group__1__Impl ;
     public final void rule__Model__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:595:1: ( rule__Model__Group__1__Impl )
-            // InternalSimpleMio.g:596:2: rule__Model__Group__1__Impl
+            // InternalSimpleMio.g:601:1: ( rule__Model__Group__1__Impl )
+            // InternalSimpleMio.g:602:2: rule__Model__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Model__Group__1__Impl();
@@ -1902,21 +1934,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__1__Impl"
-    // InternalSimpleMio.g:602:1: rule__Model__Group__1__Impl : ( ( rule__Model__ProgramAssignment_1 ) ) ;
+    // InternalSimpleMio.g:608:1: rule__Model__Group__1__Impl : ( ( rule__Model__ProgramAssignment_1 ) ) ;
     public final void rule__Model__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:606:1: ( ( ( rule__Model__ProgramAssignment_1 ) ) )
-            // InternalSimpleMio.g:607:1: ( ( rule__Model__ProgramAssignment_1 ) )
+            // InternalSimpleMio.g:612:1: ( ( ( rule__Model__ProgramAssignment_1 ) ) )
+            // InternalSimpleMio.g:613:1: ( ( rule__Model__ProgramAssignment_1 ) )
             {
-            // InternalSimpleMio.g:607:1: ( ( rule__Model__ProgramAssignment_1 ) )
-            // InternalSimpleMio.g:608:2: ( rule__Model__ProgramAssignment_1 )
+            // InternalSimpleMio.g:613:1: ( ( rule__Model__ProgramAssignment_1 ) )
+            // InternalSimpleMio.g:614:2: ( rule__Model__ProgramAssignment_1 )
             {
              before(grammarAccess.getModelAccess().getProgramAssignment_1()); 
-            // InternalSimpleMio.g:609:2: ( rule__Model__ProgramAssignment_1 )
-            // InternalSimpleMio.g:609:3: rule__Model__ProgramAssignment_1
+            // InternalSimpleMio.g:615:2: ( rule__Model__ProgramAssignment_1 )
+            // InternalSimpleMio.g:615:3: rule__Model__ProgramAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Model__ProgramAssignment_1();
@@ -1949,14 +1981,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group__0"
-    // InternalSimpleMio.g:618:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
+    // InternalSimpleMio.g:624:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
     public final void rule__Program__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:622:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
-            // InternalSimpleMio.g:623:2: rule__Program__Group__0__Impl rule__Program__Group__1
+            // InternalSimpleMio.g:628:1: ( rule__Program__Group__0__Impl rule__Program__Group__1 )
+            // InternalSimpleMio.g:629:2: rule__Program__Group__0__Impl rule__Program__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Program__Group__0__Impl();
@@ -1987,21 +2019,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group__0__Impl"
-    // InternalSimpleMio.g:630:1: rule__Program__Group__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:636:1: rule__Program__Group__0__Impl : ( () ) ;
     public final void rule__Program__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:634:1: ( ( () ) )
-            // InternalSimpleMio.g:635:1: ( () )
+            // InternalSimpleMio.g:640:1: ( ( () ) )
+            // InternalSimpleMio.g:641:1: ( () )
             {
-            // InternalSimpleMio.g:635:1: ( () )
-            // InternalSimpleMio.g:636:2: ()
+            // InternalSimpleMio.g:641:1: ( () )
+            // InternalSimpleMio.g:642:2: ()
             {
              before(grammarAccess.getProgramAccess().getProgramAction_0()); 
-            // InternalSimpleMio.g:637:2: ()
-            // InternalSimpleMio.g:637:3: 
+            // InternalSimpleMio.g:643:2: ()
+            // InternalSimpleMio.g:643:3: 
             {
             }
 
@@ -2024,14 +2056,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group__1"
-    // InternalSimpleMio.g:645:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
+    // InternalSimpleMio.g:651:1: rule__Program__Group__1 : rule__Program__Group__1__Impl ;
     public final void rule__Program__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:649:1: ( rule__Program__Group__1__Impl )
-            // InternalSimpleMio.g:650:2: rule__Program__Group__1__Impl
+            // InternalSimpleMio.g:655:1: ( rule__Program__Group__1__Impl )
+            // InternalSimpleMio.g:656:2: rule__Program__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Program__Group__1__Impl();
@@ -2057,24 +2089,24 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group__1__Impl"
-    // InternalSimpleMio.g:656:1: rule__Program__Group__1__Impl : ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) ) ;
+    // InternalSimpleMio.g:662:1: rule__Program__Group__1__Impl : ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) ) ;
     public final void rule__Program__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:660:1: ( ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) ) )
-            // InternalSimpleMio.g:661:1: ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) )
+            // InternalSimpleMio.g:666:1: ( ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) ) )
+            // InternalSimpleMio.g:667:1: ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) )
             {
-            // InternalSimpleMio.g:661:1: ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) )
-            // InternalSimpleMio.g:662:2: ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* )
+            // InternalSimpleMio.g:667:1: ( ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* ) )
+            // InternalSimpleMio.g:668:2: ( ( rule__Program__Alternatives_1 ) ) ( ( rule__Program__Alternatives_1 )* )
             {
-            // InternalSimpleMio.g:662:2: ( ( rule__Program__Alternatives_1 ) )
-            // InternalSimpleMio.g:663:3: ( rule__Program__Alternatives_1 )
+            // InternalSimpleMio.g:668:2: ( ( rule__Program__Alternatives_1 ) )
+            // InternalSimpleMio.g:669:3: ( rule__Program__Alternatives_1 )
             {
              before(grammarAccess.getProgramAccess().getAlternatives_1()); 
-            // InternalSimpleMio.g:664:3: ( rule__Program__Alternatives_1 )
-            // InternalSimpleMio.g:664:4: rule__Program__Alternatives_1
+            // InternalSimpleMio.g:670:3: ( rule__Program__Alternatives_1 )
+            // InternalSimpleMio.g:670:4: rule__Program__Alternatives_1
             {
             pushFollow(FOLLOW_4);
             rule__Program__Alternatives_1();
@@ -2088,24 +2120,24 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
             }
 
-            // InternalSimpleMio.g:667:2: ( ( rule__Program__Alternatives_1 )* )
-            // InternalSimpleMio.g:668:3: ( rule__Program__Alternatives_1 )*
+            // InternalSimpleMio.g:673:2: ( ( rule__Program__Alternatives_1 )* )
+            // InternalSimpleMio.g:674:3: ( rule__Program__Alternatives_1 )*
             {
              before(grammarAccess.getProgramAccess().getAlternatives_1()); 
-            // InternalSimpleMio.g:669:3: ( rule__Program__Alternatives_1 )*
+            // InternalSimpleMio.g:675:3: ( rule__Program__Alternatives_1 )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( ((LA8_0>=22 && LA8_0<=26)||LA8_0==32||LA8_0==38) ) {
+                if ( ((LA8_0>=22 && LA8_0<=26)||LA8_0==32||(LA8_0>=38 && LA8_0<=39)) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalSimpleMio.g:669:4: rule__Program__Alternatives_1
+            	    // InternalSimpleMio.g:675:4: rule__Program__Alternatives_1
             	    {
             	    pushFollow(FOLLOW_4);
             	    rule__Program__Alternatives_1();
@@ -2147,14 +2179,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group_1_1__0"
-    // InternalSimpleMio.g:679:1: rule__Program__Group_1_1__0 : rule__Program__Group_1_1__0__Impl rule__Program__Group_1_1__1 ;
+    // InternalSimpleMio.g:685:1: rule__Program__Group_1_1__0 : rule__Program__Group_1_1__0__Impl rule__Program__Group_1_1__1 ;
     public final void rule__Program__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:683:1: ( rule__Program__Group_1_1__0__Impl rule__Program__Group_1_1__1 )
-            // InternalSimpleMio.g:684:2: rule__Program__Group_1_1__0__Impl rule__Program__Group_1_1__1
+            // InternalSimpleMio.g:689:1: ( rule__Program__Group_1_1__0__Impl rule__Program__Group_1_1__1 )
+            // InternalSimpleMio.g:690:2: rule__Program__Group_1_1__0__Impl rule__Program__Group_1_1__1
             {
             pushFollow(FOLLOW_5);
             rule__Program__Group_1_1__0__Impl();
@@ -2185,17 +2217,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group_1_1__0__Impl"
-    // InternalSimpleMio.g:691:1: rule__Program__Group_1_1__0__Impl : ( '#' ) ;
+    // InternalSimpleMio.g:697:1: rule__Program__Group_1_1__0__Impl : ( '#' ) ;
     public final void rule__Program__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:695:1: ( ( '#' ) )
-            // InternalSimpleMio.g:696:1: ( '#' )
+            // InternalSimpleMio.g:701:1: ( ( '#' ) )
+            // InternalSimpleMio.g:702:1: ( '#' )
             {
-            // InternalSimpleMio.g:696:1: ( '#' )
-            // InternalSimpleMio.g:697:2: '#'
+            // InternalSimpleMio.g:702:1: ( '#' )
+            // InternalSimpleMio.g:703:2: '#'
             {
              before(grammarAccess.getProgramAccess().getNumberSignKeyword_1_1_0()); 
             match(input,32,FOLLOW_2); 
@@ -2222,14 +2254,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group_1_1__1"
-    // InternalSimpleMio.g:706:1: rule__Program__Group_1_1__1 : rule__Program__Group_1_1__1__Impl ;
+    // InternalSimpleMio.g:712:1: rule__Program__Group_1_1__1 : rule__Program__Group_1_1__1__Impl ;
     public final void rule__Program__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:710:1: ( rule__Program__Group_1_1__1__Impl )
-            // InternalSimpleMio.g:711:2: rule__Program__Group_1_1__1__Impl
+            // InternalSimpleMio.g:716:1: ( rule__Program__Group_1_1__1__Impl )
+            // InternalSimpleMio.g:717:2: rule__Program__Group_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Program__Group_1_1__1__Impl();
@@ -2255,20 +2287,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Group_1_1__1__Impl"
-    // InternalSimpleMio.g:717:1: rule__Program__Group_1_1__1__Impl : ( ( ruleEString )* ) ;
+    // InternalSimpleMio.g:723:1: rule__Program__Group_1_1__1__Impl : ( ( ruleEString )* ) ;
     public final void rule__Program__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:721:1: ( ( ( ruleEString )* ) )
-            // InternalSimpleMio.g:722:1: ( ( ruleEString )* )
+            // InternalSimpleMio.g:727:1: ( ( ( ruleEString )* ) )
+            // InternalSimpleMio.g:728:1: ( ( ruleEString )* )
             {
-            // InternalSimpleMio.g:722:1: ( ( ruleEString )* )
-            // InternalSimpleMio.g:723:2: ( ruleEString )*
+            // InternalSimpleMio.g:728:1: ( ( ruleEString )* )
+            // InternalSimpleMio.g:729:2: ( ruleEString )*
             {
              before(grammarAccess.getProgramAccess().getEStringParserRuleCall_1_1_1()); 
-            // InternalSimpleMio.g:724:2: ( ruleEString )*
+            // InternalSimpleMio.g:730:2: ( ruleEString )*
             loop9:
             do {
                 int alt9=2;
@@ -2281,7 +2313,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalSimpleMio.g:724:3: ruleEString
+            	    // InternalSimpleMio.g:730:3: ruleEString
             	    {
             	    pushFollow(FOLLOW_6);
             	    ruleEString();
@@ -2320,14 +2352,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__0"
-    // InternalSimpleMio.g:733:1: rule__Event__Group__0 : rule__Event__Group__0__Impl rule__Event__Group__1 ;
+    // InternalSimpleMio.g:739:1: rule__Event__Group__0 : rule__Event__Group__0__Impl rule__Event__Group__1 ;
     public final void rule__Event__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:737:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
-            // InternalSimpleMio.g:738:2: rule__Event__Group__0__Impl rule__Event__Group__1
+            // InternalSimpleMio.g:743:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
+            // InternalSimpleMio.g:744:2: rule__Event__Group__0__Impl rule__Event__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Event__Group__0__Impl();
@@ -2358,21 +2390,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__0__Impl"
-    // InternalSimpleMio.g:745:1: rule__Event__Group__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:751:1: rule__Event__Group__0__Impl : ( () ) ;
     public final void rule__Event__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:749:1: ( ( () ) )
-            // InternalSimpleMio.g:750:1: ( () )
+            // InternalSimpleMio.g:755:1: ( ( () ) )
+            // InternalSimpleMio.g:756:1: ( () )
             {
-            // InternalSimpleMio.g:750:1: ( () )
-            // InternalSimpleMio.g:751:2: ()
+            // InternalSimpleMio.g:756:1: ( () )
+            // InternalSimpleMio.g:757:2: ()
             {
              before(grammarAccess.getEventAccess().getEventAction_0()); 
-            // InternalSimpleMio.g:752:2: ()
-            // InternalSimpleMio.g:752:3: 
+            // InternalSimpleMio.g:758:2: ()
+            // InternalSimpleMio.g:758:3: 
             {
             }
 
@@ -2395,14 +2427,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__1"
-    // InternalSimpleMio.g:760:1: rule__Event__Group__1 : rule__Event__Group__1__Impl rule__Event__Group__2 ;
+    // InternalSimpleMio.g:766:1: rule__Event__Group__1 : rule__Event__Group__1__Impl rule__Event__Group__2 ;
     public final void rule__Event__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:764:1: ( rule__Event__Group__1__Impl rule__Event__Group__2 )
-            // InternalSimpleMio.g:765:2: rule__Event__Group__1__Impl rule__Event__Group__2
+            // InternalSimpleMio.g:770:1: ( rule__Event__Group__1__Impl rule__Event__Group__2 )
+            // InternalSimpleMio.g:771:2: rule__Event__Group__1__Impl rule__Event__Group__2
             {
             pushFollow(FOLLOW_8);
             rule__Event__Group__1__Impl();
@@ -2433,21 +2465,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__1__Impl"
-    // InternalSimpleMio.g:772:1: rule__Event__Group__1__Impl : ( ( rule__Event__ConditionalsensorAssignment_1 ) ) ;
+    // InternalSimpleMio.g:778:1: rule__Event__Group__1__Impl : ( ( rule__Event__ConditionalsensorAssignment_1 ) ) ;
     public final void rule__Event__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:776:1: ( ( ( rule__Event__ConditionalsensorAssignment_1 ) ) )
-            // InternalSimpleMio.g:777:1: ( ( rule__Event__ConditionalsensorAssignment_1 ) )
+            // InternalSimpleMio.g:782:1: ( ( ( rule__Event__ConditionalsensorAssignment_1 ) ) )
+            // InternalSimpleMio.g:783:1: ( ( rule__Event__ConditionalsensorAssignment_1 ) )
             {
-            // InternalSimpleMio.g:777:1: ( ( rule__Event__ConditionalsensorAssignment_1 ) )
-            // InternalSimpleMio.g:778:2: ( rule__Event__ConditionalsensorAssignment_1 )
+            // InternalSimpleMio.g:783:1: ( ( rule__Event__ConditionalsensorAssignment_1 ) )
+            // InternalSimpleMio.g:784:2: ( rule__Event__ConditionalsensorAssignment_1 )
             {
              before(grammarAccess.getEventAccess().getConditionalsensorAssignment_1()); 
-            // InternalSimpleMio.g:779:2: ( rule__Event__ConditionalsensorAssignment_1 )
-            // InternalSimpleMio.g:779:3: rule__Event__ConditionalsensorAssignment_1
+            // InternalSimpleMio.g:785:2: ( rule__Event__ConditionalsensorAssignment_1 )
+            // InternalSimpleMio.g:785:3: rule__Event__ConditionalsensorAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Event__ConditionalsensorAssignment_1();
@@ -2480,14 +2512,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__2"
-    // InternalSimpleMio.g:787:1: rule__Event__Group__2 : rule__Event__Group__2__Impl rule__Event__Group__3 ;
+    // InternalSimpleMio.g:793:1: rule__Event__Group__2 : rule__Event__Group__2__Impl rule__Event__Group__3 ;
     public final void rule__Event__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:791:1: ( rule__Event__Group__2__Impl rule__Event__Group__3 )
-            // InternalSimpleMio.g:792:2: rule__Event__Group__2__Impl rule__Event__Group__3
+            // InternalSimpleMio.g:797:1: ( rule__Event__Group__2__Impl rule__Event__Group__3 )
+            // InternalSimpleMio.g:798:2: rule__Event__Group__2__Impl rule__Event__Group__3
             {
             pushFollow(FOLLOW_9);
             rule__Event__Group__2__Impl();
@@ -2518,17 +2550,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__2__Impl"
-    // InternalSimpleMio.g:799:1: rule__Event__Group__2__Impl : ( '->' ) ;
+    // InternalSimpleMio.g:805:1: rule__Event__Group__2__Impl : ( '->' ) ;
     public final void rule__Event__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:803:1: ( ( '->' ) )
-            // InternalSimpleMio.g:804:1: ( '->' )
+            // InternalSimpleMio.g:809:1: ( ( '->' ) )
+            // InternalSimpleMio.g:810:1: ( '->' )
             {
-            // InternalSimpleMio.g:804:1: ( '->' )
-            // InternalSimpleMio.g:805:2: '->'
+            // InternalSimpleMio.g:810:1: ( '->' )
+            // InternalSimpleMio.g:811:2: '->'
             {
              before(grammarAccess.getEventAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
             match(input,33,FOLLOW_2); 
@@ -2555,14 +2587,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__3"
-    // InternalSimpleMio.g:814:1: rule__Event__Group__3 : rule__Event__Group__3__Impl rule__Event__Group__4 ;
+    // InternalSimpleMio.g:820:1: rule__Event__Group__3 : rule__Event__Group__3__Impl rule__Event__Group__4 ;
     public final void rule__Event__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:818:1: ( rule__Event__Group__3__Impl rule__Event__Group__4 )
-            // InternalSimpleMio.g:819:2: rule__Event__Group__3__Impl rule__Event__Group__4
+            // InternalSimpleMio.g:824:1: ( rule__Event__Group__3__Impl rule__Event__Group__4 )
+            // InternalSimpleMio.g:825:2: rule__Event__Group__3__Impl rule__Event__Group__4
             {
             pushFollow(FOLLOW_10);
             rule__Event__Group__3__Impl();
@@ -2593,21 +2625,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__3__Impl"
-    // InternalSimpleMio.g:826:1: rule__Event__Group__3__Impl : ( ( rule__Event__ActionsAssignment_3 ) ) ;
+    // InternalSimpleMio.g:832:1: rule__Event__Group__3__Impl : ( ( rule__Event__ActionsAssignment_3 ) ) ;
     public final void rule__Event__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:830:1: ( ( ( rule__Event__ActionsAssignment_3 ) ) )
-            // InternalSimpleMio.g:831:1: ( ( rule__Event__ActionsAssignment_3 ) )
+            // InternalSimpleMio.g:836:1: ( ( ( rule__Event__ActionsAssignment_3 ) ) )
+            // InternalSimpleMio.g:837:1: ( ( rule__Event__ActionsAssignment_3 ) )
             {
-            // InternalSimpleMio.g:831:1: ( ( rule__Event__ActionsAssignment_3 ) )
-            // InternalSimpleMio.g:832:2: ( rule__Event__ActionsAssignment_3 )
+            // InternalSimpleMio.g:837:1: ( ( rule__Event__ActionsAssignment_3 ) )
+            // InternalSimpleMio.g:838:2: ( rule__Event__ActionsAssignment_3 )
             {
              before(grammarAccess.getEventAccess().getActionsAssignment_3()); 
-            // InternalSimpleMio.g:833:2: ( rule__Event__ActionsAssignment_3 )
-            // InternalSimpleMio.g:833:3: rule__Event__ActionsAssignment_3
+            // InternalSimpleMio.g:839:2: ( rule__Event__ActionsAssignment_3 )
+            // InternalSimpleMio.g:839:3: rule__Event__ActionsAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Event__ActionsAssignment_3();
@@ -2640,14 +2672,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__4"
-    // InternalSimpleMio.g:841:1: rule__Event__Group__4 : rule__Event__Group__4__Impl ;
+    // InternalSimpleMio.g:847:1: rule__Event__Group__4 : rule__Event__Group__4__Impl ;
     public final void rule__Event__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:845:1: ( rule__Event__Group__4__Impl )
-            // InternalSimpleMio.g:846:2: rule__Event__Group__4__Impl
+            // InternalSimpleMio.g:851:1: ( rule__Event__Group__4__Impl )
+            // InternalSimpleMio.g:852:2: rule__Event__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Event__Group__4__Impl();
@@ -2673,20 +2705,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group__4__Impl"
-    // InternalSimpleMio.g:852:1: rule__Event__Group__4__Impl : ( ( rule__Event__Group_4__0 )* ) ;
+    // InternalSimpleMio.g:858:1: rule__Event__Group__4__Impl : ( ( rule__Event__Group_4__0 )* ) ;
     public final void rule__Event__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:856:1: ( ( ( rule__Event__Group_4__0 )* ) )
-            // InternalSimpleMio.g:857:1: ( ( rule__Event__Group_4__0 )* )
+            // InternalSimpleMio.g:862:1: ( ( ( rule__Event__Group_4__0 )* ) )
+            // InternalSimpleMio.g:863:1: ( ( rule__Event__Group_4__0 )* )
             {
-            // InternalSimpleMio.g:857:1: ( ( rule__Event__Group_4__0 )* )
-            // InternalSimpleMio.g:858:2: ( rule__Event__Group_4__0 )*
+            // InternalSimpleMio.g:863:1: ( ( rule__Event__Group_4__0 )* )
+            // InternalSimpleMio.g:864:2: ( rule__Event__Group_4__0 )*
             {
              before(grammarAccess.getEventAccess().getGroup_4()); 
-            // InternalSimpleMio.g:859:2: ( rule__Event__Group_4__0 )*
+            // InternalSimpleMio.g:865:2: ( rule__Event__Group_4__0 )*
             loop10:
             do {
                 int alt10=2;
@@ -2699,7 +2731,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalSimpleMio.g:859:3: rule__Event__Group_4__0
+            	    // InternalSimpleMio.g:865:3: rule__Event__Group_4__0
             	    {
             	    pushFollow(FOLLOW_11);
             	    rule__Event__Group_4__0();
@@ -2738,14 +2770,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group_4__0"
-    // InternalSimpleMio.g:868:1: rule__Event__Group_4__0 : rule__Event__Group_4__0__Impl rule__Event__Group_4__1 ;
+    // InternalSimpleMio.g:874:1: rule__Event__Group_4__0 : rule__Event__Group_4__0__Impl rule__Event__Group_4__1 ;
     public final void rule__Event__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:872:1: ( rule__Event__Group_4__0__Impl rule__Event__Group_4__1 )
-            // InternalSimpleMio.g:873:2: rule__Event__Group_4__0__Impl rule__Event__Group_4__1
+            // InternalSimpleMio.g:878:1: ( rule__Event__Group_4__0__Impl rule__Event__Group_4__1 )
+            // InternalSimpleMio.g:879:2: rule__Event__Group_4__0__Impl rule__Event__Group_4__1
             {
             pushFollow(FOLLOW_9);
             rule__Event__Group_4__0__Impl();
@@ -2776,17 +2808,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group_4__0__Impl"
-    // InternalSimpleMio.g:880:1: rule__Event__Group_4__0__Impl : ( ',' ) ;
+    // InternalSimpleMio.g:886:1: rule__Event__Group_4__0__Impl : ( ',' ) ;
     public final void rule__Event__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:884:1: ( ( ',' ) )
-            // InternalSimpleMio.g:885:1: ( ',' )
+            // InternalSimpleMio.g:890:1: ( ( ',' ) )
+            // InternalSimpleMio.g:891:1: ( ',' )
             {
-            // InternalSimpleMio.g:885:1: ( ',' )
-            // InternalSimpleMio.g:886:2: ','
+            // InternalSimpleMio.g:891:1: ( ',' )
+            // InternalSimpleMio.g:892:2: ','
             {
              before(grammarAccess.getEventAccess().getCommaKeyword_4_0()); 
             match(input,34,FOLLOW_2); 
@@ -2813,14 +2845,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group_4__1"
-    // InternalSimpleMio.g:895:1: rule__Event__Group_4__1 : rule__Event__Group_4__1__Impl ;
+    // InternalSimpleMio.g:901:1: rule__Event__Group_4__1 : rule__Event__Group_4__1__Impl ;
     public final void rule__Event__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:899:1: ( rule__Event__Group_4__1__Impl )
-            // InternalSimpleMio.g:900:2: rule__Event__Group_4__1__Impl
+            // InternalSimpleMio.g:905:1: ( rule__Event__Group_4__1__Impl )
+            // InternalSimpleMio.g:906:2: rule__Event__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Event__Group_4__1__Impl();
@@ -2846,21 +2878,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__Group_4__1__Impl"
-    // InternalSimpleMio.g:906:1: rule__Event__Group_4__1__Impl : ( ( rule__Event__ActionsAssignment_4_1 ) ) ;
+    // InternalSimpleMio.g:912:1: rule__Event__Group_4__1__Impl : ( ( rule__Event__ActionsAssignment_4_1 ) ) ;
     public final void rule__Event__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:910:1: ( ( ( rule__Event__ActionsAssignment_4_1 ) ) )
-            // InternalSimpleMio.g:911:1: ( ( rule__Event__ActionsAssignment_4_1 ) )
+            // InternalSimpleMio.g:916:1: ( ( ( rule__Event__ActionsAssignment_4_1 ) ) )
+            // InternalSimpleMio.g:917:1: ( ( rule__Event__ActionsAssignment_4_1 ) )
             {
-            // InternalSimpleMio.g:911:1: ( ( rule__Event__ActionsAssignment_4_1 ) )
-            // InternalSimpleMio.g:912:2: ( rule__Event__ActionsAssignment_4_1 )
+            // InternalSimpleMio.g:917:1: ( ( rule__Event__ActionsAssignment_4_1 ) )
+            // InternalSimpleMio.g:918:2: ( rule__Event__ActionsAssignment_4_1 )
             {
              before(grammarAccess.getEventAccess().getActionsAssignment_4_1()); 
-            // InternalSimpleMio.g:913:2: ( rule__Event__ActionsAssignment_4_1 )
-            // InternalSimpleMio.g:913:3: rule__Event__ActionsAssignment_4_1
+            // InternalSimpleMio.g:919:2: ( rule__Event__ActionsAssignment_4_1 )
+            // InternalSimpleMio.g:919:3: rule__Event__ActionsAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Event__ActionsAssignment_4_1();
@@ -2893,14 +2925,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__0"
-    // InternalSimpleMio.g:922:1: rule__Action__Group__0 : rule__Action__Group__0__Impl rule__Action__Group__1 ;
+    // InternalSimpleMio.g:928:1: rule__Action__Group__0 : rule__Action__Group__0__Impl rule__Action__Group__1 ;
     public final void rule__Action__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:926:1: ( rule__Action__Group__0__Impl rule__Action__Group__1 )
-            // InternalSimpleMio.g:927:2: rule__Action__Group__0__Impl rule__Action__Group__1
+            // InternalSimpleMio.g:932:1: ( rule__Action__Group__0__Impl rule__Action__Group__1 )
+            // InternalSimpleMio.g:933:2: rule__Action__Group__0__Impl rule__Action__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__Action__Group__0__Impl();
@@ -2931,21 +2963,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__0__Impl"
-    // InternalSimpleMio.g:934:1: rule__Action__Group__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:940:1: rule__Action__Group__0__Impl : ( () ) ;
     public final void rule__Action__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:938:1: ( ( () ) )
-            // InternalSimpleMio.g:939:1: ( () )
+            // InternalSimpleMio.g:944:1: ( ( () ) )
+            // InternalSimpleMio.g:945:1: ( () )
             {
-            // InternalSimpleMio.g:939:1: ( () )
-            // InternalSimpleMio.g:940:2: ()
+            // InternalSimpleMio.g:945:1: ( () )
+            // InternalSimpleMio.g:946:2: ()
             {
              before(grammarAccess.getActionAccess().getActionAction_0()); 
-            // InternalSimpleMio.g:941:2: ()
-            // InternalSimpleMio.g:941:3: 
+            // InternalSimpleMio.g:947:2: ()
+            // InternalSimpleMio.g:947:3: 
             {
             }
 
@@ -2968,14 +3000,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__1"
-    // InternalSimpleMio.g:949:1: rule__Action__Group__1 : rule__Action__Group__1__Impl rule__Action__Group__2 ;
+    // InternalSimpleMio.g:955:1: rule__Action__Group__1 : rule__Action__Group__1__Impl rule__Action__Group__2 ;
     public final void rule__Action__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:953:1: ( rule__Action__Group__1__Impl rule__Action__Group__2 )
-            // InternalSimpleMio.g:954:2: rule__Action__Group__1__Impl rule__Action__Group__2
+            // InternalSimpleMio.g:959:1: ( rule__Action__Group__1__Impl rule__Action__Group__2 )
+            // InternalSimpleMio.g:960:2: rule__Action__Group__1__Impl rule__Action__Group__2
             {
             pushFollow(FOLLOW_12);
             rule__Action__Group__1__Impl();
@@ -3006,21 +3038,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__1__Impl"
-    // InternalSimpleMio.g:961:1: rule__Action__Group__1__Impl : ( ( rule__Action__ActionNameAssignment_1 ) ) ;
+    // InternalSimpleMio.g:967:1: rule__Action__Group__1__Impl : ( ( rule__Action__ActionNameAssignment_1 ) ) ;
     public final void rule__Action__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:965:1: ( ( ( rule__Action__ActionNameAssignment_1 ) ) )
-            // InternalSimpleMio.g:966:1: ( ( rule__Action__ActionNameAssignment_1 ) )
+            // InternalSimpleMio.g:971:1: ( ( ( rule__Action__ActionNameAssignment_1 ) ) )
+            // InternalSimpleMio.g:972:1: ( ( rule__Action__ActionNameAssignment_1 ) )
             {
-            // InternalSimpleMio.g:966:1: ( ( rule__Action__ActionNameAssignment_1 ) )
-            // InternalSimpleMio.g:967:2: ( rule__Action__ActionNameAssignment_1 )
+            // InternalSimpleMio.g:972:1: ( ( rule__Action__ActionNameAssignment_1 ) )
+            // InternalSimpleMio.g:973:2: ( rule__Action__ActionNameAssignment_1 )
             {
              before(grammarAccess.getActionAccess().getActionNameAssignment_1()); 
-            // InternalSimpleMio.g:968:2: ( rule__Action__ActionNameAssignment_1 )
-            // InternalSimpleMio.g:968:3: rule__Action__ActionNameAssignment_1
+            // InternalSimpleMio.g:974:2: ( rule__Action__ActionNameAssignment_1 )
+            // InternalSimpleMio.g:974:3: rule__Action__ActionNameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Action__ActionNameAssignment_1();
@@ -3053,14 +3085,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__2"
-    // InternalSimpleMio.g:976:1: rule__Action__Group__2 : rule__Action__Group__2__Impl rule__Action__Group__3 ;
+    // InternalSimpleMio.g:982:1: rule__Action__Group__2 : rule__Action__Group__2__Impl rule__Action__Group__3 ;
     public final void rule__Action__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:980:1: ( rule__Action__Group__2__Impl rule__Action__Group__3 )
-            // InternalSimpleMio.g:981:2: rule__Action__Group__2__Impl rule__Action__Group__3
+            // InternalSimpleMio.g:986:1: ( rule__Action__Group__2__Impl rule__Action__Group__3 )
+            // InternalSimpleMio.g:987:2: rule__Action__Group__2__Impl rule__Action__Group__3
             {
             pushFollow(FOLLOW_13);
             rule__Action__Group__2__Impl();
@@ -3091,21 +3123,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__2__Impl"
-    // InternalSimpleMio.g:988:1: rule__Action__Group__2__Impl : ( ( rule__Action__ActionSpecifierAssignment_2 ) ) ;
+    // InternalSimpleMio.g:994:1: rule__Action__Group__2__Impl : ( ( rule__Action__ActionSpecifierAssignment_2 ) ) ;
     public final void rule__Action__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:992:1: ( ( ( rule__Action__ActionSpecifierAssignment_2 ) ) )
-            // InternalSimpleMio.g:993:1: ( ( rule__Action__ActionSpecifierAssignment_2 ) )
+            // InternalSimpleMio.g:998:1: ( ( ( rule__Action__ActionSpecifierAssignment_2 ) ) )
+            // InternalSimpleMio.g:999:1: ( ( rule__Action__ActionSpecifierAssignment_2 ) )
             {
-            // InternalSimpleMio.g:993:1: ( ( rule__Action__ActionSpecifierAssignment_2 ) )
-            // InternalSimpleMio.g:994:2: ( rule__Action__ActionSpecifierAssignment_2 )
+            // InternalSimpleMio.g:999:1: ( ( rule__Action__ActionSpecifierAssignment_2 ) )
+            // InternalSimpleMio.g:1000:2: ( rule__Action__ActionSpecifierAssignment_2 )
             {
              before(grammarAccess.getActionAccess().getActionSpecifierAssignment_2()); 
-            // InternalSimpleMio.g:995:2: ( rule__Action__ActionSpecifierAssignment_2 )
-            // InternalSimpleMio.g:995:3: rule__Action__ActionSpecifierAssignment_2
+            // InternalSimpleMio.g:1001:2: ( rule__Action__ActionSpecifierAssignment_2 )
+            // InternalSimpleMio.g:1001:3: rule__Action__ActionSpecifierAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Action__ActionSpecifierAssignment_2();
@@ -3138,14 +3170,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__3"
-    // InternalSimpleMio.g:1003:1: rule__Action__Group__3 : rule__Action__Group__3__Impl ;
+    // InternalSimpleMio.g:1009:1: rule__Action__Group__3 : rule__Action__Group__3__Impl ;
     public final void rule__Action__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1007:1: ( rule__Action__Group__3__Impl )
-            // InternalSimpleMio.g:1008:2: rule__Action__Group__3__Impl
+            // InternalSimpleMio.g:1013:1: ( rule__Action__Group__3__Impl )
+            // InternalSimpleMio.g:1014:2: rule__Action__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Action__Group__3__Impl();
@@ -3171,20 +3203,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__3__Impl"
-    // InternalSimpleMio.g:1014:1: rule__Action__Group__3__Impl : ( ( rule__Action__Group_3__0 )? ) ;
+    // InternalSimpleMio.g:1020:1: rule__Action__Group__3__Impl : ( ( rule__Action__Group_3__0 )? ) ;
     public final void rule__Action__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1018:1: ( ( ( rule__Action__Group_3__0 )? ) )
-            // InternalSimpleMio.g:1019:1: ( ( rule__Action__Group_3__0 )? )
+            // InternalSimpleMio.g:1024:1: ( ( ( rule__Action__Group_3__0 )? ) )
+            // InternalSimpleMio.g:1025:1: ( ( rule__Action__Group_3__0 )? )
             {
-            // InternalSimpleMio.g:1019:1: ( ( rule__Action__Group_3__0 )? )
-            // InternalSimpleMio.g:1020:2: ( rule__Action__Group_3__0 )?
+            // InternalSimpleMio.g:1025:1: ( ( rule__Action__Group_3__0 )? )
+            // InternalSimpleMio.g:1026:2: ( rule__Action__Group_3__0 )?
             {
              before(grammarAccess.getActionAccess().getGroup_3()); 
-            // InternalSimpleMio.g:1021:2: ( rule__Action__Group_3__0 )?
+            // InternalSimpleMio.g:1027:2: ( rule__Action__Group_3__0 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -3193,7 +3225,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
             }
             switch (alt11) {
                 case 1 :
-                    // InternalSimpleMio.g:1021:3: rule__Action__Group_3__0
+                    // InternalSimpleMio.g:1027:3: rule__Action__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Action__Group_3__0();
@@ -3229,14 +3261,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group_3__0"
-    // InternalSimpleMio.g:1030:1: rule__Action__Group_3__0 : rule__Action__Group_3__0__Impl rule__Action__Group_3__1 ;
+    // InternalSimpleMio.g:1036:1: rule__Action__Group_3__0 : rule__Action__Group_3__0__Impl rule__Action__Group_3__1 ;
     public final void rule__Action__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1034:1: ( rule__Action__Group_3__0__Impl rule__Action__Group_3__1 )
-            // InternalSimpleMio.g:1035:2: rule__Action__Group_3__0__Impl rule__Action__Group_3__1
+            // InternalSimpleMio.g:1040:1: ( rule__Action__Group_3__0__Impl rule__Action__Group_3__1 )
+            // InternalSimpleMio.g:1041:2: rule__Action__Group_3__0__Impl rule__Action__Group_3__1
             {
             pushFollow(FOLLOW_14);
             rule__Action__Group_3__0__Impl();
@@ -3267,17 +3299,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group_3__0__Impl"
-    // InternalSimpleMio.g:1042:1: rule__Action__Group_3__0__Impl : ( '@' ) ;
+    // InternalSimpleMio.g:1048:1: rule__Action__Group_3__0__Impl : ( '@' ) ;
     public final void rule__Action__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1046:1: ( ( '@' ) )
-            // InternalSimpleMio.g:1047:1: ( '@' )
+            // InternalSimpleMio.g:1052:1: ( ( '@' ) )
+            // InternalSimpleMio.g:1053:1: ( '@' )
             {
-            // InternalSimpleMio.g:1047:1: ( '@' )
-            // InternalSimpleMio.g:1048:2: '@'
+            // InternalSimpleMio.g:1053:1: ( '@' )
+            // InternalSimpleMio.g:1054:2: '@'
             {
              before(grammarAccess.getActionAccess().getCommercialAtKeyword_3_0()); 
             match(input,35,FOLLOW_2); 
@@ -3304,14 +3336,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group_3__1"
-    // InternalSimpleMio.g:1057:1: rule__Action__Group_3__1 : rule__Action__Group_3__1__Impl ;
+    // InternalSimpleMio.g:1063:1: rule__Action__Group_3__1 : rule__Action__Group_3__1__Impl ;
     public final void rule__Action__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1061:1: ( rule__Action__Group_3__1__Impl )
-            // InternalSimpleMio.g:1062:2: rule__Action__Group_3__1__Impl
+            // InternalSimpleMio.g:1067:1: ( rule__Action__Group_3__1__Impl )
+            // InternalSimpleMio.g:1068:2: rule__Action__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Action__Group_3__1__Impl();
@@ -3337,21 +3369,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group_3__1__Impl"
-    // InternalSimpleMio.g:1068:1: rule__Action__Group_3__1__Impl : ( ( rule__Action__StrengthAssignment_3_1 ) ) ;
+    // InternalSimpleMio.g:1074:1: rule__Action__Group_3__1__Impl : ( ( rule__Action__StrengthAssignment_3_1 ) ) ;
     public final void rule__Action__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1072:1: ( ( ( rule__Action__StrengthAssignment_3_1 ) ) )
-            // InternalSimpleMio.g:1073:1: ( ( rule__Action__StrengthAssignment_3_1 ) )
+            // InternalSimpleMio.g:1078:1: ( ( ( rule__Action__StrengthAssignment_3_1 ) ) )
+            // InternalSimpleMio.g:1079:1: ( ( rule__Action__StrengthAssignment_3_1 ) )
             {
-            // InternalSimpleMio.g:1073:1: ( ( rule__Action__StrengthAssignment_3_1 ) )
-            // InternalSimpleMio.g:1074:2: ( rule__Action__StrengthAssignment_3_1 )
+            // InternalSimpleMio.g:1079:1: ( ( rule__Action__StrengthAssignment_3_1 ) )
+            // InternalSimpleMio.g:1080:2: ( rule__Action__StrengthAssignment_3_1 )
             {
              before(grammarAccess.getActionAccess().getStrengthAssignment_3_1()); 
-            // InternalSimpleMio.g:1075:2: ( rule__Action__StrengthAssignment_3_1 )
-            // InternalSimpleMio.g:1075:3: rule__Action__StrengthAssignment_3_1
+            // InternalSimpleMio.g:1081:2: ( rule__Action__StrengthAssignment_3_1 )
+            // InternalSimpleMio.g:1081:3: rule__Action__StrengthAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Action__StrengthAssignment_3_1();
@@ -3384,14 +3416,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group__0"
-    // InternalSimpleMio.g:1084:1: rule__Or__Group__0 : rule__Or__Group__0__Impl rule__Or__Group__1 ;
+    // InternalSimpleMio.g:1090:1: rule__Or__Group__0 : rule__Or__Group__0__Impl rule__Or__Group__1 ;
     public final void rule__Or__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1088:1: ( rule__Or__Group__0__Impl rule__Or__Group__1 )
-            // InternalSimpleMio.g:1089:2: rule__Or__Group__0__Impl rule__Or__Group__1
+            // InternalSimpleMio.g:1094:1: ( rule__Or__Group__0__Impl rule__Or__Group__1 )
+            // InternalSimpleMio.g:1095:2: rule__Or__Group__0__Impl rule__Or__Group__1
             {
             pushFollow(FOLLOW_15);
             rule__Or__Group__0__Impl();
@@ -3422,17 +3454,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group__0__Impl"
-    // InternalSimpleMio.g:1096:1: rule__Or__Group__0__Impl : ( ruleAnd ) ;
+    // InternalSimpleMio.g:1102:1: rule__Or__Group__0__Impl : ( ruleAnd ) ;
     public final void rule__Or__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1100:1: ( ( ruleAnd ) )
-            // InternalSimpleMio.g:1101:1: ( ruleAnd )
+            // InternalSimpleMio.g:1106:1: ( ( ruleAnd ) )
+            // InternalSimpleMio.g:1107:1: ( ruleAnd )
             {
-            // InternalSimpleMio.g:1101:1: ( ruleAnd )
-            // InternalSimpleMio.g:1102:2: ruleAnd
+            // InternalSimpleMio.g:1107:1: ( ruleAnd )
+            // InternalSimpleMio.g:1108:2: ruleAnd
             {
              before(grammarAccess.getOrAccess().getAndParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -3463,14 +3495,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group__1"
-    // InternalSimpleMio.g:1111:1: rule__Or__Group__1 : rule__Or__Group__1__Impl ;
+    // InternalSimpleMio.g:1117:1: rule__Or__Group__1 : rule__Or__Group__1__Impl ;
     public final void rule__Or__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1115:1: ( rule__Or__Group__1__Impl )
-            // InternalSimpleMio.g:1116:2: rule__Or__Group__1__Impl
+            // InternalSimpleMio.g:1121:1: ( rule__Or__Group__1__Impl )
+            // InternalSimpleMio.g:1122:2: rule__Or__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Or__Group__1__Impl();
@@ -3496,20 +3528,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group__1__Impl"
-    // InternalSimpleMio.g:1122:1: rule__Or__Group__1__Impl : ( ( rule__Or__Group_1__0 )* ) ;
+    // InternalSimpleMio.g:1128:1: rule__Or__Group__1__Impl : ( ( rule__Or__Group_1__0 )* ) ;
     public final void rule__Or__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1126:1: ( ( ( rule__Or__Group_1__0 )* ) )
-            // InternalSimpleMio.g:1127:1: ( ( rule__Or__Group_1__0 )* )
+            // InternalSimpleMio.g:1132:1: ( ( ( rule__Or__Group_1__0 )* ) )
+            // InternalSimpleMio.g:1133:1: ( ( rule__Or__Group_1__0 )* )
             {
-            // InternalSimpleMio.g:1127:1: ( ( rule__Or__Group_1__0 )* )
-            // InternalSimpleMio.g:1128:2: ( rule__Or__Group_1__0 )*
+            // InternalSimpleMio.g:1133:1: ( ( rule__Or__Group_1__0 )* )
+            // InternalSimpleMio.g:1134:2: ( rule__Or__Group_1__0 )*
             {
              before(grammarAccess.getOrAccess().getGroup_1()); 
-            // InternalSimpleMio.g:1129:2: ( rule__Or__Group_1__0 )*
+            // InternalSimpleMio.g:1135:2: ( rule__Or__Group_1__0 )*
             loop12:
             do {
                 int alt12=2;
@@ -3522,7 +3554,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalSimpleMio.g:1129:3: rule__Or__Group_1__0
+            	    // InternalSimpleMio.g:1135:3: rule__Or__Group_1__0
             	    {
             	    pushFollow(FOLLOW_16);
             	    rule__Or__Group_1__0();
@@ -3561,14 +3593,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group_1__0"
-    // InternalSimpleMio.g:1138:1: rule__Or__Group_1__0 : rule__Or__Group_1__0__Impl rule__Or__Group_1__1 ;
+    // InternalSimpleMio.g:1144:1: rule__Or__Group_1__0 : rule__Or__Group_1__0__Impl rule__Or__Group_1__1 ;
     public final void rule__Or__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1142:1: ( rule__Or__Group_1__0__Impl rule__Or__Group_1__1 )
-            // InternalSimpleMio.g:1143:2: rule__Or__Group_1__0__Impl rule__Or__Group_1__1
+            // InternalSimpleMio.g:1148:1: ( rule__Or__Group_1__0__Impl rule__Or__Group_1__1 )
+            // InternalSimpleMio.g:1149:2: rule__Or__Group_1__0__Impl rule__Or__Group_1__1
             {
             pushFollow(FOLLOW_15);
             rule__Or__Group_1__0__Impl();
@@ -3599,21 +3631,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group_1__0__Impl"
-    // InternalSimpleMio.g:1150:1: rule__Or__Group_1__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:1156:1: rule__Or__Group_1__0__Impl : ( () ) ;
     public final void rule__Or__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1154:1: ( ( () ) )
-            // InternalSimpleMio.g:1155:1: ( () )
+            // InternalSimpleMio.g:1160:1: ( ( () ) )
+            // InternalSimpleMio.g:1161:1: ( () )
             {
-            // InternalSimpleMio.g:1155:1: ( () )
-            // InternalSimpleMio.g:1156:2: ()
+            // InternalSimpleMio.g:1161:1: ( () )
+            // InternalSimpleMio.g:1162:2: ()
             {
              before(grammarAccess.getOrAccess().getOrLeftAction_1_0()); 
-            // InternalSimpleMio.g:1157:2: ()
-            // InternalSimpleMio.g:1157:3: 
+            // InternalSimpleMio.g:1163:2: ()
+            // InternalSimpleMio.g:1163:3: 
             {
             }
 
@@ -3636,14 +3668,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group_1__1"
-    // InternalSimpleMio.g:1165:1: rule__Or__Group_1__1 : rule__Or__Group_1__1__Impl rule__Or__Group_1__2 ;
+    // InternalSimpleMio.g:1171:1: rule__Or__Group_1__1 : rule__Or__Group_1__1__Impl rule__Or__Group_1__2 ;
     public final void rule__Or__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1169:1: ( rule__Or__Group_1__1__Impl rule__Or__Group_1__2 )
-            // InternalSimpleMio.g:1170:2: rule__Or__Group_1__1__Impl rule__Or__Group_1__2
+            // InternalSimpleMio.g:1175:1: ( rule__Or__Group_1__1__Impl rule__Or__Group_1__2 )
+            // InternalSimpleMio.g:1176:2: rule__Or__Group_1__1__Impl rule__Or__Group_1__2
             {
             pushFollow(FOLLOW_7);
             rule__Or__Group_1__1__Impl();
@@ -3674,17 +3706,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group_1__1__Impl"
-    // InternalSimpleMio.g:1177:1: rule__Or__Group_1__1__Impl : ( 'or' ) ;
+    // InternalSimpleMio.g:1183:1: rule__Or__Group_1__1__Impl : ( 'or' ) ;
     public final void rule__Or__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1181:1: ( ( 'or' ) )
-            // InternalSimpleMio.g:1182:1: ( 'or' )
+            // InternalSimpleMio.g:1187:1: ( ( 'or' ) )
+            // InternalSimpleMio.g:1188:1: ( 'or' )
             {
-            // InternalSimpleMio.g:1182:1: ( 'or' )
-            // InternalSimpleMio.g:1183:2: 'or'
+            // InternalSimpleMio.g:1188:1: ( 'or' )
+            // InternalSimpleMio.g:1189:2: 'or'
             {
              before(grammarAccess.getOrAccess().getOrKeyword_1_1()); 
             match(input,36,FOLLOW_2); 
@@ -3711,14 +3743,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group_1__2"
-    // InternalSimpleMio.g:1192:1: rule__Or__Group_1__2 : rule__Or__Group_1__2__Impl ;
+    // InternalSimpleMio.g:1198:1: rule__Or__Group_1__2 : rule__Or__Group_1__2__Impl ;
     public final void rule__Or__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1196:1: ( rule__Or__Group_1__2__Impl )
-            // InternalSimpleMio.g:1197:2: rule__Or__Group_1__2__Impl
+            // InternalSimpleMio.g:1202:1: ( rule__Or__Group_1__2__Impl )
+            // InternalSimpleMio.g:1203:2: rule__Or__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Or__Group_1__2__Impl();
@@ -3744,21 +3776,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__Group_1__2__Impl"
-    // InternalSimpleMio.g:1203:1: rule__Or__Group_1__2__Impl : ( ( rule__Or__RightAssignment_1_2 ) ) ;
+    // InternalSimpleMio.g:1209:1: rule__Or__Group_1__2__Impl : ( ( rule__Or__RightAssignment_1_2 ) ) ;
     public final void rule__Or__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1207:1: ( ( ( rule__Or__RightAssignment_1_2 ) ) )
-            // InternalSimpleMio.g:1208:1: ( ( rule__Or__RightAssignment_1_2 ) )
+            // InternalSimpleMio.g:1213:1: ( ( ( rule__Or__RightAssignment_1_2 ) ) )
+            // InternalSimpleMio.g:1214:1: ( ( rule__Or__RightAssignment_1_2 ) )
             {
-            // InternalSimpleMio.g:1208:1: ( ( rule__Or__RightAssignment_1_2 ) )
-            // InternalSimpleMio.g:1209:2: ( rule__Or__RightAssignment_1_2 )
+            // InternalSimpleMio.g:1214:1: ( ( rule__Or__RightAssignment_1_2 ) )
+            // InternalSimpleMio.g:1215:2: ( rule__Or__RightAssignment_1_2 )
             {
              before(grammarAccess.getOrAccess().getRightAssignment_1_2()); 
-            // InternalSimpleMio.g:1210:2: ( rule__Or__RightAssignment_1_2 )
-            // InternalSimpleMio.g:1210:3: rule__Or__RightAssignment_1_2
+            // InternalSimpleMio.g:1216:2: ( rule__Or__RightAssignment_1_2 )
+            // InternalSimpleMio.g:1216:3: rule__Or__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Or__RightAssignment_1_2();
@@ -3791,14 +3823,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group__0"
-    // InternalSimpleMio.g:1219:1: rule__And__Group__0 : rule__And__Group__0__Impl rule__And__Group__1 ;
+    // InternalSimpleMio.g:1225:1: rule__And__Group__0 : rule__And__Group__0__Impl rule__And__Group__1 ;
     public final void rule__And__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1223:1: ( rule__And__Group__0__Impl rule__And__Group__1 )
-            // InternalSimpleMio.g:1224:2: rule__And__Group__0__Impl rule__And__Group__1
+            // InternalSimpleMio.g:1229:1: ( rule__And__Group__0__Impl rule__And__Group__1 )
+            // InternalSimpleMio.g:1230:2: rule__And__Group__0__Impl rule__And__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__And__Group__0__Impl();
@@ -3829,17 +3861,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group__0__Impl"
-    // InternalSimpleMio.g:1231:1: rule__And__Group__0__Impl : ( ruleNot ) ;
+    // InternalSimpleMio.g:1237:1: rule__And__Group__0__Impl : ( ruleNot ) ;
     public final void rule__And__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1235:1: ( ( ruleNot ) )
-            // InternalSimpleMio.g:1236:1: ( ruleNot )
+            // InternalSimpleMio.g:1241:1: ( ( ruleNot ) )
+            // InternalSimpleMio.g:1242:1: ( ruleNot )
             {
-            // InternalSimpleMio.g:1236:1: ( ruleNot )
-            // InternalSimpleMio.g:1237:2: ruleNot
+            // InternalSimpleMio.g:1242:1: ( ruleNot )
+            // InternalSimpleMio.g:1243:2: ruleNot
             {
              before(grammarAccess.getAndAccess().getNotParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -3870,14 +3902,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group__1"
-    // InternalSimpleMio.g:1246:1: rule__And__Group__1 : rule__And__Group__1__Impl ;
+    // InternalSimpleMio.g:1252:1: rule__And__Group__1 : rule__And__Group__1__Impl ;
     public final void rule__And__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1250:1: ( rule__And__Group__1__Impl )
-            // InternalSimpleMio.g:1251:2: rule__And__Group__1__Impl
+            // InternalSimpleMio.g:1256:1: ( rule__And__Group__1__Impl )
+            // InternalSimpleMio.g:1257:2: rule__And__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__And__Group__1__Impl();
@@ -3903,20 +3935,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group__1__Impl"
-    // InternalSimpleMio.g:1257:1: rule__And__Group__1__Impl : ( ( rule__And__Group_1__0 )* ) ;
+    // InternalSimpleMio.g:1263:1: rule__And__Group__1__Impl : ( ( rule__And__Group_1__0 )* ) ;
     public final void rule__And__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1261:1: ( ( ( rule__And__Group_1__0 )* ) )
-            // InternalSimpleMio.g:1262:1: ( ( rule__And__Group_1__0 )* )
+            // InternalSimpleMio.g:1267:1: ( ( ( rule__And__Group_1__0 )* ) )
+            // InternalSimpleMio.g:1268:1: ( ( rule__And__Group_1__0 )* )
             {
-            // InternalSimpleMio.g:1262:1: ( ( rule__And__Group_1__0 )* )
-            // InternalSimpleMio.g:1263:2: ( rule__And__Group_1__0 )*
+            // InternalSimpleMio.g:1268:1: ( ( rule__And__Group_1__0 )* )
+            // InternalSimpleMio.g:1269:2: ( rule__And__Group_1__0 )*
             {
              before(grammarAccess.getAndAccess().getGroup_1()); 
-            // InternalSimpleMio.g:1264:2: ( rule__And__Group_1__0 )*
+            // InternalSimpleMio.g:1270:2: ( rule__And__Group_1__0 )*
             loop13:
             do {
                 int alt13=2;
@@ -3929,7 +3961,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
                 switch (alt13) {
             	case 1 :
-            	    // InternalSimpleMio.g:1264:3: rule__And__Group_1__0
+            	    // InternalSimpleMio.g:1270:3: rule__And__Group_1__0
             	    {
             	    pushFollow(FOLLOW_18);
             	    rule__And__Group_1__0();
@@ -3968,14 +4000,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group_1__0"
-    // InternalSimpleMio.g:1273:1: rule__And__Group_1__0 : rule__And__Group_1__0__Impl rule__And__Group_1__1 ;
+    // InternalSimpleMio.g:1279:1: rule__And__Group_1__0 : rule__And__Group_1__0__Impl rule__And__Group_1__1 ;
     public final void rule__And__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1277:1: ( rule__And__Group_1__0__Impl rule__And__Group_1__1 )
-            // InternalSimpleMio.g:1278:2: rule__And__Group_1__0__Impl rule__And__Group_1__1
+            // InternalSimpleMio.g:1283:1: ( rule__And__Group_1__0__Impl rule__And__Group_1__1 )
+            // InternalSimpleMio.g:1284:2: rule__And__Group_1__0__Impl rule__And__Group_1__1
             {
             pushFollow(FOLLOW_17);
             rule__And__Group_1__0__Impl();
@@ -4006,21 +4038,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group_1__0__Impl"
-    // InternalSimpleMio.g:1285:1: rule__And__Group_1__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:1291:1: rule__And__Group_1__0__Impl : ( () ) ;
     public final void rule__And__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1289:1: ( ( () ) )
-            // InternalSimpleMio.g:1290:1: ( () )
+            // InternalSimpleMio.g:1295:1: ( ( () ) )
+            // InternalSimpleMio.g:1296:1: ( () )
             {
-            // InternalSimpleMio.g:1290:1: ( () )
-            // InternalSimpleMio.g:1291:2: ()
+            // InternalSimpleMio.g:1296:1: ( () )
+            // InternalSimpleMio.g:1297:2: ()
             {
              before(grammarAccess.getAndAccess().getAndLeftAction_1_0()); 
-            // InternalSimpleMio.g:1292:2: ()
-            // InternalSimpleMio.g:1292:3: 
+            // InternalSimpleMio.g:1298:2: ()
+            // InternalSimpleMio.g:1298:3: 
             {
             }
 
@@ -4043,14 +4075,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group_1__1"
-    // InternalSimpleMio.g:1300:1: rule__And__Group_1__1 : rule__And__Group_1__1__Impl rule__And__Group_1__2 ;
+    // InternalSimpleMio.g:1306:1: rule__And__Group_1__1 : rule__And__Group_1__1__Impl rule__And__Group_1__2 ;
     public final void rule__And__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1304:1: ( rule__And__Group_1__1__Impl rule__And__Group_1__2 )
-            // InternalSimpleMio.g:1305:2: rule__And__Group_1__1__Impl rule__And__Group_1__2
+            // InternalSimpleMio.g:1310:1: ( rule__And__Group_1__1__Impl rule__And__Group_1__2 )
+            // InternalSimpleMio.g:1311:2: rule__And__Group_1__1__Impl rule__And__Group_1__2
             {
             pushFollow(FOLLOW_7);
             rule__And__Group_1__1__Impl();
@@ -4081,17 +4113,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group_1__1__Impl"
-    // InternalSimpleMio.g:1312:1: rule__And__Group_1__1__Impl : ( 'and' ) ;
+    // InternalSimpleMio.g:1318:1: rule__And__Group_1__1__Impl : ( 'and' ) ;
     public final void rule__And__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1316:1: ( ( 'and' ) )
-            // InternalSimpleMio.g:1317:1: ( 'and' )
+            // InternalSimpleMio.g:1322:1: ( ( 'and' ) )
+            // InternalSimpleMio.g:1323:1: ( 'and' )
             {
-            // InternalSimpleMio.g:1317:1: ( 'and' )
-            // InternalSimpleMio.g:1318:2: 'and'
+            // InternalSimpleMio.g:1323:1: ( 'and' )
+            // InternalSimpleMio.g:1324:2: 'and'
             {
              before(grammarAccess.getAndAccess().getAndKeyword_1_1()); 
             match(input,37,FOLLOW_2); 
@@ -4118,14 +4150,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group_1__2"
-    // InternalSimpleMio.g:1327:1: rule__And__Group_1__2 : rule__And__Group_1__2__Impl ;
+    // InternalSimpleMio.g:1333:1: rule__And__Group_1__2 : rule__And__Group_1__2__Impl ;
     public final void rule__And__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1331:1: ( rule__And__Group_1__2__Impl )
-            // InternalSimpleMio.g:1332:2: rule__And__Group_1__2__Impl
+            // InternalSimpleMio.g:1337:1: ( rule__And__Group_1__2__Impl )
+            // InternalSimpleMio.g:1338:2: rule__And__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__And__Group_1__2__Impl();
@@ -4151,21 +4183,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__Group_1__2__Impl"
-    // InternalSimpleMio.g:1338:1: rule__And__Group_1__2__Impl : ( ( rule__And__RightAssignment_1_2 ) ) ;
+    // InternalSimpleMio.g:1344:1: rule__And__Group_1__2__Impl : ( ( rule__And__RightAssignment_1_2 ) ) ;
     public final void rule__And__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1342:1: ( ( ( rule__And__RightAssignment_1_2 ) ) )
-            // InternalSimpleMio.g:1343:1: ( ( rule__And__RightAssignment_1_2 ) )
+            // InternalSimpleMio.g:1348:1: ( ( ( rule__And__RightAssignment_1_2 ) ) )
+            // InternalSimpleMio.g:1349:1: ( ( rule__And__RightAssignment_1_2 ) )
             {
-            // InternalSimpleMio.g:1343:1: ( ( rule__And__RightAssignment_1_2 ) )
-            // InternalSimpleMio.g:1344:2: ( rule__And__RightAssignment_1_2 )
+            // InternalSimpleMio.g:1349:1: ( ( rule__And__RightAssignment_1_2 ) )
+            // InternalSimpleMio.g:1350:2: ( rule__And__RightAssignment_1_2 )
             {
              before(grammarAccess.getAndAccess().getRightAssignment_1_2()); 
-            // InternalSimpleMio.g:1345:2: ( rule__And__RightAssignment_1_2 )
-            // InternalSimpleMio.g:1345:3: rule__And__RightAssignment_1_2
+            // InternalSimpleMio.g:1351:2: ( rule__And__RightAssignment_1_2 )
+            // InternalSimpleMio.g:1351:3: rule__And__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__And__RightAssignment_1_2();
@@ -4198,14 +4230,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0__0"
-    // InternalSimpleMio.g:1354:1: rule__Not__Group_0__0 : rule__Not__Group_0__0__Impl rule__Not__Group_0__1 ;
+    // InternalSimpleMio.g:1360:1: rule__Not__Group_0__0 : rule__Not__Group_0__0__Impl rule__Not__Group_0__1 ;
     public final void rule__Not__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1358:1: ( rule__Not__Group_0__0__Impl rule__Not__Group_0__1 )
-            // InternalSimpleMio.g:1359:2: rule__Not__Group_0__0__Impl rule__Not__Group_0__1
+            // InternalSimpleMio.g:1364:1: ( rule__Not__Group_0__0__Impl rule__Not__Group_0__1 )
+            // InternalSimpleMio.g:1365:2: rule__Not__Group_0__0__Impl rule__Not__Group_0__1
             {
             pushFollow(FOLLOW_19);
             rule__Not__Group_0__0__Impl();
@@ -4236,21 +4268,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0__0__Impl"
-    // InternalSimpleMio.g:1366:1: rule__Not__Group_0__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:1372:1: rule__Not__Group_0__0__Impl : ( () ) ;
     public final void rule__Not__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1370:1: ( ( () ) )
-            // InternalSimpleMio.g:1371:1: ( () )
+            // InternalSimpleMio.g:1376:1: ( ( () ) )
+            // InternalSimpleMio.g:1377:1: ( () )
             {
-            // InternalSimpleMio.g:1371:1: ( () )
-            // InternalSimpleMio.g:1372:2: ()
+            // InternalSimpleMio.g:1377:1: ( () )
+            // InternalSimpleMio.g:1378:2: ()
             {
              before(grammarAccess.getNotAccess().getNotAction_0_0()); 
-            // InternalSimpleMio.g:1373:2: ()
-            // InternalSimpleMio.g:1373:3: 
+            // InternalSimpleMio.g:1379:2: ()
+            // InternalSimpleMio.g:1379:3: 
             {
             }
 
@@ -4273,14 +4305,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0__1"
-    // InternalSimpleMio.g:1381:1: rule__Not__Group_0__1 : rule__Not__Group_0__1__Impl ;
+    // InternalSimpleMio.g:1387:1: rule__Not__Group_0__1 : rule__Not__Group_0__1__Impl ;
     public final void rule__Not__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1385:1: ( rule__Not__Group_0__1__Impl )
-            // InternalSimpleMio.g:1386:2: rule__Not__Group_0__1__Impl
+            // InternalSimpleMio.g:1391:1: ( rule__Not__Group_0__1__Impl )
+            // InternalSimpleMio.g:1392:2: rule__Not__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Not__Group_0__1__Impl();
@@ -4306,21 +4338,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0__1__Impl"
-    // InternalSimpleMio.g:1392:1: rule__Not__Group_0__1__Impl : ( ( rule__Not__Group_0_1__0 ) ) ;
+    // InternalSimpleMio.g:1398:1: rule__Not__Group_0__1__Impl : ( ( rule__Not__Group_0_1__0 ) ) ;
     public final void rule__Not__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1396:1: ( ( ( rule__Not__Group_0_1__0 ) ) )
-            // InternalSimpleMio.g:1397:1: ( ( rule__Not__Group_0_1__0 ) )
+            // InternalSimpleMio.g:1402:1: ( ( ( rule__Not__Group_0_1__0 ) ) )
+            // InternalSimpleMio.g:1403:1: ( ( rule__Not__Group_0_1__0 ) )
             {
-            // InternalSimpleMio.g:1397:1: ( ( rule__Not__Group_0_1__0 ) )
-            // InternalSimpleMio.g:1398:2: ( rule__Not__Group_0_1__0 )
+            // InternalSimpleMio.g:1403:1: ( ( rule__Not__Group_0_1__0 ) )
+            // InternalSimpleMio.g:1404:2: ( rule__Not__Group_0_1__0 )
             {
              before(grammarAccess.getNotAccess().getGroup_0_1()); 
-            // InternalSimpleMio.g:1399:2: ( rule__Not__Group_0_1__0 )
-            // InternalSimpleMio.g:1399:3: rule__Not__Group_0_1__0
+            // InternalSimpleMio.g:1405:2: ( rule__Not__Group_0_1__0 )
+            // InternalSimpleMio.g:1405:3: rule__Not__Group_0_1__0
             {
             pushFollow(FOLLOW_2);
             rule__Not__Group_0_1__0();
@@ -4353,16 +4385,16 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0_1__0"
-    // InternalSimpleMio.g:1408:1: rule__Not__Group_0_1__0 : rule__Not__Group_0_1__0__Impl rule__Not__Group_0_1__1 ;
+    // InternalSimpleMio.g:1414:1: rule__Not__Group_0_1__0 : rule__Not__Group_0_1__0__Impl rule__Not__Group_0_1__1 ;
     public final void rule__Not__Group_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1412:1: ( rule__Not__Group_0_1__0__Impl rule__Not__Group_0_1__1 )
-            // InternalSimpleMio.g:1413:2: rule__Not__Group_0_1__0__Impl rule__Not__Group_0_1__1
+            // InternalSimpleMio.g:1418:1: ( rule__Not__Group_0_1__0__Impl rule__Not__Group_0_1__1 )
+            // InternalSimpleMio.g:1419:2: rule__Not__Group_0_1__0__Impl rule__Not__Group_0_1__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_7);
             rule__Not__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -4391,17 +4423,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0_1__0__Impl"
-    // InternalSimpleMio.g:1420:1: rule__Not__Group_0_1__0__Impl : ( 'not' ) ;
+    // InternalSimpleMio.g:1426:1: rule__Not__Group_0_1__0__Impl : ( 'not' ) ;
     public final void rule__Not__Group_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1424:1: ( ( 'not' ) )
-            // InternalSimpleMio.g:1425:1: ( 'not' )
+            // InternalSimpleMio.g:1430:1: ( ( 'not' ) )
+            // InternalSimpleMio.g:1431:1: ( 'not' )
             {
-            // InternalSimpleMio.g:1425:1: ( 'not' )
-            // InternalSimpleMio.g:1426:2: 'not'
+            // InternalSimpleMio.g:1431:1: ( 'not' )
+            // InternalSimpleMio.g:1432:2: 'not'
             {
              before(grammarAccess.getNotAccess().getNotKeyword_0_1_0()); 
             match(input,38,FOLLOW_2); 
@@ -4428,14 +4460,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0_1__1"
-    // InternalSimpleMio.g:1435:1: rule__Not__Group_0_1__1 : rule__Not__Group_0_1__1__Impl ;
+    // InternalSimpleMio.g:1441:1: rule__Not__Group_0_1__1 : rule__Not__Group_0_1__1__Impl ;
     public final void rule__Not__Group_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1439:1: ( rule__Not__Group_0_1__1__Impl )
-            // InternalSimpleMio.g:1440:2: rule__Not__Group_0_1__1__Impl
+            // InternalSimpleMio.g:1445:1: ( rule__Not__Group_0_1__1__Impl )
+            // InternalSimpleMio.g:1446:2: rule__Not__Group_0_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Not__Group_0_1__1__Impl();
@@ -4461,21 +4493,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__Group_0_1__1__Impl"
-    // InternalSimpleMio.g:1446:1: rule__Not__Group_0_1__1__Impl : ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) ) ;
+    // InternalSimpleMio.g:1452:1: rule__Not__Group_0_1__1__Impl : ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) ) ;
     public final void rule__Not__Group_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1450:1: ( ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) ) )
-            // InternalSimpleMio.g:1451:1: ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) )
+            // InternalSimpleMio.g:1456:1: ( ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) ) )
+            // InternalSimpleMio.g:1457:1: ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) )
             {
-            // InternalSimpleMio.g:1451:1: ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) )
-            // InternalSimpleMio.g:1452:2: ( rule__Not__ConditionalsensorAssignment_0_1_1 )
+            // InternalSimpleMio.g:1457:1: ( ( rule__Not__ConditionalsensorAssignment_0_1_1 ) )
+            // InternalSimpleMio.g:1458:2: ( rule__Not__ConditionalsensorAssignment_0_1_1 )
             {
              before(grammarAccess.getNotAccess().getConditionalsensorAssignment_0_1_1()); 
-            // InternalSimpleMio.g:1453:2: ( rule__Not__ConditionalsensorAssignment_0_1_1 )
-            // InternalSimpleMio.g:1453:3: rule__Not__ConditionalsensorAssignment_0_1_1
+            // InternalSimpleMio.g:1459:2: ( rule__Not__ConditionalsensorAssignment_0_1_1 )
+            // InternalSimpleMio.g:1459:3: rule__Not__ConditionalsensorAssignment_0_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Not__ConditionalsensorAssignment_0_1_1();
@@ -4508,14 +4540,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Paren__Group__0"
-    // InternalSimpleMio.g:1462:1: rule__Paren__Group__0 : rule__Paren__Group__0__Impl rule__Paren__Group__1 ;
+    // InternalSimpleMio.g:1468:1: rule__Paren__Group__0 : rule__Paren__Group__0__Impl rule__Paren__Group__1 ;
     public final void rule__Paren__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1466:1: ( rule__Paren__Group__0__Impl rule__Paren__Group__1 )
-            // InternalSimpleMio.g:1467:2: rule__Paren__Group__0__Impl rule__Paren__Group__1
+            // InternalSimpleMio.g:1472:1: ( rule__Paren__Group__0__Impl rule__Paren__Group__1 )
+            // InternalSimpleMio.g:1473:2: rule__Paren__Group__0__Impl rule__Paren__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Paren__Group__0__Impl();
@@ -4546,17 +4578,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Paren__Group__0__Impl"
-    // InternalSimpleMio.g:1474:1: rule__Paren__Group__0__Impl : ( '(' ) ;
+    // InternalSimpleMio.g:1480:1: rule__Paren__Group__0__Impl : ( '(' ) ;
     public final void rule__Paren__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1478:1: ( ( '(' ) )
-            // InternalSimpleMio.g:1479:1: ( '(' )
+            // InternalSimpleMio.g:1484:1: ( ( '(' ) )
+            // InternalSimpleMio.g:1485:1: ( '(' )
             {
-            // InternalSimpleMio.g:1479:1: ( '(' )
-            // InternalSimpleMio.g:1480:2: '('
+            // InternalSimpleMio.g:1485:1: ( '(' )
+            // InternalSimpleMio.g:1486:2: '('
             {
              before(grammarAccess.getParenAccess().getLeftParenthesisKeyword_0()); 
             match(input,39,FOLLOW_2); 
@@ -4583,16 +4615,16 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Paren__Group__1"
-    // InternalSimpleMio.g:1489:1: rule__Paren__Group__1 : rule__Paren__Group__1__Impl rule__Paren__Group__2 ;
+    // InternalSimpleMio.g:1495:1: rule__Paren__Group__1 : rule__Paren__Group__1__Impl rule__Paren__Group__2 ;
     public final void rule__Paren__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1493:1: ( rule__Paren__Group__1__Impl rule__Paren__Group__2 )
-            // InternalSimpleMio.g:1494:2: rule__Paren__Group__1__Impl rule__Paren__Group__2
+            // InternalSimpleMio.g:1499:1: ( rule__Paren__Group__1__Impl rule__Paren__Group__2 )
+            // InternalSimpleMio.g:1500:2: rule__Paren__Group__1__Impl rule__Paren__Group__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_20);
             rule__Paren__Group__1__Impl();
 
             state._fsp--;
@@ -4621,17 +4653,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Paren__Group__1__Impl"
-    // InternalSimpleMio.g:1501:1: rule__Paren__Group__1__Impl : ( ruleOr ) ;
+    // InternalSimpleMio.g:1507:1: rule__Paren__Group__1__Impl : ( ruleOr ) ;
     public final void rule__Paren__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1505:1: ( ( ruleOr ) )
-            // InternalSimpleMio.g:1506:1: ( ruleOr )
+            // InternalSimpleMio.g:1511:1: ( ( ruleOr ) )
+            // InternalSimpleMio.g:1512:1: ( ruleOr )
             {
-            // InternalSimpleMio.g:1506:1: ( ruleOr )
-            // InternalSimpleMio.g:1507:2: ruleOr
+            // InternalSimpleMio.g:1512:1: ( ruleOr )
+            // InternalSimpleMio.g:1513:2: ruleOr
             {
              before(grammarAccess.getParenAccess().getOrParserRuleCall_1()); 
             pushFollow(FOLLOW_2);
@@ -4662,14 +4694,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Paren__Group__2"
-    // InternalSimpleMio.g:1516:1: rule__Paren__Group__2 : rule__Paren__Group__2__Impl ;
+    // InternalSimpleMio.g:1522:1: rule__Paren__Group__2 : rule__Paren__Group__2__Impl ;
     public final void rule__Paren__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1520:1: ( rule__Paren__Group__2__Impl )
-            // InternalSimpleMio.g:1521:2: rule__Paren__Group__2__Impl
+            // InternalSimpleMio.g:1526:1: ( rule__Paren__Group__2__Impl )
+            // InternalSimpleMio.g:1527:2: rule__Paren__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Paren__Group__2__Impl();
@@ -4695,17 +4727,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Paren__Group__2__Impl"
-    // InternalSimpleMio.g:1527:1: rule__Paren__Group__2__Impl : ( ')' ) ;
+    // InternalSimpleMio.g:1533:1: rule__Paren__Group__2__Impl : ( ')' ) ;
     public final void rule__Paren__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1531:1: ( ( ')' ) )
-            // InternalSimpleMio.g:1532:1: ( ')' )
+            // InternalSimpleMio.g:1537:1: ( ( ')' ) )
+            // InternalSimpleMio.g:1538:1: ( ')' )
             {
-            // InternalSimpleMio.g:1532:1: ( ')' )
-            // InternalSimpleMio.g:1533:2: ')'
+            // InternalSimpleMio.g:1538:1: ( ')' )
+            // InternalSimpleMio.g:1539:2: ')'
             {
              before(grammarAccess.getParenAccess().getRightParenthesisKeyword_2()); 
             match(input,40,FOLLOW_2); 
@@ -4732,16 +4764,16 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__0"
-    // InternalSimpleMio.g:1543:1: rule__Sensor__Group__0 : rule__Sensor__Group__0__Impl rule__Sensor__Group__1 ;
+    // InternalSimpleMio.g:1549:1: rule__Sensor__Group__0 : rule__Sensor__Group__0__Impl rule__Sensor__Group__1 ;
     public final void rule__Sensor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1547:1: ( rule__Sensor__Group__0__Impl rule__Sensor__Group__1 )
-            // InternalSimpleMio.g:1548:2: rule__Sensor__Group__0__Impl rule__Sensor__Group__1
+            // InternalSimpleMio.g:1553:1: ( rule__Sensor__Group__0__Impl rule__Sensor__Group__1 )
+            // InternalSimpleMio.g:1554:2: rule__Sensor__Group__0__Impl rule__Sensor__Group__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_21);
             rule__Sensor__Group__0__Impl();
 
             state._fsp--;
@@ -4770,21 +4802,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__0__Impl"
-    // InternalSimpleMio.g:1555:1: rule__Sensor__Group__0__Impl : ( () ) ;
+    // InternalSimpleMio.g:1561:1: rule__Sensor__Group__0__Impl : ( () ) ;
     public final void rule__Sensor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1559:1: ( ( () ) )
-            // InternalSimpleMio.g:1560:1: ( () )
+            // InternalSimpleMio.g:1565:1: ( ( () ) )
+            // InternalSimpleMio.g:1566:1: ( () )
             {
-            // InternalSimpleMio.g:1560:1: ( () )
-            // InternalSimpleMio.g:1561:2: ()
+            // InternalSimpleMio.g:1566:1: ( () )
+            // InternalSimpleMio.g:1567:2: ()
             {
              before(grammarAccess.getSensorAccess().getSensorAction_0()); 
-            // InternalSimpleMio.g:1562:2: ()
-            // InternalSimpleMio.g:1562:3: 
+            // InternalSimpleMio.g:1568:2: ()
+            // InternalSimpleMio.g:1568:3: 
             {
             }
 
@@ -4807,14 +4839,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__1"
-    // InternalSimpleMio.g:1570:1: rule__Sensor__Group__1 : rule__Sensor__Group__1__Impl rule__Sensor__Group__2 ;
+    // InternalSimpleMio.g:1576:1: rule__Sensor__Group__1 : rule__Sensor__Group__1__Impl rule__Sensor__Group__2 ;
     public final void rule__Sensor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1574:1: ( rule__Sensor__Group__1__Impl rule__Sensor__Group__2 )
-            // InternalSimpleMio.g:1575:2: rule__Sensor__Group__1__Impl rule__Sensor__Group__2
+            // InternalSimpleMio.g:1580:1: ( rule__Sensor__Group__1__Impl rule__Sensor__Group__2 )
+            // InternalSimpleMio.g:1581:2: rule__Sensor__Group__1__Impl rule__Sensor__Group__2
             {
             pushFollow(FOLLOW_22);
             rule__Sensor__Group__1__Impl();
@@ -4845,21 +4877,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__1__Impl"
-    // InternalSimpleMio.g:1582:1: rule__Sensor__Group__1__Impl : ( ( rule__Sensor__SensorNameAssignment_1 ) ) ;
+    // InternalSimpleMio.g:1588:1: rule__Sensor__Group__1__Impl : ( ( rule__Sensor__SensorNameAssignment_1 ) ) ;
     public final void rule__Sensor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1586:1: ( ( ( rule__Sensor__SensorNameAssignment_1 ) ) )
-            // InternalSimpleMio.g:1587:1: ( ( rule__Sensor__SensorNameAssignment_1 ) )
+            // InternalSimpleMio.g:1592:1: ( ( ( rule__Sensor__SensorNameAssignment_1 ) ) )
+            // InternalSimpleMio.g:1593:1: ( ( rule__Sensor__SensorNameAssignment_1 ) )
             {
-            // InternalSimpleMio.g:1587:1: ( ( rule__Sensor__SensorNameAssignment_1 ) )
-            // InternalSimpleMio.g:1588:2: ( rule__Sensor__SensorNameAssignment_1 )
+            // InternalSimpleMio.g:1593:1: ( ( rule__Sensor__SensorNameAssignment_1 ) )
+            // InternalSimpleMio.g:1594:2: ( rule__Sensor__SensorNameAssignment_1 )
             {
              before(grammarAccess.getSensorAccess().getSensorNameAssignment_1()); 
-            // InternalSimpleMio.g:1589:2: ( rule__Sensor__SensorNameAssignment_1 )
-            // InternalSimpleMio.g:1589:3: rule__Sensor__SensorNameAssignment_1
+            // InternalSimpleMio.g:1595:2: ( rule__Sensor__SensorNameAssignment_1 )
+            // InternalSimpleMio.g:1595:3: rule__Sensor__SensorNameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Sensor__SensorNameAssignment_1();
@@ -4892,14 +4924,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__2"
-    // InternalSimpleMio.g:1597:1: rule__Sensor__Group__2 : rule__Sensor__Group__2__Impl rule__Sensor__Group__3 ;
+    // InternalSimpleMio.g:1603:1: rule__Sensor__Group__2 : rule__Sensor__Group__2__Impl rule__Sensor__Group__3 ;
     public final void rule__Sensor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1601:1: ( rule__Sensor__Group__2__Impl rule__Sensor__Group__3 )
-            // InternalSimpleMio.g:1602:2: rule__Sensor__Group__2__Impl rule__Sensor__Group__3
+            // InternalSimpleMio.g:1607:1: ( rule__Sensor__Group__2__Impl rule__Sensor__Group__3 )
+            // InternalSimpleMio.g:1608:2: rule__Sensor__Group__2__Impl rule__Sensor__Group__3
             {
             pushFollow(FOLLOW_22);
             rule__Sensor__Group__2__Impl();
@@ -4930,20 +4962,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__2__Impl"
-    // InternalSimpleMio.g:1609:1: rule__Sensor__Group__2__Impl : ( ( rule__Sensor__SensorSpecifierAssignment_2 )? ) ;
+    // InternalSimpleMio.g:1615:1: rule__Sensor__Group__2__Impl : ( ( rule__Sensor__SensorSpecifierAssignment_2 )? ) ;
     public final void rule__Sensor__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1613:1: ( ( ( rule__Sensor__SensorSpecifierAssignment_2 )? ) )
-            // InternalSimpleMio.g:1614:1: ( ( rule__Sensor__SensorSpecifierAssignment_2 )? )
+            // InternalSimpleMio.g:1619:1: ( ( ( rule__Sensor__SensorSpecifierAssignment_2 )? ) )
+            // InternalSimpleMio.g:1620:1: ( ( rule__Sensor__SensorSpecifierAssignment_2 )? )
             {
-            // InternalSimpleMio.g:1614:1: ( ( rule__Sensor__SensorSpecifierAssignment_2 )? )
-            // InternalSimpleMio.g:1615:2: ( rule__Sensor__SensorSpecifierAssignment_2 )?
+            // InternalSimpleMio.g:1620:1: ( ( rule__Sensor__SensorSpecifierAssignment_2 )? )
+            // InternalSimpleMio.g:1621:2: ( rule__Sensor__SensorSpecifierAssignment_2 )?
             {
              before(grammarAccess.getSensorAccess().getSensorSpecifierAssignment_2()); 
-            // InternalSimpleMio.g:1616:2: ( rule__Sensor__SensorSpecifierAssignment_2 )?
+            // InternalSimpleMio.g:1622:2: ( rule__Sensor__SensorSpecifierAssignment_2 )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -4952,7 +4984,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
             }
             switch (alt14) {
                 case 1 :
-                    // InternalSimpleMio.g:1616:3: rule__Sensor__SensorSpecifierAssignment_2
+                    // InternalSimpleMio.g:1622:3: rule__Sensor__SensorSpecifierAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__Sensor__SensorSpecifierAssignment_2();
@@ -4988,14 +5020,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__3"
-    // InternalSimpleMio.g:1624:1: rule__Sensor__Group__3 : rule__Sensor__Group__3__Impl ;
+    // InternalSimpleMio.g:1630:1: rule__Sensor__Group__3 : rule__Sensor__Group__3__Impl ;
     public final void rule__Sensor__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1628:1: ( rule__Sensor__Group__3__Impl )
-            // InternalSimpleMio.g:1629:2: rule__Sensor__Group__3__Impl
+            // InternalSimpleMio.g:1634:1: ( rule__Sensor__Group__3__Impl )
+            // InternalSimpleMio.g:1635:2: rule__Sensor__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Sensor__Group__3__Impl();
@@ -5021,20 +5053,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__3__Impl"
-    // InternalSimpleMio.g:1635:1: rule__Sensor__Group__3__Impl : ( ( rule__Sensor__Group_3__0 )? ) ;
+    // InternalSimpleMio.g:1641:1: rule__Sensor__Group__3__Impl : ( ( rule__Sensor__Group_3__0 )? ) ;
     public final void rule__Sensor__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1639:1: ( ( ( rule__Sensor__Group_3__0 )? ) )
-            // InternalSimpleMio.g:1640:1: ( ( rule__Sensor__Group_3__0 )? )
+            // InternalSimpleMio.g:1645:1: ( ( ( rule__Sensor__Group_3__0 )? ) )
+            // InternalSimpleMio.g:1646:1: ( ( rule__Sensor__Group_3__0 )? )
             {
-            // InternalSimpleMio.g:1640:1: ( ( rule__Sensor__Group_3__0 )? )
-            // InternalSimpleMio.g:1641:2: ( rule__Sensor__Group_3__0 )?
+            // InternalSimpleMio.g:1646:1: ( ( rule__Sensor__Group_3__0 )? )
+            // InternalSimpleMio.g:1647:2: ( rule__Sensor__Group_3__0 )?
             {
              before(grammarAccess.getSensorAccess().getGroup_3()); 
-            // InternalSimpleMio.g:1642:2: ( rule__Sensor__Group_3__0 )?
+            // InternalSimpleMio.g:1648:2: ( rule__Sensor__Group_3__0 )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -5043,7 +5075,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
             }
             switch (alt15) {
                 case 1 :
-                    // InternalSimpleMio.g:1642:3: rule__Sensor__Group_3__0
+                    // InternalSimpleMio.g:1648:3: rule__Sensor__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Sensor__Group_3__0();
@@ -5079,14 +5111,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group_3__0"
-    // InternalSimpleMio.g:1651:1: rule__Sensor__Group_3__0 : rule__Sensor__Group_3__0__Impl rule__Sensor__Group_3__1 ;
+    // InternalSimpleMio.g:1657:1: rule__Sensor__Group_3__0 : rule__Sensor__Group_3__0__Impl rule__Sensor__Group_3__1 ;
     public final void rule__Sensor__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1655:1: ( rule__Sensor__Group_3__0__Impl rule__Sensor__Group_3__1 )
-            // InternalSimpleMio.g:1656:2: rule__Sensor__Group_3__0__Impl rule__Sensor__Group_3__1
+            // InternalSimpleMio.g:1661:1: ( rule__Sensor__Group_3__0__Impl rule__Sensor__Group_3__1 )
+            // InternalSimpleMio.g:1662:2: rule__Sensor__Group_3__0__Impl rule__Sensor__Group_3__1
             {
             pushFollow(FOLLOW_14);
             rule__Sensor__Group_3__0__Impl();
@@ -5117,17 +5149,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group_3__0__Impl"
-    // InternalSimpleMio.g:1663:1: rule__Sensor__Group_3__0__Impl : ( '@' ) ;
+    // InternalSimpleMio.g:1669:1: rule__Sensor__Group_3__0__Impl : ( '@' ) ;
     public final void rule__Sensor__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1667:1: ( ( '@' ) )
-            // InternalSimpleMio.g:1668:1: ( '@' )
+            // InternalSimpleMio.g:1673:1: ( ( '@' ) )
+            // InternalSimpleMio.g:1674:1: ( '@' )
             {
-            // InternalSimpleMio.g:1668:1: ( '@' )
-            // InternalSimpleMio.g:1669:2: '@'
+            // InternalSimpleMio.g:1674:1: ( '@' )
+            // InternalSimpleMio.g:1675:2: '@'
             {
              before(grammarAccess.getSensorAccess().getCommercialAtKeyword_3_0()); 
             match(input,35,FOLLOW_2); 
@@ -5154,14 +5186,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group_3__1"
-    // InternalSimpleMio.g:1678:1: rule__Sensor__Group_3__1 : rule__Sensor__Group_3__1__Impl ;
+    // InternalSimpleMio.g:1684:1: rule__Sensor__Group_3__1 : rule__Sensor__Group_3__1__Impl ;
     public final void rule__Sensor__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1682:1: ( rule__Sensor__Group_3__1__Impl )
-            // InternalSimpleMio.g:1683:2: rule__Sensor__Group_3__1__Impl
+            // InternalSimpleMio.g:1688:1: ( rule__Sensor__Group_3__1__Impl )
+            // InternalSimpleMio.g:1689:2: rule__Sensor__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Sensor__Group_3__1__Impl();
@@ -5187,21 +5219,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group_3__1__Impl"
-    // InternalSimpleMio.g:1689:1: rule__Sensor__Group_3__1__Impl : ( ( rule__Sensor__StrengthAssignment_3_1 ) ) ;
+    // InternalSimpleMio.g:1695:1: rule__Sensor__Group_3__1__Impl : ( ( rule__Sensor__StrengthAssignment_3_1 ) ) ;
     public final void rule__Sensor__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1693:1: ( ( ( rule__Sensor__StrengthAssignment_3_1 ) ) )
-            // InternalSimpleMio.g:1694:1: ( ( rule__Sensor__StrengthAssignment_3_1 ) )
+            // InternalSimpleMio.g:1699:1: ( ( ( rule__Sensor__StrengthAssignment_3_1 ) ) )
+            // InternalSimpleMio.g:1700:1: ( ( rule__Sensor__StrengthAssignment_3_1 ) )
             {
-            // InternalSimpleMio.g:1694:1: ( ( rule__Sensor__StrengthAssignment_3_1 ) )
-            // InternalSimpleMio.g:1695:2: ( rule__Sensor__StrengthAssignment_3_1 )
+            // InternalSimpleMio.g:1700:1: ( ( rule__Sensor__StrengthAssignment_3_1 ) )
+            // InternalSimpleMio.g:1701:2: ( rule__Sensor__StrengthAssignment_3_1 )
             {
              before(grammarAccess.getSensorAccess().getStrengthAssignment_3_1()); 
-            // InternalSimpleMio.g:1696:2: ( rule__Sensor__StrengthAssignment_3_1 )
-            // InternalSimpleMio.g:1696:3: rule__Sensor__StrengthAssignment_3_1
+            // InternalSimpleMio.g:1702:2: ( rule__Sensor__StrengthAssignment_3_1 )
+            // InternalSimpleMio.g:1702:3: rule__Sensor__StrengthAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Sensor__StrengthAssignment_3_1();
@@ -5234,14 +5266,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalSimpleMio.g:1705:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalSimpleMio.g:1711:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1709:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalSimpleMio.g:1710:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalSimpleMio.g:1715:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalSimpleMio.g:1716:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
             pushFollow(FOLLOW_14);
             rule__EInt__Group__0__Impl();
@@ -5272,20 +5304,20 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalSimpleMio.g:1717:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalSimpleMio.g:1723:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1721:1: ( ( ( '-' )? ) )
-            // InternalSimpleMio.g:1722:1: ( ( '-' )? )
+            // InternalSimpleMio.g:1727:1: ( ( ( '-' )? ) )
+            // InternalSimpleMio.g:1728:1: ( ( '-' )? )
             {
-            // InternalSimpleMio.g:1722:1: ( ( '-' )? )
-            // InternalSimpleMio.g:1723:2: ( '-' )?
+            // InternalSimpleMio.g:1728:1: ( ( '-' )? )
+            // InternalSimpleMio.g:1729:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalSimpleMio.g:1724:2: ( '-' )?
+            // InternalSimpleMio.g:1730:2: ( '-' )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -5294,7 +5326,7 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
             }
             switch (alt16) {
                 case 1 :
-                    // InternalSimpleMio.g:1724:3: '-'
+                    // InternalSimpleMio.g:1730:3: '-'
                     {
                     match(input,41,FOLLOW_2); 
 
@@ -5326,14 +5358,14 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalSimpleMio.g:1732:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalSimpleMio.g:1738:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1736:1: ( rule__EInt__Group__1__Impl )
-            // InternalSimpleMio.g:1737:2: rule__EInt__Group__1__Impl
+            // InternalSimpleMio.g:1742:1: ( rule__EInt__Group__1__Impl )
+            // InternalSimpleMio.g:1743:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -5359,17 +5391,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalSimpleMio.g:1743:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalSimpleMio.g:1749:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1747:1: ( ( RULE_INT ) )
-            // InternalSimpleMio.g:1748:1: ( RULE_INT )
+            // InternalSimpleMio.g:1753:1: ( ( RULE_INT ) )
+            // InternalSimpleMio.g:1754:1: ( RULE_INT )
             {
-            // InternalSimpleMio.g:1748:1: ( RULE_INT )
-            // InternalSimpleMio.g:1749:2: RULE_INT
+            // InternalSimpleMio.g:1754:1: ( RULE_INT )
+            // InternalSimpleMio.g:1755:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -5396,17 +5428,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__ProgramAssignment_1"
-    // InternalSimpleMio.g:1759:1: rule__Model__ProgramAssignment_1 : ( ruleProgram ) ;
+    // InternalSimpleMio.g:1765:1: rule__Model__ProgramAssignment_1 : ( ruleProgram ) ;
     public final void rule__Model__ProgramAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1763:1: ( ( ruleProgram ) )
-            // InternalSimpleMio.g:1764:2: ( ruleProgram )
+            // InternalSimpleMio.g:1769:1: ( ( ruleProgram ) )
+            // InternalSimpleMio.g:1770:2: ( ruleProgram )
             {
-            // InternalSimpleMio.g:1764:2: ( ruleProgram )
-            // InternalSimpleMio.g:1765:3: ruleProgram
+            // InternalSimpleMio.g:1770:2: ( ruleProgram )
+            // InternalSimpleMio.g:1771:3: ruleProgram
             {
              before(grammarAccess.getModelAccess().getProgramProgramParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5437,17 +5469,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__EventsAssignment_1_0"
-    // InternalSimpleMio.g:1774:1: rule__Program__EventsAssignment_1_0 : ( ruleEvent ) ;
+    // InternalSimpleMio.g:1780:1: rule__Program__EventsAssignment_1_0 : ( ruleEvent ) ;
     public final void rule__Program__EventsAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1778:1: ( ( ruleEvent ) )
-            // InternalSimpleMio.g:1779:2: ( ruleEvent )
+            // InternalSimpleMio.g:1784:1: ( ( ruleEvent ) )
+            // InternalSimpleMio.g:1785:2: ( ruleEvent )
             {
-            // InternalSimpleMio.g:1779:2: ( ruleEvent )
-            // InternalSimpleMio.g:1780:3: ruleEvent
+            // InternalSimpleMio.g:1785:2: ( ruleEvent )
+            // InternalSimpleMio.g:1786:3: ruleEvent
             {
              before(grammarAccess.getProgramAccess().getEventsEventParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -5478,17 +5510,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__ConditionalsensorAssignment_1"
-    // InternalSimpleMio.g:1789:1: rule__Event__ConditionalsensorAssignment_1 : ( ruleOr ) ;
+    // InternalSimpleMio.g:1795:1: rule__Event__ConditionalsensorAssignment_1 : ( ruleOr ) ;
     public final void rule__Event__ConditionalsensorAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1793:1: ( ( ruleOr ) )
-            // InternalSimpleMio.g:1794:2: ( ruleOr )
+            // InternalSimpleMio.g:1799:1: ( ( ruleOr ) )
+            // InternalSimpleMio.g:1800:2: ( ruleOr )
             {
-            // InternalSimpleMio.g:1794:2: ( ruleOr )
-            // InternalSimpleMio.g:1795:3: ruleOr
+            // InternalSimpleMio.g:1800:2: ( ruleOr )
+            // InternalSimpleMio.g:1801:3: ruleOr
             {
              before(grammarAccess.getEventAccess().getConditionalsensorOrParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5519,17 +5551,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__ActionsAssignment_3"
-    // InternalSimpleMio.g:1804:1: rule__Event__ActionsAssignment_3 : ( ruleAction ) ;
+    // InternalSimpleMio.g:1810:1: rule__Event__ActionsAssignment_3 : ( ruleAction ) ;
     public final void rule__Event__ActionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1808:1: ( ( ruleAction ) )
-            // InternalSimpleMio.g:1809:2: ( ruleAction )
+            // InternalSimpleMio.g:1814:1: ( ( ruleAction ) )
+            // InternalSimpleMio.g:1815:2: ( ruleAction )
             {
-            // InternalSimpleMio.g:1809:2: ( ruleAction )
-            // InternalSimpleMio.g:1810:3: ruleAction
+            // InternalSimpleMio.g:1815:2: ( ruleAction )
+            // InternalSimpleMio.g:1816:3: ruleAction
             {
              before(grammarAccess.getEventAccess().getActionsActionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5560,17 +5592,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Event__ActionsAssignment_4_1"
-    // InternalSimpleMio.g:1819:1: rule__Event__ActionsAssignment_4_1 : ( ruleAction ) ;
+    // InternalSimpleMio.g:1825:1: rule__Event__ActionsAssignment_4_1 : ( ruleAction ) ;
     public final void rule__Event__ActionsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1823:1: ( ( ruleAction ) )
-            // InternalSimpleMio.g:1824:2: ( ruleAction )
+            // InternalSimpleMio.g:1829:1: ( ( ruleAction ) )
+            // InternalSimpleMio.g:1830:2: ( ruleAction )
             {
-            // InternalSimpleMio.g:1824:2: ( ruleAction )
-            // InternalSimpleMio.g:1825:3: ruleAction
+            // InternalSimpleMio.g:1830:2: ( ruleAction )
+            // InternalSimpleMio.g:1831:3: ruleAction
             {
              before(grammarAccess.getEventAccess().getActionsActionParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5601,21 +5633,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__ActionNameAssignment_1"
-    // InternalSimpleMio.g:1834:1: rule__Action__ActionNameAssignment_1 : ( ( rule__Action__ActionNameAlternatives_1_0 ) ) ;
+    // InternalSimpleMio.g:1840:1: rule__Action__ActionNameAssignment_1 : ( ( rule__Action__ActionNameAlternatives_1_0 ) ) ;
     public final void rule__Action__ActionNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1838:1: ( ( ( rule__Action__ActionNameAlternatives_1_0 ) ) )
-            // InternalSimpleMio.g:1839:2: ( ( rule__Action__ActionNameAlternatives_1_0 ) )
+            // InternalSimpleMio.g:1844:1: ( ( ( rule__Action__ActionNameAlternatives_1_0 ) ) )
+            // InternalSimpleMio.g:1845:2: ( ( rule__Action__ActionNameAlternatives_1_0 ) )
             {
-            // InternalSimpleMio.g:1839:2: ( ( rule__Action__ActionNameAlternatives_1_0 ) )
-            // InternalSimpleMio.g:1840:3: ( rule__Action__ActionNameAlternatives_1_0 )
+            // InternalSimpleMio.g:1845:2: ( ( rule__Action__ActionNameAlternatives_1_0 ) )
+            // InternalSimpleMio.g:1846:3: ( rule__Action__ActionNameAlternatives_1_0 )
             {
              before(grammarAccess.getActionAccess().getActionNameAlternatives_1_0()); 
-            // InternalSimpleMio.g:1841:3: ( rule__Action__ActionNameAlternatives_1_0 )
-            // InternalSimpleMio.g:1841:4: rule__Action__ActionNameAlternatives_1_0
+            // InternalSimpleMio.g:1847:3: ( rule__Action__ActionNameAlternatives_1_0 )
+            // InternalSimpleMio.g:1847:4: rule__Action__ActionNameAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Action__ActionNameAlternatives_1_0();
@@ -5648,21 +5680,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__ActionSpecifierAssignment_2"
-    // InternalSimpleMio.g:1849:1: rule__Action__ActionSpecifierAssignment_2 : ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) ) ;
+    // InternalSimpleMio.g:1855:1: rule__Action__ActionSpecifierAssignment_2 : ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) ) ;
     public final void rule__Action__ActionSpecifierAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1853:1: ( ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) ) )
-            // InternalSimpleMio.g:1854:2: ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) )
+            // InternalSimpleMio.g:1859:1: ( ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) ) )
+            // InternalSimpleMio.g:1860:2: ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) )
             {
-            // InternalSimpleMio.g:1854:2: ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) )
-            // InternalSimpleMio.g:1855:3: ( rule__Action__ActionSpecifierAlternatives_2_0 )
+            // InternalSimpleMio.g:1860:2: ( ( rule__Action__ActionSpecifierAlternatives_2_0 ) )
+            // InternalSimpleMio.g:1861:3: ( rule__Action__ActionSpecifierAlternatives_2_0 )
             {
              before(grammarAccess.getActionAccess().getActionSpecifierAlternatives_2_0()); 
-            // InternalSimpleMio.g:1856:3: ( rule__Action__ActionSpecifierAlternatives_2_0 )
-            // InternalSimpleMio.g:1856:4: rule__Action__ActionSpecifierAlternatives_2_0
+            // InternalSimpleMio.g:1862:3: ( rule__Action__ActionSpecifierAlternatives_2_0 )
+            // InternalSimpleMio.g:1862:4: rule__Action__ActionSpecifierAlternatives_2_0
             {
             pushFollow(FOLLOW_2);
             rule__Action__ActionSpecifierAlternatives_2_0();
@@ -5695,17 +5727,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__StrengthAssignment_3_1"
-    // InternalSimpleMio.g:1864:1: rule__Action__StrengthAssignment_3_1 : ( ruleEInt ) ;
+    // InternalSimpleMio.g:1870:1: rule__Action__StrengthAssignment_3_1 : ( ruleEInt ) ;
     public final void rule__Action__StrengthAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1868:1: ( ( ruleEInt ) )
-            // InternalSimpleMio.g:1869:2: ( ruleEInt )
+            // InternalSimpleMio.g:1874:1: ( ( ruleEInt ) )
+            // InternalSimpleMio.g:1875:2: ( ruleEInt )
             {
-            // InternalSimpleMio.g:1869:2: ( ruleEInt )
-            // InternalSimpleMio.g:1870:3: ruleEInt
+            // InternalSimpleMio.g:1875:2: ( ruleEInt )
+            // InternalSimpleMio.g:1876:3: ruleEInt
             {
              before(grammarAccess.getActionAccess().getStrengthEIntParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5736,17 +5768,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Or__RightAssignment_1_2"
-    // InternalSimpleMio.g:1879:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
+    // InternalSimpleMio.g:1885:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
     public final void rule__Or__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1883:1: ( ( ruleAnd ) )
-            // InternalSimpleMio.g:1884:2: ( ruleAnd )
+            // InternalSimpleMio.g:1889:1: ( ( ruleAnd ) )
+            // InternalSimpleMio.g:1890:2: ( ruleAnd )
             {
-            // InternalSimpleMio.g:1884:2: ( ruleAnd )
-            // InternalSimpleMio.g:1885:3: ruleAnd
+            // InternalSimpleMio.g:1890:2: ( ruleAnd )
+            // InternalSimpleMio.g:1891:3: ruleAnd
             {
              before(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5777,17 +5809,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__And__RightAssignment_1_2"
-    // InternalSimpleMio.g:1894:1: rule__And__RightAssignment_1_2 : ( ruleNot ) ;
+    // InternalSimpleMio.g:1900:1: rule__And__RightAssignment_1_2 : ( ruleNot ) ;
     public final void rule__And__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1898:1: ( ( ruleNot ) )
-            // InternalSimpleMio.g:1899:2: ( ruleNot )
+            // InternalSimpleMio.g:1904:1: ( ( ruleNot ) )
+            // InternalSimpleMio.g:1905:2: ( ruleNot )
             {
-            // InternalSimpleMio.g:1899:2: ( ruleNot )
-            // InternalSimpleMio.g:1900:3: ruleNot
+            // InternalSimpleMio.g:1905:2: ( ruleNot )
+            // InternalSimpleMio.g:1906:3: ruleNot
             {
              before(grammarAccess.getAndAccess().getRightNotParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5818,17 +5850,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Not__ConditionalsensorAssignment_0_1_1"
-    // InternalSimpleMio.g:1909:1: rule__Not__ConditionalsensorAssignment_0_1_1 : ( ruleParen ) ;
+    // InternalSimpleMio.g:1915:1: rule__Not__ConditionalsensorAssignment_0_1_1 : ( ruleParen ) ;
     public final void rule__Not__ConditionalsensorAssignment_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1913:1: ( ( ruleParen ) )
-            // InternalSimpleMio.g:1914:2: ( ruleParen )
+            // InternalSimpleMio.g:1919:1: ( ( ruleParen ) )
+            // InternalSimpleMio.g:1920:2: ( ruleParen )
             {
-            // InternalSimpleMio.g:1914:2: ( ruleParen )
-            // InternalSimpleMio.g:1915:3: ruleParen
+            // InternalSimpleMio.g:1920:2: ( ruleParen )
+            // InternalSimpleMio.g:1921:3: ruleParen
             {
              before(grammarAccess.getNotAccess().getConditionalsensorParenParserRuleCall_0_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5859,21 +5891,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__SensorNameAssignment_1"
-    // InternalSimpleMio.g:1924:1: rule__Sensor__SensorNameAssignment_1 : ( ( rule__Sensor__SensorNameAlternatives_1_0 ) ) ;
+    // InternalSimpleMio.g:1930:1: rule__Sensor__SensorNameAssignment_1 : ( ( rule__Sensor__SensorNameAlternatives_1_0 ) ) ;
     public final void rule__Sensor__SensorNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1928:1: ( ( ( rule__Sensor__SensorNameAlternatives_1_0 ) ) )
-            // InternalSimpleMio.g:1929:2: ( ( rule__Sensor__SensorNameAlternatives_1_0 ) )
+            // InternalSimpleMio.g:1934:1: ( ( ( rule__Sensor__SensorNameAlternatives_1_0 ) ) )
+            // InternalSimpleMio.g:1935:2: ( ( rule__Sensor__SensorNameAlternatives_1_0 ) )
             {
-            // InternalSimpleMio.g:1929:2: ( ( rule__Sensor__SensorNameAlternatives_1_0 ) )
-            // InternalSimpleMio.g:1930:3: ( rule__Sensor__SensorNameAlternatives_1_0 )
+            // InternalSimpleMio.g:1935:2: ( ( rule__Sensor__SensorNameAlternatives_1_0 ) )
+            // InternalSimpleMio.g:1936:3: ( rule__Sensor__SensorNameAlternatives_1_0 )
             {
              before(grammarAccess.getSensorAccess().getSensorNameAlternatives_1_0()); 
-            // InternalSimpleMio.g:1931:3: ( rule__Sensor__SensorNameAlternatives_1_0 )
-            // InternalSimpleMio.g:1931:4: rule__Sensor__SensorNameAlternatives_1_0
+            // InternalSimpleMio.g:1937:3: ( rule__Sensor__SensorNameAlternatives_1_0 )
+            // InternalSimpleMio.g:1937:4: rule__Sensor__SensorNameAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Sensor__SensorNameAlternatives_1_0();
@@ -5906,21 +5938,21 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__SensorSpecifierAssignment_2"
-    // InternalSimpleMio.g:1939:1: rule__Sensor__SensorSpecifierAssignment_2 : ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) ) ;
+    // InternalSimpleMio.g:1945:1: rule__Sensor__SensorSpecifierAssignment_2 : ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) ) ;
     public final void rule__Sensor__SensorSpecifierAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1943:1: ( ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) ) )
-            // InternalSimpleMio.g:1944:2: ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) )
+            // InternalSimpleMio.g:1949:1: ( ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) ) )
+            // InternalSimpleMio.g:1950:2: ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) )
             {
-            // InternalSimpleMio.g:1944:2: ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) )
-            // InternalSimpleMio.g:1945:3: ( rule__Sensor__SensorSpecifierAlternatives_2_0 )
+            // InternalSimpleMio.g:1950:2: ( ( rule__Sensor__SensorSpecifierAlternatives_2_0 ) )
+            // InternalSimpleMio.g:1951:3: ( rule__Sensor__SensorSpecifierAlternatives_2_0 )
             {
              before(grammarAccess.getSensorAccess().getSensorSpecifierAlternatives_2_0()); 
-            // InternalSimpleMio.g:1946:3: ( rule__Sensor__SensorSpecifierAlternatives_2_0 )
-            // InternalSimpleMio.g:1946:4: rule__Sensor__SensorSpecifierAlternatives_2_0
+            // InternalSimpleMio.g:1952:3: ( rule__Sensor__SensorSpecifierAlternatives_2_0 )
+            // InternalSimpleMio.g:1952:4: rule__Sensor__SensorSpecifierAlternatives_2_0
             {
             pushFollow(FOLLOW_2);
             rule__Sensor__SensorSpecifierAlternatives_2_0();
@@ -5953,17 +5985,17 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__StrengthAssignment_3_1"
-    // InternalSimpleMio.g:1954:1: rule__Sensor__StrengthAssignment_3_1 : ( ruleEInt ) ;
+    // InternalSimpleMio.g:1960:1: rule__Sensor__StrengthAssignment_3_1 : ( ruleEInt ) ;
     public final void rule__Sensor__StrengthAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSimpleMio.g:1958:1: ( ( ruleEInt ) )
-            // InternalSimpleMio.g:1959:2: ( ruleEInt )
+            // InternalSimpleMio.g:1964:1: ( ( ruleEInt ) )
+            // InternalSimpleMio.g:1965:2: ( ruleEInt )
             {
-            // InternalSimpleMio.g:1959:2: ( ruleEInt )
-            // InternalSimpleMio.g:1960:3: ruleEInt
+            // InternalSimpleMio.g:1965:2: ( ruleEInt )
+            // InternalSimpleMio.g:1966:3: ruleEInt
             {
              before(grammarAccess.getSensorAccess().getStrengthEIntParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5999,11 +6031,11 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000004107C00000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000004107C00002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000C107C00000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000C107C00002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000032L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000004007C00000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000C007C00000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000200000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000003800L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000400000000L});
@@ -6016,8 +6048,8 @@ public class InternalSimpleMioParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000002000000002L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000007C00000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x00000008F800C000L});
 
 }

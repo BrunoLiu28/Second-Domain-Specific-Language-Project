@@ -323,15 +323,16 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Assignment cConditionalsensorAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
 		private final RuleCall cConditionalsensorParenParserRuleCall_0_1_1_0 = (RuleCall)cConditionalsensorAssignment_0_1_1.eContents().get(0);
 		private final RuleCall cSensorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cParenParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Not returns ConditionalSensor:
 		//    {Not}
-		//    ("not" conditionalsensor=Paren) | Sensor
+		//    ("not" conditionalsensor=Paren) | Sensor | Paren
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Not}
-		//("not" conditionalsensor=Paren) | Sensor
+		//("not" conditionalsensor=Paren) | Sensor | Paren
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{Not}
@@ -355,6 +356,9 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		
 		//Sensor
 		public RuleCall getSensorParserRuleCall_1() { return cSensorParserRuleCall_1; }
+		
+		//Paren
+		public RuleCall getParenParserRuleCall_2() { return cParenParserRuleCall_2; }
 	}
 	public class ParenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.SimpleMio.Paren");
@@ -533,6 +537,7 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	private final SensorElements pSensor;
 	private final EStringElements pEString;
 	private final EIntElements pEInt;
+	private final TerminalRule tSL_COMMENT;
 	
 	private final Grammar grammar;
 	
@@ -554,6 +559,7 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		this.pSensor = new SensorElements();
 		this.pEString = new EStringElements();
 		this.pEInt = new EIntElements();
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.SimpleMio.SL_COMMENT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -655,7 +661,7 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	
 	//Not returns ConditionalSensor:
 	//    {Not}
-	//    ("not" conditionalsensor=Paren) | Sensor
+	//    ("not" conditionalsensor=Paren) | Sensor | Paren
 	//;
 	public NotElements getNotAccess() {
 		return pNot;
@@ -710,6 +716,12 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getEIntAccess().getRule();
 	}
 	
+	//@Override
+	//terminal SL_COMMENT: '#' !('\n'|'\r')* ('\r'? '\n')?;
+	public TerminalRule getSL_COMMENTRule() {
+		return tSL_COMMENT;
+	}
+	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
@@ -731,11 +743,6 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	//terminal ML_COMMENT : '/*' -> '*/';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
-	}
-	
-	//terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
-	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
 	}
 	
 	//terminal WS         : (' '|'\t'|'\r'|'\n')+;

@@ -21,12 +21,16 @@ import org.xtext.example.mydsl.services.SimpleMioGrammarAccess;
 public class SimpleMioSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SimpleMioGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Paren_LeftParenthesisKeyword_0_a;
+	protected AbstractElementAlias match_Paren_LeftParenthesisKeyword_0_p;
 	protected AbstractElementAlias match_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__a;
 	protected AbstractElementAlias match_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SimpleMioGrammarAccess) access;
+		match_Paren_LeftParenthesisKeyword_0_a = new TokenAlias(true, true, grammarAccess.getParenAccess().getLeftParenthesisKeyword_0());
+		match_Paren_LeftParenthesisKeyword_0_p = new TokenAlias(true, false, grammarAccess.getParenAccess().getLeftParenthesisKeyword_0());
 		match_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getProgramAccess().getNumberSignKeyword_1_1_0()), new TokenAlias(true, true, grammarAccess.getProgramAccess().getEStringParserRuleCall_1_1_1()));
 		match_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getProgramAccess().getNumberSignKeyword_1_1_0()), new TokenAlias(true, true, grammarAccess.getProgramAccess().getEStringParserRuleCall_1_1_1()));
 	}
@@ -54,7 +58,11 @@ public class SimpleMioSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__a.equals(syntax))
+			if (match_Paren_LeftParenthesisKeyword_0_a.equals(syntax))
+				emit_Paren_LeftParenthesisKeyword_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Paren_LeftParenthesisKeyword_0_p.equals(syntax))
+				emit_Paren_LeftParenthesisKeyword_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__a.equals(syntax))
 				emit_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__p.equals(syntax))
 				emit_Program___NumberSignKeyword_1_1_0_EStringParserRuleCall_1_1_1_a__p(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -62,6 +70,48 @@ public class SimpleMioSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     '('*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'not' conditionalsensor=Paren
+	 *     (rule start) (ambiguity) sensorName='button'
+	 *     (rule start) (ambiguity) sensorName='line'
+	 *     (rule start) (ambiguity) sensorName='motor'
+	 *     (rule start) (ambiguity) sensorName='obstacle'
+	 *     (rule start) (ambiguity) sensorName='sound'
+	 *     (rule start) (ambiguity) {And.left=}
+	 *     (rule start) (ambiguity) {Or.left=}
+	 
+	 * </pre>
+	 */
+	protected void emit_Paren_LeftParenthesisKeyword_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     '('+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'not' conditionalsensor=Paren
+	 *     (rule start) (ambiguity) sensorName='button'
+	 *     (rule start) (ambiguity) sensorName='line'
+	 *     (rule start) (ambiguity) sensorName='motor'
+	 *     (rule start) (ambiguity) sensorName='obstacle'
+	 *     (rule start) (ambiguity) sensorName='sound'
+	 *     (rule start) (ambiguity) {And.left=}
+	 *     (rule start) (ambiguity) {Or.left=}
+	 
+	 * </pre>
+	 */
+	protected void emit_Paren_LeftParenthesisKeyword_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * <pre>
 	 * Ambiguous syntax:

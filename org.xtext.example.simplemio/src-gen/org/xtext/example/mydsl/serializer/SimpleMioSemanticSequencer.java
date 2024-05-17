@@ -101,6 +101,7 @@ public class SimpleMioSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Or.Or_1_0 returns And
 	 *     And returns And
 	 *     And.And_1_0 returns And
+	 *     Not returns And
 	 *     Paren returns And
 	 *
 	 * Constraint:
@@ -185,6 +186,9 @@ public class SimpleMioSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 * Contexts:
 	 *     Or returns Or
 	 *     Or.Or_1_0 returns Or
+	 *     And returns Or
+	 *     And.And_1_0 returns Or
+	 *     Not returns Or
 	 *     Paren returns Or
 	 *
 	 * Constraint:

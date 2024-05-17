@@ -10,7 +10,7 @@ Model returns Model:
 
 Program returns Program:
 	{Program} 
-	(events+=Event | ("#" EString*))+
+	(events+=Event)+
 	;
 		
 Event returns Event:
@@ -34,7 +34,7 @@ And returns ConditionalSensor:
 
 Not returns ConditionalSensor:
 	{Not}
-	("not" conditionalsensor=Paren) | Sensor
+	("not" conditionalsensor=Paren) | Sensor | Paren
 ;
 
 Paren returns ConditionalSensor:
@@ -53,3 +53,6 @@ EString returns ecore::EString:
 
 EInt returns ecore::EInt:
 	'-'? INT;
+	
+@Override 
+terminal SL_COMMENT: '#' !('\n'|'\r')* ('\r'? '\n')?;
