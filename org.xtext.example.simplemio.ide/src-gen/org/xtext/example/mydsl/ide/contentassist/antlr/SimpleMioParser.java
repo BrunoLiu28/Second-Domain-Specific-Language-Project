@@ -31,7 +31,6 @@ public class SimpleMioParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SimpleMioGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getProgramAccess().getAlternatives_1(), "rule__Program__Alternatives_1");
 			builder.put(grammarAccess.getActionAccess().getActionNameAlternatives_1_0(), "rule__Action__ActionNameAlternatives_1_0");
 			builder.put(grammarAccess.getActionAccess().getActionSpecifierAlternatives_2_0(), "rule__Action__ActionSpecifierAlternatives_2_0");
 			builder.put(grammarAccess.getNotAccess().getAlternatives(), "rule__Not__Alternatives");
@@ -39,8 +38,6 @@ public class SimpleMioParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSensorAccess().getSensorSpecifierAlternatives_2_0(), "rule__Sensor__SensorSpecifierAlternatives_2_0");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
-			builder.put(grammarAccess.getProgramAccess().getGroup_1_1(), "rule__Program__Group_1_1__0");
 			builder.put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
 			builder.put(grammarAccess.getEventAccess().getGroup_4(), "rule__Event__Group_4__0");
 			builder.put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
@@ -51,12 +48,14 @@ public class SimpleMioParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAndAccess().getGroup_1(), "rule__And__Group_1__0");
 			builder.put(grammarAccess.getNotAccess().getGroup_0(), "rule__Not__Group_0__0");
 			builder.put(grammarAccess.getNotAccess().getGroup_0_1(), "rule__Not__Group_0_1__0");
+			builder.put(grammarAccess.getNotAccess().getGroup_1(), "rule__Not__Group_1__0");
+			builder.put(grammarAccess.getNotAccess().getGroup_1_1(), "rule__Not__Group_1_1__0");
 			builder.put(grammarAccess.getParenAccess().getGroup(), "rule__Paren__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup(), "rule__Sensor__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_3(), "rule__Sensor__Group_3__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getModelAccess().getProgramAssignment_1(), "rule__Model__ProgramAssignment_1");
-			builder.put(grammarAccess.getProgramAccess().getEventsAssignment_1_0(), "rule__Program__EventsAssignment_1_0");
+			builder.put(grammarAccess.getProgramAccess().getEventsAssignment(), "rule__Program__EventsAssignment");
 			builder.put(grammarAccess.getEventAccess().getConditionalsensorAssignment_1(), "rule__Event__ConditionalsensorAssignment_1");
 			builder.put(grammarAccess.getEventAccess().getActionsAssignment_3(), "rule__Event__ActionsAssignment_3");
 			builder.put(grammarAccess.getEventAccess().getActionsAssignment_4_1(), "rule__Event__ActionsAssignment_4_1");
@@ -66,6 +65,7 @@ public class SimpleMioParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOrAccess().getRightAssignment_1_2(), "rule__Or__RightAssignment_1_2");
 			builder.put(grammarAccess.getAndAccess().getRightAssignment_1_2(), "rule__And__RightAssignment_1_2");
 			builder.put(grammarAccess.getNotAccess().getConditionalsensorAssignment_0_1_1(), "rule__Not__ConditionalsensorAssignment_0_1_1");
+			builder.put(grammarAccess.getNotAccess().getConditionalsensorAssignment_1_1_1(), "rule__Not__ConditionalsensorAssignment_1_1_1");
 			builder.put(grammarAccess.getSensorAccess().getSensorNameAssignment_1(), "rule__Sensor__SensorNameAssignment_1");
 			builder.put(grammarAccess.getSensorAccess().getSensorSpecifierAssignment_2(), "rule__Sensor__SensorSpecifierAssignment_2");
 			builder.put(grammarAccess.getSensorAccess().getStrengthAssignment_3_1(), "rule__Sensor__StrengthAssignment_3_1");

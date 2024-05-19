@@ -25,4 +25,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>model/simplemioModel.aird</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Projeto LD/projecto-2-ld/simplemioModel/model/simplemioModel.aird</location>
+		</link>
+	</linkedResources>
 </projectDescription>

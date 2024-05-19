@@ -1,0 +1,3 @@
+obstacle left -> turn right
+obstacle right -> turn left
+not obstacle front -> move forward

@@ -75,32 +75,40 @@ class SimpleMioGenerator extends AbstractGenerator {
 		«IF cs instanceof Sensor»
 			«IF cs.getSensorName() == "obstacle"»
 				«IF cs.sensorSpecifier == "front"»
-					prox.horizontal[1] > obstacle
-						and prox.horizontal[2] > obstacle
-						and prox.horizontal[3] > obstacle
+					prox.horizontal[1] > obstacle «generateSensorStrength(cs)»
+						and prox.horizontal[2] > obstacle «generateSensorStrength(cs)»
+						and prox.horizontal[3] > obstacle «generateSensorStrength(cs)»
 				«ELSEIF cs.sensorSpecifier == "right"»
-					prox.horizonal[3] > obstacle
-						and prox.horizontal[4] > obstacle
+					prox.horizontal[3] > obstacle «generateSensorStrength(cs)»
+						and prox.horizontal[4] > obstacle «generateSensorStrength(cs)»
 				«ELSEIF cs.sensorSpecifier == "left"»
-					prox.horizonal[0] > obstacle
-						and prox.horizontal[1] > obstacle
+					prox.horizontal[0] > obstacle «generateSensorStrength(cs)»
+						and prox.horizontal[1] > obstacle «generateSensorStrength(cs)»
 				«ELSEIF cs.sensorSpecifier == "back"»
-						prox.horizonal[5] > obstacle
-						and prox.horizontal[6] > obstacle
+						prox.horizontal[5] > obstacle «generateSensorStrength(cs)»
+						and prox.horizontal[6] > obstacle «generateSensorStrength(cs)»
 				«ENDIF»
 			«ELSEIF cs.getSensorName() == "line"»
 				«IF cs.getSensorSpecifier() == "right"»
-					prox.ground.delta[1] < line
+					prox.ground.delta[1] < line «generateSensorStrength(cs)»
 				«ELSEIF cs.getSensorSpecifier() == "left"»
-					prox.ground.delta[0] < line
+					prox.ground.delta[0] < line «generateSensorStrength(cs)»
 				«ENDIF»
 			«ELSEIF cs.getSensorName() == "sound"»
-				mic.intensity > mic
+				mic.intensity > mic «generateSensorStrength(cs)»
 			«ELSEIF cs.getSensorName() == "motor"»
 				(motor.left.speed > 0 or motor.right.speed > 0)
 			«ELSEIF cs.getSensorName() == "button"»
 				«IF cs.getSensorSpecifier() == "center"»
 					button.center > 0
+				«ELSEIF cs.getSensorSpecifier() == "left"»
+					button.left > 0
+				«ELSEIF cs.getSensorSpecifier() == "right"»
+					button.right > 0
+				«ELSEIF cs.getSensorSpecifier() == "up"»
+					button.forward > 0
+				«ELSEIF cs.getSensorSpecifier() == "down"»
+					button.backward > 0
 				«ENDIF»
 			«ENDIF»
 		«ELSEIF cs instanceof Not»
@@ -117,31 +125,48 @@ class SimpleMioGenerator extends AbstractGenerator {
 		'''
 		«IF action.getActionName() == "move"»
 			«IF action.getActionSpecifier() == "forward"»
-				motor.left.target = motor
-				motor.right.target = motor
+				motor.left.target = motor «generateActionStrength(action)»
+				motor.right.target = motor «generateActionStrength(action)»
 			«ELSEIF action.getActionSpecifier() == "backward"»
-				motor.left.target = -motor
-				motor.right.target = -motor
-			«ELSEIF action.getActionSpecifier() == "stop"»
-				motor.left.target = 0
-				motor.right.target = 0
+				motor.left.target = -motor «generateActionStrength(action)»
+				motor.right.target = -motor «generateActionStrength(action)»
 			«ENDIF»
+		«ELSEIF action.getActionName() == "stop"»
+				motor.left.target = 0
+				motor.right.target = 0	
 		«ELSEIF action.getActionName() == "turn"»
 			«IF action.getActionSpecifier() == "right"»
-				motor.left.target = motor
-				motor.right.target = -motor
+				motor.left.target = motor «generateActionStrength(action)»
+				motor.right.target = -motor «generateActionStrength(action)»
 			«ELSEIF action.getActionSpecifier() == "left"»
-				motor.left.target = -motor
-				motor.right.target = motor
+				motor.left.target = -motor «generateActionStrength(action)»
+				motor.right.target = motor «generateActionStrength(action)»
 			«ENDIF»
 		«ELSEIF action.getActionName() == "led"»
 			«IF action.getActionSpecifier() == "red"»
-				led.top(255, 0 ,0)
+				call leds.top(127 «generateActionStrength(action)», 0 ,0)
 			«ELSEIF action.getActionSpecifier() == "green"»
-				led.top(0, 255, 0)
+				call leds.top(0, 127 «generateActionStrength(action)», 0)
 			«ELSEIF action.getActionSpecifier() == "blue"»
-				led.top(0, 0, 255)
+				call leds.top(0, 0, 127 «generateActionStrength(action)»)
+			«ELSEIF action.getActionSpecifier() == "off"»
+				call leds.top(0, 0, 0)
 			«ENDIF»
+		«ENDIF»
+		'''
+	}
+	
+	def generateSensorStrength(Sensor sensor) {
+		'''
+		«IF sensor.getStrength() !== null»
+			* «sensor.getStrength()» / 5
+		«ENDIF»
+		'''
+	}
+	def generateActionStrength(Action action) {
+		'''
+		«IF action.getStrength() !== null»
+			* «action.getStrength()» / 5
 		«ENDIF»
 		'''
 	}

@@ -71,12 +71,12 @@ public interface Sensor extends ConditionalSensor {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Strength</em>' attribute.
-	 * @see #setStrength(int)
+	 * @see #setStrength(Integer)
 	 * @see simplemioModel.SimplemioModelPackage#getSensor_Strength()
 	 * @model
 	 * @generated
 	 */
-	int getStrength();
+	Integer getStrength();
 
 	/**
 	 * Sets the value of the '{@link simplemioModel.Sensor#getStrength <em>Strength</em>}' attribute.
@@ -86,6 +86,6 @@ public interface Sensor extends ConditionalSensor {
 	 * @see #getStrength()
 	 * @generated
 	 */
-	void setStrength(int value);
+	void setStrength(Integer value);
 
 } // Sensor

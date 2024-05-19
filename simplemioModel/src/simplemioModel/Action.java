@@ -28,12 +28,12 @@ public interface Action extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Strength</em>' attribute.
-	 * @see #setStrength(int)
+	 * @see #setStrength(Integer)
 	 * @see simplemioModel.SimplemioModelPackage#getAction_Strength()
 	 * @model
 	 * @generated
 	 */
-	int getStrength();
+	Integer getStrength();
 
 	/**
 	 * Sets the value of the '{@link simplemioModel.Action#getStrength <em>Strength</em>}' attribute.
@@ -43,7 +43,7 @@ public interface Action extends EObject {
 	 * @see #getStrength()
 	 * @generated
 	 */
-	void setStrength(int value);
+	void setStrength(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Action Name</b></em>' attribute.

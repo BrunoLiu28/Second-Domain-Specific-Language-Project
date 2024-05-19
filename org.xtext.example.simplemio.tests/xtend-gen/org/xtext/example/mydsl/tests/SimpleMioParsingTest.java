@@ -10,12 +10,14 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
+import org.eclipse.xtext.testing.validation.ValidationTestHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.xtext.example.mydsl.validation.SimpleMioValidator;
 import simplemioModel.Model;
+import simplemioModel.SimplemioModelPackage;
 
 @ExtendWith(InjectionExtension.class)
 @InjectWith(SimpleMioInjectorProvider.class)
@@ -24,21 +26,268 @@ public class SimpleMioParsingTest {
   @Inject
   private ParseHelper<Model> parseHelper;
 
+  @Inject
+  private ValidationTestHelper validator;
+
   @Test
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
+      _builder.append("obstacle front -> move forward, turn left");
       _builder.newLine();
-      final Model result = this.parseHelper.parse(_builder);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+      _builder.append("line left -> led red @99");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getAction(), SimpleMioValidator.SAME_ACTUATOR_ACTION, 
+        "Cannot have more than one turn or move action");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testMultipleEvents() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front -> move forward, turn left");
+      _builder.newLine();
+      _builder.append("line left -> led red @99");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getAction(), SimpleMioValidator.SAME_ACTUATOR_ACTION, 
+        "Cannot have more than one turn or move action");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testInvalidEvent() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle -> move forward");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getSensor(), SimpleMioValidator.MISSING_SPECIFIER, 
+        "Sensor \'obstacle\' requires a specifier");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testConditionalSensors() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(obstacle front or line left) -> move forward");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertNoError(input, "It was suppose to not find any type checking errors and found one");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testNotCondition() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("not (obstacle front) -> turn left @3");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertNoError(input, "It was suppose to not find any type checking errors and found one");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testNestedConditions() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("((obstacle front or line left) and not (button center)) -> move left");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getAction(), SimpleMioValidator.INVALID_MOVE_ACTION_SPECIFIER, 
+        "Invalid specifier \'left\' used for \'move\'");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testMultipleActions() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front -> move forward, turn left, led red");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getAction(), SimpleMioValidator.SAME_ACTUATOR_ACTION, 
+        "Cannot have more than one turn or move action");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testInvalidActionSpecifier() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front -> move forwards");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertFalse(errors.isEmpty(), "Expected errors but found none");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testNoActionSpecifier() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front -> forward");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertFalse(errors.isEmpty(), "Expected errors but found none");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testMissingAction() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front ->");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertFalse(errors.isEmpty(), "Expected errors but found none");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testInvalidNestedConditions() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(obstacle front or (line left and)) -> move forward");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertFalse(errors.isEmpty(), "Expected errors but found none");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testInvalidNotCondition() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("not obstacle front -> turn left ");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertNoError(input, "It was suppose to not find any type checking errors and found one");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testValidStop() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front -> stop");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "It was suppose to not find any parsing errors and found one");
+      this.validator.assertNoError(input, "It was suppose to not find any type checking errors and found one");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testInvalidStop() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front -> stop left");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "Expected errors but found none");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getAction(), SimpleMioValidator.INVALID_STOP_ACTION_SPECIFIER, 
+        "Invalid specifier \'left\' used for \'stop\'. Stop does not have any specifier");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testInvalidIntensityStop() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("obstacle front -> stop @8");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "Expected errors but found none");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getAction(), SimpleMioValidator.INVALID_INTENSITY, 
+        "\'Stop\' does not support action intensity");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void testInvalidIntensityLedOff() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("sound -> led off @2");
+      _builder.newLine();
+      final Model input = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(input);
+      final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
+      Assertions.assertTrue(errors.isEmpty(), "Expected errors but found none");
+      this.validator.assertError(input, SimplemioModelPackage.eINSTANCE.getAction(), SimpleMioValidator.INVALID_INTENSITY, 
+        "\'Led off\' does not support action intensity");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

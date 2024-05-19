@@ -75,7 +75,7 @@ public class SensorImpl extends ConditionalSensorImpl implements Sensor {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int STRENGTH_EDEFAULT = 0;
+	protected static final Integer STRENGTH_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStrength() <em>Strength</em>}' attribute.
@@ -85,7 +85,7 @@ public class SensorImpl extends ConditionalSensorImpl implements Sensor {
 	 * @generated
 	 * @ordered
 	 */
-	protected int strength = STRENGTH_EDEFAULT;
+	protected Integer strength = STRENGTH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,7 +153,7 @@ public class SensorImpl extends ConditionalSensorImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getStrength() {
+	public Integer getStrength() {
 		return strength;
 	}
 
@@ -162,8 +162,8 @@ public class SensorImpl extends ConditionalSensorImpl implements Sensor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStrength(int newStrength) {
-		int oldStrength = strength;
+	public void setStrength(Integer newStrength) {
+		Integer oldStrength = strength;
 		strength = newStrength;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimplemioModelPackage.SENSOR__STRENGTH, oldStrength, strength));
@@ -242,7 +242,7 @@ public class SensorImpl extends ConditionalSensorImpl implements Sensor {
 			case SimplemioModelPackage.SENSOR__SENSOR_SPECIFIER:
 				return SENSOR_SPECIFIER_EDEFAULT == null ? sensorSpecifier != null : !SENSOR_SPECIFIER_EDEFAULT.equals(sensorSpecifier);
 			case SimplemioModelPackage.SENSOR__STRENGTH:
-				return strength != STRENGTH_EDEFAULT;
+				return STRENGTH_EDEFAULT == null ? strength != null : !STRENGTH_EDEFAULT.equals(strength);
 		}
 		return super.eIsSet(featureID);
 	}

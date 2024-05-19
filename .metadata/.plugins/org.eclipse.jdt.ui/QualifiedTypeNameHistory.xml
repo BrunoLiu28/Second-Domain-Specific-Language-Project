@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.CrossReference"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.EReference"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.Grammar"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.GrammarUtil"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.scoping.IScope"/>
+    <fullyQualifiedTypeName name="java.lang.Iterable"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.resource.IEObjectDescription"/>
+    <fullyQualifiedTypeName name="java.awt.Event"/>
+    <fullyQualifiedTypeName name="simplemioModel.Sensor"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="org.xtext.example.mydsl.validation.SimpleMioValidator"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.EPackage"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.EPackage.Registry"/>
+    <fullyQualifiedTypeName name="simplemioModel.SimplemioModelPackage"/>
+    <fullyQualifiedTypeName name="com.google.inject.Injector"/>
+</qualifiedTypeNameHistroy>

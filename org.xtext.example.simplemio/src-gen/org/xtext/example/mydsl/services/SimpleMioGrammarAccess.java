@@ -50,45 +50,19 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	public class ProgramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.SimpleMio.Program");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cProgramAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cEventsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cEventsEventParserRuleCall_1_0_0 = (RuleCall)cEventsAssignment_1_0.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Keyword cNumberSignKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final RuleCall cEStringParserRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Assignment cEventsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cEventsEventParserRuleCall_0 = (RuleCall)cEventsAssignment.eContents().get(0);
 		
 		//Program returns Program:
-		//    {Program}
-		//    (events+=Event | ("#" EString*))+
+		//    (events+=Event)+
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Program}
-		//(events+=Event | ("#" EString*))+
-		public Group getGroup() { return cGroup; }
-		
-		//{Program}
-		public Action getProgramAction_0() { return cProgramAction_0; }
-		
-		//(events+=Event | ("#" EString*))+
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//events+=Event
-		public Assignment getEventsAssignment_1_0() { return cEventsAssignment_1_0; }
+		//(events+=Event)+
+		public Assignment getEventsAssignment() { return cEventsAssignment; }
 		
 		//Event
-		public RuleCall getEventsEventParserRuleCall_1_0_0() { return cEventsEventParserRuleCall_1_0_0; }
-		
-		//("#" EString*)
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//"#"
-		public Keyword getNumberSignKeyword_1_1_0() { return cNumberSignKeyword_1_1_0; }
-		
-		//EString*
-		public RuleCall getEStringParserRuleCall_1_1_1() { return cEStringParserRuleCall_1_1_1; }
+		public RuleCall getEventsEventParserRuleCall_0() { return cEventsEventParserRuleCall_0; }
 	}
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.SimpleMio.Event");
@@ -152,16 +126,17 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Keyword cActionNameMoveKeyword_1_0_0 = (Keyword)cActionNameAlternatives_1_0.eContents().get(0);
 		private final Keyword cActionNameLedKeyword_1_0_1 = (Keyword)cActionNameAlternatives_1_0.eContents().get(1);
 		private final Keyword cActionNameTurnKeyword_1_0_2 = (Keyword)cActionNameAlternatives_1_0.eContents().get(2);
+		private final Keyword cActionNameStopKeyword_1_0_3 = (Keyword)cActionNameAlternatives_1_0.eContents().get(3);
 		private final Assignment cActionSpecifierAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Alternatives cActionSpecifierAlternatives_2_0 = (Alternatives)cActionSpecifierAssignment_2.eContents().get(0);
 		private final Keyword cActionSpecifierLeftKeyword_2_0_0 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(0);
 		private final Keyword cActionSpecifierRightKeyword_2_0_1 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(1);
 		private final Keyword cActionSpecifierForwardKeyword_2_0_2 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(2);
 		private final Keyword cActionSpecifierBackwardKeyword_2_0_3 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(3);
-		private final Keyword cActionSpecifierStopKeyword_2_0_4 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(4);
-		private final Keyword cActionSpecifierRedKeyword_2_0_5 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(5);
-		private final Keyword cActionSpecifierGreenKeyword_2_0_6 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(6);
-		private final Keyword cActionSpecifierBlueKeyword_2_0_7 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(7);
+		private final Keyword cActionSpecifierRedKeyword_2_0_4 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(4);
+		private final Keyword cActionSpecifierGreenKeyword_2_0_5 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(5);
+		private final Keyword cActionSpecifierBlueKeyword_2_0_6 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(6);
+		private final Keyword cActionSpecifierOffKeyword_2_0_7 = (Keyword)cActionSpecifierAlternatives_2_0.eContents().get(7);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cCommercialAtKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cStrengthAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -169,25 +144,25 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		
 		//Action returns Action:
 		//    {Action}
-		//    actionName=("move" | "led" | "turn")
-		//    actionSpecifier=("left" | "right" | "forward" | "backward" | "stop" | "red" | "green" | "blue")
+		//    actionName=("move" | "led" | "turn" | "stop")
+		//    (actionSpecifier=("left" | "right" | "forward" | "backward" | "red" | "green" | "blue" | "off"))?
 		//    ("@" strength=EInt)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Action}
-		//actionName=("move" | "led" | "turn")
-		//actionSpecifier=("left" | "right" | "forward" | "backward" | "stop" | "red" | "green" | "blue")
+		//actionName=("move" | "led" | "turn" | "stop")
+		//(actionSpecifier=("left" | "right" | "forward" | "backward" | "red" | "green" | "blue" | "off"))?
 		//("@" strength=EInt)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Action}
 		public Action getActionAction_0() { return cActionAction_0; }
 		
-		//actionName=("move" | "led" | "turn")
+		//actionName=("move" | "led" | "turn" | "stop")
 		public Assignment getActionNameAssignment_1() { return cActionNameAssignment_1; }
 		
-		//("move" | "led" | "turn")
+		//("move" | "led" | "turn" | "stop")
 		public Alternatives getActionNameAlternatives_1_0() { return cActionNameAlternatives_1_0; }
 		
 		//"move"
@@ -199,10 +174,13 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//"turn"
 		public Keyword getActionNameTurnKeyword_1_0_2() { return cActionNameTurnKeyword_1_0_2; }
 		
-		//actionSpecifier=("left" | "right" | "forward" | "backward" | "stop" | "red" | "green" | "blue")
+		//"stop"
+		public Keyword getActionNameStopKeyword_1_0_3() { return cActionNameStopKeyword_1_0_3; }
+		
+		//(actionSpecifier=("left" | "right" | "forward" | "backward" | "red" | "green" | "blue" | "off"))?
 		public Assignment getActionSpecifierAssignment_2() { return cActionSpecifierAssignment_2; }
 		
-		//("left" | "right" | "forward" | "backward" | "stop" | "red" | "green" | "blue")
+		//("left" | "right" | "forward" | "backward" | "red" | "green" | "blue" | "off")
 		public Alternatives getActionSpecifierAlternatives_2_0() { return cActionSpecifierAlternatives_2_0; }
 		
 		//"left"
@@ -217,17 +195,17 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//"backward"
 		public Keyword getActionSpecifierBackwardKeyword_2_0_3() { return cActionSpecifierBackwardKeyword_2_0_3; }
 		
-		//"stop"
-		public Keyword getActionSpecifierStopKeyword_2_0_4() { return cActionSpecifierStopKeyword_2_0_4; }
-		
 		//"red"
-		public Keyword getActionSpecifierRedKeyword_2_0_5() { return cActionSpecifierRedKeyword_2_0_5; }
+		public Keyword getActionSpecifierRedKeyword_2_0_4() { return cActionSpecifierRedKeyword_2_0_4; }
 		
 		//"green"
-		public Keyword getActionSpecifierGreenKeyword_2_0_6() { return cActionSpecifierGreenKeyword_2_0_6; }
+		public Keyword getActionSpecifierGreenKeyword_2_0_5() { return cActionSpecifierGreenKeyword_2_0_5; }
 		
 		//"blue"
-		public Keyword getActionSpecifierBlueKeyword_2_0_7() { return cActionSpecifierBlueKeyword_2_0_7; }
+		public Keyword getActionSpecifierBlueKeyword_2_0_6() { return cActionSpecifierBlueKeyword_2_0_6; }
+		
+		//"off"
+		public Keyword getActionSpecifierOffKeyword_2_0_7() { return cActionSpecifierOffKeyword_2_0_7; }
 		
 		//("@" strength=EInt)?
 		public Group getGroup_3() { return cGroup_3; }
@@ -322,21 +300,30 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Keyword cNotKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
 		private final Assignment cConditionalsensorAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
 		private final RuleCall cConditionalsensorParenParserRuleCall_0_1_1_0 = (RuleCall)cConditionalsensorAssignment_0_1_1.eContents().get(0);
-		private final RuleCall cSensorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cParenParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cNotAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cNotKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cConditionalsensorAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cConditionalsensorSensorParserRuleCall_1_1_1_0 = (RuleCall)cConditionalsensorAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cSensorParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cParenParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Not returns ConditionalSensor:
-		//    {Not}
-		//    ("not" conditionalsensor=Paren) | Sensor | Paren
+		//    {Not}("not" conditionalsensor=Paren)
+		//        | {Not}("not" conditionalsensor=Sensor)
+		//        | Sensor
+		//        | Paren
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Not}
-		//("not" conditionalsensor=Paren) | Sensor | Paren
+		//{Not}("not" conditionalsensor=Paren)
+		//    | {Not}("not" conditionalsensor=Sensor)
+		//    | Sensor
+		//    | Paren
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Not}
-		//("not" conditionalsensor=Paren)
+		//{Not}("not" conditionalsensor=Paren)
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{Not}
@@ -354,11 +341,29 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//Paren
 		public RuleCall getConditionalsensorParenParserRuleCall_0_1_1_0() { return cConditionalsensorParenParserRuleCall_0_1_1_0; }
 		
+		//{Not}("not" conditionalsensor=Sensor)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{Not}
+		public Action getNotAction_1_0() { return cNotAction_1_0; }
+		
+		//("not" conditionalsensor=Sensor)
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//"not"
+		public Keyword getNotKeyword_1_1_0() { return cNotKeyword_1_1_0; }
+		
+		//conditionalsensor=Sensor
+		public Assignment getConditionalsensorAssignment_1_1_1() { return cConditionalsensorAssignment_1_1_1; }
+		
 		//Sensor
-		public RuleCall getSensorParserRuleCall_1() { return cSensorParserRuleCall_1; }
+		public RuleCall getConditionalsensorSensorParserRuleCall_1_1_1_0() { return cConditionalsensorSensorParserRuleCall_1_1_1_0; }
+		
+		//Sensor
+		public RuleCall getSensorParserRuleCall_2() { return cSensorParserRuleCall_2; }
 		
 		//Paren
-		public RuleCall getParenParserRuleCall_2() { return cParenParserRuleCall_2; }
+		public RuleCall getParenParserRuleCall_3() { return cParenParserRuleCall_3; }
 	}
 	public class ParenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.SimpleMio.Paren");
@@ -414,7 +419,7 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//        sensorName=("obstacle" | "sound" | "line" | "button" | "motor")
 		//        (sensorSpecifier=("front" | "back" | "left" | "right" | "up" | "down" | "center"))?
 		//        ('@' strength=EInt)?
-		//    ;
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Sensor}
@@ -535,9 +540,9 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	private final NotElements pNot;
 	private final ParenElements pParen;
 	private final SensorElements pSensor;
+	private final TerminalRule tSL_COMMENT;
 	private final EStringElements pEString;
 	private final EIntElements pEInt;
-	private final TerminalRule tSL_COMMENT;
 	
 	private final Grammar grammar;
 	
@@ -557,9 +562,9 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 		this.pNot = new NotElements();
 		this.pParen = new ParenElements();
 		this.pSensor = new SensorElements();
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.SimpleMio.SL_COMMENT");
 		this.pEString = new EStringElements();
 		this.pEInt = new EIntElements();
-		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.SimpleMio.SL_COMMENT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -601,8 +606,7 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Program returns Program:
-	//    {Program}
-	//    (events+=Event | ("#" EString*))+
+	//    (events+=Event)+
 	//    ;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
@@ -625,8 +629,8 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	
 	//Action returns Action:
 	//    {Action}
-	//    actionName=("move" | "led" | "turn")
-	//    actionSpecifier=("left" | "right" | "forward" | "backward" | "stop" | "red" | "green" | "blue")
+	//    actionName=("move" | "led" | "turn" | "stop")
+	//    (actionSpecifier=("left" | "right" | "forward" | "backward" | "red" | "green" | "blue" | "off"))?
 	//    ("@" strength=EInt)?
 	//;
 	public ActionElements getActionAccess() {
@@ -660,8 +664,10 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Not returns ConditionalSensor:
-	//    {Not}
-	//    ("not" conditionalsensor=Paren) | Sensor | Paren
+	//    {Not}("not" conditionalsensor=Paren)
+	//        | {Not}("not" conditionalsensor=Sensor)
+	//        | Sensor
+	//        | Paren
 	//;
 	public NotElements getNotAccess() {
 		return pNot;
@@ -687,13 +693,19 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	//        sensorName=("obstacle" | "sound" | "line" | "button" | "motor")
 	//        (sensorSpecifier=("front" | "back" | "left" | "right" | "up" | "down" | "center"))?
 	//        ('@' strength=EInt)?
-	//    ;
+	//;
 	public SensorElements getSensorAccess() {
 		return pSensor;
 	}
 	
 	public ParserRule getSensorRule() {
 		return getSensorAccess().getRule();
+	}
+	
+	//@Override
+	//terminal SL_COMMENT: '#' !('\n'|'\r')* ('\r'? '\n')?;
+	public TerminalRule getSL_COMMENTRule() {
+		return tSL_COMMENT;
 	}
 	
 	//EString returns ecore::EString:
@@ -714,12 +726,6 @@ public class SimpleMioGrammarAccess extends AbstractElementFinder.AbstractGramma
 	
 	public ParserRule getEIntRule() {
 		return getEIntAccess().getRule();
-	}
-	
-	//@Override
-	//terminal SL_COMMENT: '#' !('\n'|'\r')* ('\r'? '\n')?;
-	public TerminalRule getSL_COMMENTRule() {
-		return tSL_COMMENT;
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

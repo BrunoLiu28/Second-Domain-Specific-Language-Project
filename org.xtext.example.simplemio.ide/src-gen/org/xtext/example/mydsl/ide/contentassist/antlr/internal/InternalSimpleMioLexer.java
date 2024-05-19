@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalSimpleMioLexer extends Lexer {
-    public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=7;
+    public static final int RULE_STRING=7;
+    public static final int RULE_SL_COMMENT=5;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__37=37;
@@ -34,13 +34,13 @@ public class InternalSimpleMioLexer extends Lexer {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=6;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=4;
     public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=8;
@@ -133,10 +133,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:14:7: ( 'left' )
-            // InternalSimpleMio.g:14:9: 'left'
+            // InternalSimpleMio.g:14:7: ( 'stop' )
+            // InternalSimpleMio.g:14:9: 'stop'
             {
-            match("left"); 
+            match("stop"); 
 
 
             }
@@ -154,10 +154,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:15:7: ( 'right' )
-            // InternalSimpleMio.g:15:9: 'right'
+            // InternalSimpleMio.g:15:7: ( 'left' )
+            // InternalSimpleMio.g:15:9: 'left'
             {
-            match("right"); 
+            match("left"); 
 
 
             }
@@ -175,10 +175,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:16:7: ( 'forward' )
-            // InternalSimpleMio.g:16:9: 'forward'
+            // InternalSimpleMio.g:16:7: ( 'right' )
+            // InternalSimpleMio.g:16:9: 'right'
             {
-            match("forward"); 
+            match("right"); 
 
 
             }
@@ -196,10 +196,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:17:7: ( 'backward' )
-            // InternalSimpleMio.g:17:9: 'backward'
+            // InternalSimpleMio.g:17:7: ( 'forward' )
+            // InternalSimpleMio.g:17:9: 'forward'
             {
-            match("backward"); 
+            match("forward"); 
 
 
             }
@@ -217,10 +217,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:18:7: ( 'stop' )
-            // InternalSimpleMio.g:18:9: 'stop'
+            // InternalSimpleMio.g:18:7: ( 'backward' )
+            // InternalSimpleMio.g:18:9: 'backward'
             {
-            match("stop"); 
+            match("backward"); 
 
 
             }
@@ -301,10 +301,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:22:7: ( 'obstacle' )
-            // InternalSimpleMio.g:22:9: 'obstacle'
+            // InternalSimpleMio.g:22:7: ( 'off' )
+            // InternalSimpleMio.g:22:9: 'off'
             {
-            match("obstacle"); 
+            match("off"); 
 
 
             }
@@ -322,10 +322,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:23:7: ( 'sound' )
-            // InternalSimpleMio.g:23:9: 'sound'
+            // InternalSimpleMio.g:23:7: ( 'obstacle' )
+            // InternalSimpleMio.g:23:9: 'obstacle'
             {
-            match("sound"); 
+            match("obstacle"); 
 
 
             }
@@ -343,10 +343,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:24:7: ( 'line' )
-            // InternalSimpleMio.g:24:9: 'line'
+            // InternalSimpleMio.g:24:7: ( 'sound' )
+            // InternalSimpleMio.g:24:9: 'sound'
             {
-            match("line"); 
+            match("sound"); 
 
 
             }
@@ -364,10 +364,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:25:7: ( 'button' )
-            // InternalSimpleMio.g:25:9: 'button'
+            // InternalSimpleMio.g:25:7: ( 'line' )
+            // InternalSimpleMio.g:25:9: 'line'
             {
-            match("button"); 
+            match("line"); 
 
 
             }
@@ -385,10 +385,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:26:7: ( 'motor' )
-            // InternalSimpleMio.g:26:9: 'motor'
+            // InternalSimpleMio.g:26:7: ( 'button' )
+            // InternalSimpleMio.g:26:9: 'button'
             {
-            match("motor"); 
+            match("button"); 
 
 
             }
@@ -406,10 +406,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:27:7: ( 'front' )
-            // InternalSimpleMio.g:27:9: 'front'
+            // InternalSimpleMio.g:27:7: ( 'motor' )
+            // InternalSimpleMio.g:27:9: 'motor'
             {
-            match("front"); 
+            match("motor"); 
 
 
             }
@@ -427,10 +427,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:28:7: ( 'back' )
-            // InternalSimpleMio.g:28:9: 'back'
+            // InternalSimpleMio.g:28:7: ( 'front' )
+            // InternalSimpleMio.g:28:9: 'front'
             {
-            match("back"); 
+            match("front"); 
 
 
             }
@@ -448,10 +448,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:29:7: ( 'up' )
-            // InternalSimpleMio.g:29:9: 'up'
+            // InternalSimpleMio.g:29:7: ( 'back' )
+            // InternalSimpleMio.g:29:9: 'back'
             {
-            match("up"); 
+            match("back"); 
 
 
             }
@@ -469,10 +469,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:30:7: ( 'down' )
-            // InternalSimpleMio.g:30:9: 'down'
+            // InternalSimpleMio.g:30:7: ( 'up' )
+            // InternalSimpleMio.g:30:9: 'up'
             {
-            match("down"); 
+            match("up"); 
 
 
             }
@@ -490,10 +490,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:31:7: ( 'center' )
-            // InternalSimpleMio.g:31:9: 'center'
+            // InternalSimpleMio.g:31:7: ( 'down' )
+            // InternalSimpleMio.g:31:9: 'down'
             {
-            match("center"); 
+            match("down"); 
 
 
             }
@@ -511,10 +511,11 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:32:7: ( '#' )
-            // InternalSimpleMio.g:32:9: '#'
+            // InternalSimpleMio.g:32:7: ( 'center' )
+            // InternalSimpleMio.g:32:9: 'center'
             {
-            match('#'); 
+            match("center"); 
+
 
             }
 
@@ -715,11 +716,11 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1975:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalSimpleMio.g:1975:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalSimpleMio.g:1935:17: ( '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalSimpleMio.g:1935:19: '#' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('#'); 
-            // InternalSimpleMio.g:1975:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalSimpleMio.g:1935:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -732,7 +733,7 @@ public class InternalSimpleMioLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalSimpleMio.g:1975:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalSimpleMio.g:1935:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -752,7 +753,7 @@ public class InternalSimpleMioLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalSimpleMio.g:1975:39: ( ( '\\r' )? '\\n' )?
+            // InternalSimpleMio.g:1935:39: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -761,9 +762,9 @@ public class InternalSimpleMioLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalSimpleMio.g:1975:40: ( '\\r' )? '\\n'
+                    // InternalSimpleMio.g:1935:40: ( '\\r' )? '\\n'
                     {
-                    // InternalSimpleMio.g:1975:40: ( '\\r' )?
+                    // InternalSimpleMio.g:1935:40: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -772,7 +773,7 @@ public class InternalSimpleMioLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // InternalSimpleMio.g:1975:40: '\\r'
+                            // InternalSimpleMio.g:1935:40: '\\r'
                             {
                             match('\r'); 
 
@@ -804,10 +805,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1977:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalSimpleMio.g:1977:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSimpleMio.g:1937:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalSimpleMio.g:1937:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalSimpleMio.g:1977:11: ( '^' )?
+            // InternalSimpleMio.g:1937:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -816,7 +817,7 @@ public class InternalSimpleMioLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalSimpleMio.g:1977:11: '^'
+                    // InternalSimpleMio.g:1937:11: '^'
                     {
                     match('^'); 
 
@@ -834,7 +835,7 @@ public class InternalSimpleMioLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalSimpleMio.g:1977:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSimpleMio.g:1937:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -883,10 +884,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1979:10: ( ( '0' .. '9' )+ )
-            // InternalSimpleMio.g:1979:12: ( '0' .. '9' )+
+            // InternalSimpleMio.g:1939:10: ( ( '0' .. '9' )+ )
+            // InternalSimpleMio.g:1939:12: ( '0' .. '9' )+
             {
-            // InternalSimpleMio.g:1979:12: ( '0' .. '9' )+
+            // InternalSimpleMio.g:1939:12: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -900,7 +901,7 @@ public class InternalSimpleMioLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalSimpleMio.g:1979:13: '0' .. '9'
+            	    // InternalSimpleMio.g:1939:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -932,10 +933,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1981:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalSimpleMio.g:1981:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSimpleMio.g:1941:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalSimpleMio.g:1941:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalSimpleMio.g:1981:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSimpleMio.g:1941:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -953,10 +954,10 @@ public class InternalSimpleMioLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalSimpleMio.g:1981:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalSimpleMio.g:1941:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalSimpleMio.g:1981:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalSimpleMio.g:1941:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -972,7 +973,7 @@ public class InternalSimpleMioLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalSimpleMio.g:1981:21: '\\\\' .
+                    	    // InternalSimpleMio.g:1941:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -980,7 +981,7 @@ public class InternalSimpleMioLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSimpleMio.g:1981:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalSimpleMio.g:1941:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1005,10 +1006,10 @@ public class InternalSimpleMioLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalSimpleMio.g:1981:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalSimpleMio.g:1941:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalSimpleMio.g:1981:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalSimpleMio.g:1941:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -1024,7 +1025,7 @@ public class InternalSimpleMioLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalSimpleMio.g:1981:54: '\\\\' .
+                    	    // InternalSimpleMio.g:1941:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1032,7 +1033,7 @@ public class InternalSimpleMioLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSimpleMio.g:1981:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalSimpleMio.g:1941:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1075,12 +1076,12 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1983:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalSimpleMio.g:1983:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalSimpleMio.g:1943:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalSimpleMio.g:1943:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalSimpleMio.g:1983:24: ( options {greedy=false; } : . )*
+            // InternalSimpleMio.g:1943:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -1105,7 +1106,7 @@ public class InternalSimpleMioLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalSimpleMio.g:1983:52: .
+            	    // InternalSimpleMio.g:1943:52: .
             	    {
             	    matchAny(); 
 
@@ -1135,10 +1136,10 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1985:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalSimpleMio.g:1985:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSimpleMio.g:1945:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalSimpleMio.g:1945:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalSimpleMio.g:1985:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSimpleMio.g:1945:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1192,8 +1193,8 @@ public class InternalSimpleMioLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSimpleMio.g:1987:16: ( . )
-            // InternalSimpleMio.g:1987:18: .
+            // InternalSimpleMio.g:1947:16: ( . )
+            // InternalSimpleMio.g:1947:18: .
             {
             matchAny(); 
 
@@ -1486,37 +1487,37 @@ public class InternalSimpleMioLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\14\36\1\61\1\64\2\uffff\2\36\2\uffff\1\34\2\uffff\3\34\2\uffff\1\36\1\uffff\16\36\1\120\1\121\2\36\6\uffff\2\36\6\uffff\2\36\1\130\4\36\1\135\11\36\2\uffff\2\36\1\151\1\152\1\153\1\36\1\uffff\1\155\1\156\1\157\1\36\1\uffff\2\36\1\164\1\165\1\36\1\167\3\36\1\173\1\36\3\uffff\1\175\3\uffff\1\176\1\36\1\u0080\1\36\2\uffff\1\36\1\uffff\1\u0083\1\u0084\1\36\1\uffff\1\36\2\uffff\1\36\1\uffff\1\36\1\u0089\2\uffff\1\36\1\u008b\1\u008c\1\36\1\uffff\1\36\2\uffff\1\u008f\1\u0090\2\uffff";
+        "\1\uffff\14\36\1\63\2\uffff\2\36\3\uffff\1\34\2\uffff\3\34\2\uffff\1\36\1\uffff\17\36\1\121\1\122\2\36\4\uffff\2\36\7\uffff\2\36\1\131\6\36\1\140\6\36\1\147\1\36\2\uffff\2\36\1\153\1\154\1\155\1\36\1\uffff\1\157\1\160\1\161\1\162\2\36\1\uffff\2\36\1\170\1\171\2\36\1\uffff\1\36\1\175\1\36\3\uffff\1\177\4\uffff\1\u0080\1\u0081\1\36\1\u0083\1\36\2\uffff\1\36\1\u0086\1\36\1\uffff\1\36\3\uffff\1\36\1\uffff\1\36\1\u008b\1\uffff\1\36\1\u008d\1\u008e\1\36\1\uffff\1\36\2\uffff\1\u0091\1\u0092\2\uffff";
     static final String DFA12_eofS =
-        "\u0091\uffff";
+        "\u0093\uffff";
     static final String DFA12_minS =
-        "\1\0\1\157\1\145\1\165\1\145\1\157\1\141\1\157\1\162\1\142\1\160\1\157\1\145\1\0\1\76\2\uffff\1\156\1\157\2\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\164\1\uffff\1\144\1\156\1\162\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\157\1\165\1\145\1\163\2\60\1\167\1\156\6\uffff\1\144\1\164\6\uffff\1\145\1\157\1\60\1\164\1\145\1\156\1\150\1\60\1\167\1\156\1\153\1\145\1\164\1\160\1\156\1\145\1\164\2\uffff\1\156\1\164\3\60\1\162\1\uffff\3\60\1\164\1\uffff\1\141\1\164\2\60\1\157\1\60\1\144\1\156\1\141\1\60\1\145\3\uffff\1\60\3\uffff\1\60\1\162\1\60\1\141\2\uffff\1\156\1\uffff\2\60\1\143\1\uffff\1\162\2\uffff\1\144\1\uffff\1\162\1\60\2\uffff\1\154\2\60\1\144\1\uffff\1\145\2\uffff\2\60\2\uffff";
+        "\1\0\1\157\1\145\1\165\1\157\1\145\1\157\1\141\1\162\1\142\1\160\1\157\1\145\1\76\2\uffff\1\156\1\157\3\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\164\1\uffff\1\144\1\156\1\162\1\157\1\165\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\145\1\146\1\163\2\60\1\167\1\156\4\uffff\1\144\1\164\7\uffff\1\145\1\157\1\60\1\164\1\145\1\156\1\160\1\156\1\150\1\60\1\167\1\156\1\153\1\145\1\164\1\145\1\60\1\164\2\uffff\1\156\1\164\3\60\1\162\1\uffff\4\60\1\144\1\164\1\uffff\1\141\1\164\2\60\1\157\1\156\1\uffff\1\141\1\60\1\145\3\uffff\1\60\4\uffff\2\60\1\162\1\60\1\141\2\uffff\1\156\1\60\1\143\1\uffff\1\162\3\uffff\1\144\1\uffff\1\162\1\60\1\uffff\1\154\2\60\1\144\1\uffff\1\145\2\uffff\2\60\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\157\1\151\1\165\1\151\1\162\1\165\1\164\2\162\1\160\1\157\1\145\1\uffff\1\76\2\uffff\1\156\1\157\2\uffff\1\172\2\uffff\2\uffff\1\52\2\uffff\1\166\1\uffff\1\146\1\156\1\162\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\157\1\165\1\145\1\163\2\172\1\167\1\156\6\uffff\1\144\1\164\6\uffff\1\145\1\157\1\172\1\164\1\145\1\156\1\150\1\172\1\167\1\156\1\153\1\145\1\164\1\160\1\156\1\145\1\164\2\uffff\1\156\1\164\3\172\1\162\1\uffff\3\172\1\164\1\uffff\1\141\1\164\2\172\1\157\1\172\1\144\1\156\1\141\1\172\1\145\3\uffff\1\172\3\uffff\1\172\1\162\1\172\1\141\2\uffff\1\156\1\uffff\2\172\1\143\1\uffff\1\162\2\uffff\1\144\1\uffff\1\162\1\172\2\uffff\1\154\2\172\1\144\1\uffff\1\145\2\uffff\2\172\2\uffff";
+        "\1\uffff\1\157\1\151\1\165\1\164\1\151\1\162\1\165\2\162\1\160\1\157\1\145\1\76\2\uffff\1\156\1\157\3\uffff\1\172\2\uffff\2\uffff\1\52\2\uffff\1\166\1\uffff\1\146\1\156\1\162\1\157\1\165\1\147\1\144\1\162\1\157\1\143\1\165\1\164\1\145\1\146\1\163\2\172\1\167\1\156\4\uffff\1\144\1\164\7\uffff\1\145\1\157\1\172\1\164\1\145\1\156\1\160\1\156\1\150\1\172\1\167\1\156\1\153\1\145\1\164\1\145\1\172\1\164\2\uffff\1\156\1\164\3\172\1\162\1\uffff\4\172\1\144\1\164\1\uffff\1\141\1\164\2\172\1\157\1\156\1\uffff\1\141\1\172\1\145\3\uffff\1\172\4\uffff\2\172\1\162\1\172\1\141\2\uffff\1\156\1\172\1\143\1\uffff\1\162\3\uffff\1\144\1\uffff\1\162\1\172\1\uffff\1\154\2\172\1\144\1\uffff\1\145\2\uffff\2\172\2\uffff";
     static final String DFA12_acceptS =
-        "\17\uffff\1\30\1\31\2\uffff\1\35\1\36\1\uffff\1\41\1\42\3\uffff\1\45\1\46\1\uffff\1\41\22\uffff\1\26\1\40\1\27\1\37\1\30\1\31\2\uffff\1\35\1\36\1\42\1\43\1\44\1\45\21\uffff\1\32\1\23\6\uffff\1\2\4\uffff\1\11\13\uffff\1\33\1\34\1\1\1\uffff\1\4\1\16\1\3\4\uffff\1\22\1\13\1\uffff\1\10\3\uffff\1\24\1\uffff\1\20\1\5\1\uffff\1\21\2\uffff\1\15\1\12\4\uffff\1\17\1\uffff\1\25\1\6\2\uffff\1\7\1\14";
+        "\16\uffff\1\30\1\31\2\uffff\1\35\1\36\1\40\1\uffff\1\41\1\42\3\uffff\1\45\1\46\1\uffff\1\41\23\uffff\1\27\1\37\1\30\1\31\2\uffff\1\35\1\36\1\40\1\42\1\43\1\44\1\45\22\uffff\1\32\1\24\6\uffff\1\2\6\uffff\1\11\6\uffff\1\14\3\uffff\1\33\1\34\1\1\1\uffff\1\5\1\17\1\3\1\4\5\uffff\1\23\1\13\3\uffff\1\25\1\uffff\1\21\1\16\1\6\1\uffff\1\22\2\uffff\1\12\4\uffff\1\20\1\uffff\1\26\1\7\2\uffff\1\10\1\15";
     static final String DFA12_specialS =
-        "\1\1\14\uffff\1\2\12\uffff\1\3\1\0\167\uffff}>";
+        "\1\1\27\uffff\1\0\1\2\171\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\34\2\33\2\34\1\33\22\34\1\33\1\34\1\30\1\15\3\34\1\31\1\23\1\24\2\34\1\17\1\16\1\34\1\32\12\27\6\34\1\20\32\26\3\34\1\25\1\26\1\34\1\21\1\6\1\14\1\13\1\26\1\5\1\10\4\26\1\2\1\1\1\22\1\11\2\26\1\4\1\7\1\3\1\12\5\26\uff85\34",
+            "\11\34\2\33\2\34\1\33\22\34\1\33\1\34\1\30\1\24\3\34\1\31\1\22\1\23\2\34\1\16\1\15\1\34\1\32\12\27\6\34\1\17\32\26\3\34\1\25\1\26\1\34\1\20\1\7\1\14\1\13\1\26\1\6\1\10\4\26\1\2\1\1\1\21\1\11\2\26\1\5\1\4\1\3\1\12\5\26\uff85\34",
             "\1\35",
             "\1\37\3\uffff\1\40",
             "\1\41",
-            "\1\43\3\uffff\1\42",
-            "\1\44\2\uffff\1\45",
-            "\1\46\12\uffff\1\47\10\uffff\1\50",
-            "\1\52\4\uffff\1\51",
+            "\1\43\4\uffff\1\42",
+            "\1\45\3\uffff\1\44",
+            "\1\46\2\uffff\1\47",
+            "\1\50\12\uffff\1\51\10\uffff\1\52",
             "\1\53",
-            "\1\54\17\uffff\1\55",
-            "\1\56",
+            "\1\55\3\uffff\1\54\13\uffff\1\56",
             "\1\57",
             "\1\60",
-            "\0\62",
-            "\1\63",
+            "\1\61",
+            "\1\62",
             "",
             "",
+            "\1\66",
             "\1\67",
-            "\1\70",
+            "",
             "",
             "",
             "\32\36\4\uffff\1\36\1\uffff\32\36",
@@ -1543,66 +1544,68 @@ public class InternalSimpleMioLexer extends Lexer {
             "\1\115",
             "\1\116",
             "\1\117",
+            "\1\120",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\122",
             "\1\123",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\124",
+            "",
+            "",
+            "",
+            "",
             "\1\125",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\126",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\127",
+            "\1\130",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\131",
             "\1\132",
             "\1\133",
             "\1\134",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\135",
             "\1\136",
             "\1\137",
-            "\1\140",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\141",
             "\1\142",
             "\1\143",
             "\1\144",
             "\1\145",
             "\1\146",
-            "",
-            "",
-            "\1\147",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\150",
+            "",
+            "",
+            "\1\151",
+            "\1\152",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\154",
+            "\1\156",
             "",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\160",
-            "",
-            "\1\161",
-            "\1\162",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\26\36\1\163\3\36",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\163",
+            "\1\164",
+            "",
+            "\1\165",
             "\1\166",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\26\36\1\167\3\36",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\170",
-            "\1\171",
             "\1\172",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\173",
+            "",
             "\1\174",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\176",
             "",
             "",
             "",
@@ -1610,33 +1613,33 @@ public class InternalSimpleMioLexer extends Lexer {
             "",
             "",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\177",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\u0081",
             "",
-            "",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\u0082",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\u0084",
             "",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "",
             "\1\u0085",
-            "",
-            "\1\u0086",
-            "",
-            "",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\u0087",
             "",
             "\1\u0088",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "",
+            "",
+            "",
+            "\1\u0089",
             "",
             "\1\u008a",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
-            "\1\u008d",
             "",
-            "\1\u008e",
+            "\1\u008c",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\u008f",
+            "",
+            "\1\u0090",
             "",
             "",
             "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
@@ -1682,10 +1685,10 @@ public class InternalSimpleMioLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_25 = input.LA(1);
+                        int LA12_24 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_25>='\u0000' && LA12_25<='\uFFFF')) ) {s = 60;}
+                        if ( ((LA12_24>='\u0000' && LA12_24<='\uFFFF')) ) {s = 60;}
 
                         else s = 28;
 
@@ -1701,13 +1704,13 @@ public class InternalSimpleMioLexer extends Lexer {
 
                         else if ( (LA12_0=='t') ) {s = 3;}
 
-                        else if ( (LA12_0=='r') ) {s = 4;}
+                        else if ( (LA12_0=='s') ) {s = 4;}
 
-                        else if ( (LA12_0=='f') ) {s = 5;}
+                        else if ( (LA12_0=='r') ) {s = 5;}
 
-                        else if ( (LA12_0=='b') ) {s = 6;}
+                        else if ( (LA12_0=='f') ) {s = 6;}
 
-                        else if ( (LA12_0=='s') ) {s = 7;}
+                        else if ( (LA12_0=='b') ) {s = 7;}
 
                         else if ( (LA12_0=='g') ) {s = 8;}
 
@@ -1719,21 +1722,21 @@ public class InternalSimpleMioLexer extends Lexer {
 
                         else if ( (LA12_0=='c') ) {s = 12;}
 
-                        else if ( (LA12_0=='#') ) {s = 13;}
+                        else if ( (LA12_0=='-') ) {s = 13;}
 
-                        else if ( (LA12_0=='-') ) {s = 14;}
+                        else if ( (LA12_0==',') ) {s = 14;}
 
-                        else if ( (LA12_0==',') ) {s = 15;}
+                        else if ( (LA12_0=='@') ) {s = 15;}
 
-                        else if ( (LA12_0=='@') ) {s = 16;}
+                        else if ( (LA12_0=='a') ) {s = 16;}
 
-                        else if ( (LA12_0=='a') ) {s = 17;}
+                        else if ( (LA12_0=='n') ) {s = 17;}
 
-                        else if ( (LA12_0=='n') ) {s = 18;}
+                        else if ( (LA12_0=='(') ) {s = 18;}
 
-                        else if ( (LA12_0=='(') ) {s = 19;}
+                        else if ( (LA12_0==')') ) {s = 19;}
 
-                        else if ( (LA12_0==')') ) {s = 20;}
+                        else if ( (LA12_0=='#') ) {s = 20;}
 
                         else if ( (LA12_0=='^') ) {s = 21;}
 
@@ -1754,20 +1757,10 @@ public class InternalSimpleMioLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_13 = input.LA(1);
+                        int LA12_25 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 50;}
-
-                        else s = 49;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA12_24 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_24>='\u0000' && LA12_24<='\uFFFF')) ) {s = 60;}
+                        if ( ((LA12_25>='\u0000' && LA12_25<='\uFFFF')) ) {s = 60;}
 
                         else s = 28;
 

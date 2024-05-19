@@ -123,49 +123,22 @@ ruleProgram returns [EObject current=null]
 	(
 		(
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getProgramAccess().getProgramAction_0(),
-					$current);
+				newCompositeNode(grammarAccess.getProgramAccess().getEventsEventParserRuleCall_0());
+			}
+			lv_events_0_0=ruleEvent
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getProgramRule());
+				}
+				add(
+					$current,
+					"events",
+					lv_events_0_0,
+					"org.xtext.example.mydsl.SimpleMio.Event");
+				afterParserOrEnumRuleCall();
 			}
 		)
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProgramAccess().getEventsEventParserRuleCall_1_0_0());
-					}
-					lv_events_1_0=ruleEvent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProgramRule());
-						}
-						add(
-							$current,
-							"events",
-							lv_events_1_0,
-							"org.xtext.example.mydsl.SimpleMio.Event");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				otherlv_2='#'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getProgramAccess().getNumberSignKeyword_1_1_0());
-				}
-				(
-					{
-						newCompositeNode(grammarAccess.getProgramAccess().getEStringParserRuleCall_1_1_1());
-					}
-					ruleEString
-					{
-						afterParserOrEnumRuleCall();
-					}
-				)*
-			)
-		)+
-	)
+	)+
 ;
 
 // Entry rule entryRuleEvent
@@ -319,6 +292,17 @@ ruleAction returns [EObject current=null]
 						}
 						setWithLastConsumed($current, "actionName", lv_actionName_1_3, null);
 					}
+					    |
+					lv_actionName_1_4='stop'
+					{
+						newLeafNode(lv_actionName_1_4, grammarAccess.getActionAccess().getActionNameStopKeyword_1_0_3());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getActionRule());
+						}
+						setWithLastConsumed($current, "actionName", lv_actionName_1_4, null);
+					}
 				)
 			)
 		)
@@ -369,9 +353,9 @@ ruleAction returns [EObject current=null]
 						setWithLastConsumed($current, "actionSpecifier", lv_actionSpecifier_2_4, null);
 					}
 					    |
-					lv_actionSpecifier_2_5='stop'
+					lv_actionSpecifier_2_5='red'
 					{
-						newLeafNode(lv_actionSpecifier_2_5, grammarAccess.getActionAccess().getActionSpecifierStopKeyword_2_0_4());
+						newLeafNode(lv_actionSpecifier_2_5, grammarAccess.getActionAccess().getActionSpecifierRedKeyword_2_0_4());
 					}
 					{
 						if ($current==null) {
@@ -380,9 +364,9 @@ ruleAction returns [EObject current=null]
 						setWithLastConsumed($current, "actionSpecifier", lv_actionSpecifier_2_5, null);
 					}
 					    |
-					lv_actionSpecifier_2_6='red'
+					lv_actionSpecifier_2_6='green'
 					{
-						newLeafNode(lv_actionSpecifier_2_6, grammarAccess.getActionAccess().getActionSpecifierRedKeyword_2_0_5());
+						newLeafNode(lv_actionSpecifier_2_6, grammarAccess.getActionAccess().getActionSpecifierGreenKeyword_2_0_5());
 					}
 					{
 						if ($current==null) {
@@ -391,9 +375,9 @@ ruleAction returns [EObject current=null]
 						setWithLastConsumed($current, "actionSpecifier", lv_actionSpecifier_2_6, null);
 					}
 					    |
-					lv_actionSpecifier_2_7='green'
+					lv_actionSpecifier_2_7='blue'
 					{
-						newLeafNode(lv_actionSpecifier_2_7, grammarAccess.getActionAccess().getActionSpecifierGreenKeyword_2_0_6());
+						newLeafNode(lv_actionSpecifier_2_7, grammarAccess.getActionAccess().getActionSpecifierBlueKeyword_2_0_6());
 					}
 					{
 						if ($current==null) {
@@ -402,9 +386,9 @@ ruleAction returns [EObject current=null]
 						setWithLastConsumed($current, "actionSpecifier", lv_actionSpecifier_2_7, null);
 					}
 					    |
-					lv_actionSpecifier_2_8='blue'
+					lv_actionSpecifier_2_8='off'
 					{
-						newLeafNode(lv_actionSpecifier_2_8, grammarAccess.getActionAccess().getActionSpecifierBlueKeyword_2_0_7());
+						newLeafNode(lv_actionSpecifier_2_8, grammarAccess.getActionAccess().getActionSpecifierOffKeyword_2_0_7());
 					}
 					{
 						if ($current==null) {
@@ -414,7 +398,7 @@ ruleAction returns [EObject current=null]
 					}
 				)
 			)
-		)
+		)?
 		(
 			otherlv_3='@'
 			{
@@ -612,21 +596,56 @@ ruleNot returns [EObject current=null]
 			)
 		)
 		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getNotAccess().getNotAction_1_0(),
+						$current);
+				}
+			)
+			(
+				otherlv_4='not'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getNotAccess().getNotKeyword_1_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getNotAccess().getConditionalsensorSensorParserRuleCall_1_1_1_0());
+						}
+						lv_conditionalsensor_5_0=ruleSensor
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getNotRule());
+							}
+							set(
+								$current,
+								"conditionalsensor",
+								lv_conditionalsensor_5_0,
+								"org.xtext.example.mydsl.SimpleMio.Sensor");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)
+		    |
 		{
-			newCompositeNode(grammarAccess.getNotAccess().getSensorParserRuleCall_1());
+			newCompositeNode(grammarAccess.getNotAccess().getSensorParserRuleCall_2());
 		}
-		this_Sensor_3=ruleSensor
+		this_Sensor_6=ruleSensor
 		{
-			$current = $this_Sensor_3.current;
+			$current = $this_Sensor_6.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getNotAccess().getParenParserRuleCall_2());
+			newCompositeNode(grammarAccess.getNotAccess().getParenParserRuleCall_3());
 		}
-		this_Paren_4=ruleParen
+		this_Paren_7=ruleParen
 		{
-			$current = $this_Paren_4.current;
+			$current = $this_Paren_7.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -857,40 +876,6 @@ ruleSensor returns [EObject current=null]
 				)
 			)
 		)?
-	)
-;
-
-// Entry rule entryRuleEString
-entryRuleEString returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEStringRule()); }
-	iv_ruleEString=ruleEString
-	{ $current=$iv_ruleEString.current.getText(); }
-	EOF;
-
-// Rule EString
-ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_STRING_0=RULE_STRING
-		{
-			$current.merge(this_STRING_0);
-		}
-		{
-			newLeafNode(this_STRING_0, grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0());
-		}
-		    |
-		this_ID_1=RULE_ID
-		{
-			$current.merge(this_ID_1);
-		}
-		{
-			newLeafNode(this_ID_1, grammarAccess.getEStringAccess().getIDTerminalRuleCall_1());
-		}
 	)
 ;
 

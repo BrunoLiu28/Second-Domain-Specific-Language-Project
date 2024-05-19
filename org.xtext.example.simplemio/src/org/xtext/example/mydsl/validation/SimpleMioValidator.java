@@ -31,11 +31,12 @@ public class SimpleMioValidator extends AbstractSimpleMioValidator {
 	public static final String INVALID_MOVE_ACTION_SPECIFIER = "invalidMoveActionSpecifier";
 	public static final String INVALID_LED_ACTION_SPECIFIER = "invalidLedActionSpecifier";
 	public static final String INVALID_TURN_ACTION_SPECIFIER = "invalidTurnActionSpecifier";
+	public static final String INVALID_STOP_ACTION_SPECIFIER = "invalidStopActionSpecifier";
 	@Check
 	public void checkActionSpecifier(Action action) {
 		switch (action.getActionName()) {
 			case "move": {
-				if (!(action.getActionSpecifier().equals("forward") ||  action.getActionSpecifier().equals("backward") || action.getActionSpecifier().equals("stop"))) {
+				if (!(action.getActionSpecifier().equals("forward") ||  action.getActionSpecifier().equals("backward"))) {
 					error("Invalid specifier '" + action.getActionSpecifier() +  "' used for 'move'",
 							action,
 							SimplemioModelPackage.eINSTANCE.getAction_ActionSpecifier(), 
@@ -45,7 +46,7 @@ public class SimpleMioValidator extends AbstractSimpleMioValidator {
 			}
 			
 			case "led": {
-				if (!("redbluegreen".contains(action.getActionSpecifier()))) {
+				if (!("redbluegreenoff".contains(action.getActionSpecifier()))) {
 					error("Invalid specifier '" + action.getActionSpecifier() +  "' used for 'led'",
 							action,
 							SimplemioModelPackage.eINSTANCE.getAction_ActionSpecifier(),
@@ -60,6 +61,15 @@ public class SimpleMioValidator extends AbstractSimpleMioValidator {
 							action,
 							SimplemioModelPackage.eINSTANCE.getAction_ActionSpecifier(),
 							INVALID_TURN_ACTION_SPECIFIER);
+				}
+				break;
+			}
+			case "stop": {
+				if (action.getActionSpecifier() != null) {
+					error("Invalid specifier '" + action.getActionSpecifier() + "' used for 'stop'. Stop does not have any specifier",
+							action,
+							SimplemioModelPackage.eINSTANCE.getAction_ActionSpecifier(),
+							INVALID_STOP_ACTION_SPECIFIER);
 				}
 				break;
 			}
@@ -134,14 +144,23 @@ public class SimpleMioValidator extends AbstractSimpleMioValidator {
 					MISSING_SPECIFIER);
 		}
 	}
+	@Check
+	public void check_missing_specifier(Action action) {
+		if (!"stop".contains(action.getActionName()) && action.getActionSpecifier() == null) {
+			error("Action '" + action.getActionName() + "' requires a specifier",
+					action,
+					SimplemioModelPackage.eINSTANCE.getAction_ActionName(),
+					MISSING_SPECIFIER);
+		}
+	}
 	
 	public static final String INVALID_INTENSITY = "invalidIntensity";
 	public static final String INVALID_VALUE_INTENSITY = "invalidValueIntensity";
 	
 	@Check
 	public void check_intensity(Sensor sensor) {
-		if (sensor.getSensorName().equals("motor") && sensor.getStrength() != 0) {
-			error("Motor does not support sensor intensity",
+		if ("motorbutton".contains(sensor.getSensorName()) && sensor.getStrength() != null) {
+			error("'" + sensor.getSensorName() + "' does not support sensor intensity",
 					sensor,
 					SimplemioModelPackage.eINSTANCE.getSensor_Strength(),
 					INVALID_INTENSITY);
@@ -149,13 +168,24 @@ public class SimpleMioValidator extends AbstractSimpleMioValidator {
 			error("Invalid value " + sensor.getStrength() + " for sensor intensity",
 					sensor,
 					SimplemioModelPackage.eINSTANCE.getSensor_Strength(),
-					INVALID_VALUE_INTENSITY);
-					
+					INVALID_VALUE_INTENSITY);			
 		}
 	}
 	
+	
 	@Check
 	public void check_intensity(Action action) {
+		if (action.getActionName().equals("stop") && action.getStrength() != null) {
+			error("'Stop' does not support action intensity",
+					action,
+					SimplemioModelPackage.eINSTANCE.getAction_Strength(),
+					INVALID_INTENSITY);
+		} else if (action.getActionName().equals("led") && action.getActionSpecifier().equals("off") && action.getStrength() != null) {
+			error("'Led off' does not support action intensity",
+					action,
+					SimplemioModelPackage.eINSTANCE.getAction_Strength(),
+					INVALID_INTENSITY);
+		} else 
 		if (action.getStrength() < 0 || action.getStrength() > 10) {
 			error("Invalid value " + action.getStrength() + " for action intensity",
 					action,
@@ -182,7 +212,7 @@ public class SimpleMioValidator extends AbstractSimpleMioValidator {
 				} else {
 					hasLed = true;
 				}
-			} else if ("turnmove".contains(a.getActionName())) {
+			} else if ("turnmovestop".contains(a.getActionName())) {
 				if (hasMoveOrTurn) {
 					error("Cannot have more than one turn or move action",
 							a,

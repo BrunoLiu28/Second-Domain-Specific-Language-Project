@@ -9,7 +9,6 @@ Model returns Model:
 	program=Program;
 
 Program returns Program:
-	{Program} 
 	(events+=Event)+
 	;
 		
@@ -19,8 +18,8 @@ Event returns Event:
 
 Action returns Action:
 	{Action}
-	actionName=("move" | "led" | "turn")
-	actionSpecifier=("left" | "right" | "forward" | "backward" | "stop" | "red" | "green" | "blue")
+	actionName=("move" | "led" | "turn" | "stop")
+	(actionSpecifier=("left" | "right" | "forward" | "backward" | "red" | "green" | "blue" | "off"))?
 	("@" strength=EInt)?
 ;
 
@@ -33,8 +32,10 @@ And returns ConditionalSensor:
 ;
 
 Not returns ConditionalSensor:
-	{Not}
-	("not" conditionalsensor=Paren) | Sensor | Paren
+	{Not}("not" conditionalsensor=Paren)
+		| {Not}("not" conditionalsensor=Sensor)
+		| Sensor
+		| Paren
 ;
 
 Paren returns ConditionalSensor:
@@ -46,13 +47,13 @@ Sensor returns Sensor:
 		sensorName=("obstacle" | "sound" | "line" | "button" | "motor")
 		(sensorSpecifier=("front" | "back" | "left" | "right" | "up" | "down" | "center"))?
 		('@' strength=EInt)?
-	;
+;
+
+@Override
+terminal SL_COMMENT: '#' !('\n'|'\r')* ('\r'? '\n')?;
 	
 EString returns ecore::EString:
 	STRING | ID;
 
 EInt returns ecore::EInt:
 	'-'? INT;
-	
-@Override 
-terminal SL_COMMENT: '#' !('\n'|'\r')* ('\r'? '\n')?;

@@ -74,17 +74,17 @@ public class SimpleMioSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
-	 *         (actionName='move' | actionName='led' | actionName='turn') 
+	 *         (actionName='move' | actionName='led' | actionName='turn' | actionName='stop') 
 	 *         (
 	 *             actionSpecifier='left' | 
 	 *             actionSpecifier='right' | 
 	 *             actionSpecifier='forward' | 
 	 *             actionSpecifier='backward' | 
-	 *             actionSpecifier='stop' | 
 	 *             actionSpecifier='red' | 
 	 *             actionSpecifier='green' | 
-	 *             actionSpecifier='blue'
-	 *         ) 
+	 *             actionSpecifier='blue' | 
+	 *             actionSpecifier='off'
+	 *         )? 
 	 *         strength=EInt?
 	 *     )
 	 * </pre>
@@ -167,17 +167,11 @@ public class SimpleMioSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Paren returns Not
 	 *
 	 * Constraint:
-	 *     conditionalsensor=Paren
+	 *     (conditionalsensor=Paren | conditionalsensor=Sensor)
 	 * </pre>
 	 */
 	protected void sequence_Not(ISerializationContext context, Not semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SimplemioModelPackage.Literals.NOT__CONDITIONALSENSOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SimplemioModelPackage.Literals.NOT__CONDITIONALSENSOR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNotAccess().getConditionalsensorParenParserRuleCall_0_1_1_0(), semanticObject.getConditionalsensor());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -215,7 +209,7 @@ public class SimpleMioSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     events+=Event*
+	 *     events+=Event+
 	 * </pre>
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
