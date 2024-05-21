@@ -52,6 +52,7 @@ Workflow {
 			}
 			generator = {
 				generateXtendStub = true
+				generateXtendMain = true
 			}
 			junitSupport = {
 				junitVersion = "5"

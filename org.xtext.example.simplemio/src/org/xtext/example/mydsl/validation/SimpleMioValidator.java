@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.validation;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.xtext.validation.Check;
 
 import simplemioModel.Action;
