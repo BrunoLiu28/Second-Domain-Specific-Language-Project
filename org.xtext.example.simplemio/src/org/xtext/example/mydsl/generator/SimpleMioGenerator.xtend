@@ -54,8 +54,7 @@ class SimpleMioGenerator extends AbstractGenerator {
 		'''
 			if 0 != 0 then
 		«FOR e : events»
-				elseif
-			«generateEvent(e)»
+				elseif «generateEvent(e)»
 		«ENDFOR»
 			end
 		'''
@@ -75,18 +74,13 @@ class SimpleMioGenerator extends AbstractGenerator {
 		«IF cs instanceof Sensor»
 			«IF cs.getSensorName() == "obstacle"»
 				«IF cs.sensorSpecifier == "front"»
-					prox.horizontal[1] > obstacle «generateSensorStrength(cs)»
-						and prox.horizontal[2] > obstacle «generateSensorStrength(cs)»
-						and prox.horizontal[3] > obstacle «generateSensorStrength(cs)»
+					prox.horizontal[1] > obstacle «generateSensorStrength(cs)» and prox.horizontal[2] > obstacle «generateSensorStrength(cs)» and prox.horizontal[3] > obstacle «generateSensorStrength(cs)»
 				«ELSEIF cs.sensorSpecifier == "right"»
-					prox.horizontal[3] > obstacle «generateSensorStrength(cs)»
-						and prox.horizontal[4] > obstacle «generateSensorStrength(cs)»
+					prox.horizontal[3] > obstacle «generateSensorStrength(cs)» and prox.horizontal[4] > obstacle «generateSensorStrength(cs)»
 				«ELSEIF cs.sensorSpecifier == "left"»
-					prox.horizontal[0] > obstacle «generateSensorStrength(cs)»
-						and prox.horizontal[1] > obstacle «generateSensorStrength(cs)»
+					prox.horizontal[0] > obstacle «generateSensorStrength(cs)» and prox.horizontal[1] > obstacle «generateSensorStrength(cs)»
 				«ELSEIF cs.sensorSpecifier == "back"»
-						prox.horizontal[5] > obstacle «generateSensorStrength(cs)»
-						and prox.horizontal[6] > obstacle «generateSensorStrength(cs)»
+					prox.horizontal[5] > obstacle «generateSensorStrength(cs)» and prox.horizontal[6] > obstacle «generateSensorStrength(cs)»
 				«ENDIF»
 			«ELSEIF cs.getSensorName() == "line"»
 				«IF cs.getSensorSpecifier() == "right"»

@@ -80,9 +80,7 @@ public class SimpleMioGenerator extends AbstractGenerator {
     _builder.newLine();
     {
       for(final Event e : events) {
-        _builder.append("\t");
-        _builder.append("elseif");
-        _builder.newLine();
+        _builder.append("elseif ");
         CharSequence _generateEvent = this.generateEvent(e);
         _builder.append(_generateEvent);
         _builder.newLineIfNotEmpty();
@@ -126,16 +124,12 @@ public class SimpleMioGenerator extends AbstractGenerator {
                 _builder.append("prox.horizontal[1] > obstacle ");
                 CharSequence _generateSensorStrength = this.generateSensorStrength(((Sensor)cs));
                 _builder.append(_generateSensorStrength);
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("and prox.horizontal[2] > obstacle ");
+                _builder.append(" and prox.horizontal[2] > obstacle ");
                 CharSequence _generateSensorStrength_1 = this.generateSensorStrength(((Sensor)cs));
-                _builder.append(_generateSensorStrength_1, "\t");
-                _builder.newLineIfNotEmpty();
-                _builder.append("\t");
-                _builder.append("and prox.horizontal[3] > obstacle ");
+                _builder.append(_generateSensorStrength_1);
+                _builder.append(" and prox.horizontal[3] > obstacle ");
                 CharSequence _generateSensorStrength_2 = this.generateSensorStrength(((Sensor)cs));
-                _builder.append(_generateSensorStrength_2, "\t");
+                _builder.append(_generateSensorStrength_2);
                 _builder.newLineIfNotEmpty();
               } else {
                 String _sensorSpecifier_1 = ((Sensor)cs).getSensorSpecifier();
@@ -144,11 +138,9 @@ public class SimpleMioGenerator extends AbstractGenerator {
                   _builder.append("prox.horizontal[3] > obstacle ");
                   CharSequence _generateSensorStrength_3 = this.generateSensorStrength(((Sensor)cs));
                   _builder.append(_generateSensorStrength_3);
-                  _builder.newLineIfNotEmpty();
-                  _builder.append("\t");
-                  _builder.append("and prox.horizontal[4] > obstacle ");
+                  _builder.append(" and prox.horizontal[4] > obstacle ");
                   CharSequence _generateSensorStrength_4 = this.generateSensorStrength(((Sensor)cs));
-                  _builder.append(_generateSensorStrength_4, "\t");
+                  _builder.append(_generateSensorStrength_4);
                   _builder.newLineIfNotEmpty();
                 } else {
                   String _sensorSpecifier_2 = ((Sensor)cs).getSensorSpecifier();
@@ -157,11 +149,9 @@ public class SimpleMioGenerator extends AbstractGenerator {
                     _builder.append("prox.horizontal[0] > obstacle ");
                     CharSequence _generateSensorStrength_5 = this.generateSensorStrength(((Sensor)cs));
                     _builder.append(_generateSensorStrength_5);
-                    _builder.newLineIfNotEmpty();
-                    _builder.append("\t");
-                    _builder.append("and prox.horizontal[1] > obstacle ");
+                    _builder.append(" and prox.horizontal[1] > obstacle ");
                     CharSequence _generateSensorStrength_6 = this.generateSensorStrength(((Sensor)cs));
-                    _builder.append(_generateSensorStrength_6, "\t");
+                    _builder.append(_generateSensorStrength_6);
                     _builder.newLineIfNotEmpty();
                   } else {
                     String _sensorSpecifier_3 = ((Sensor)cs).getSensorSpecifier();
@@ -170,8 +160,7 @@ public class SimpleMioGenerator extends AbstractGenerator {
                       _builder.append("prox.horizontal[5] > obstacle ");
                       CharSequence _generateSensorStrength_7 = this.generateSensorStrength(((Sensor)cs));
                       _builder.append(_generateSensorStrength_7);
-                      _builder.newLineIfNotEmpty();
-                      _builder.append("and prox.horizontal[6] > obstacle ");
+                      _builder.append(" and prox.horizontal[6] > obstacle ");
                       CharSequence _generateSensorStrength_8 = this.generateSensorStrength(((Sensor)cs));
                       _builder.append(_generateSensorStrength_8);
                       _builder.newLineIfNotEmpty();
