@@ -1,6 +1,6 @@
 # Simplemio
 
-SimpleMio is a domain-specific language (DSL) designed to simplify the programming of robotic behaviors.
+SimpleMio is a domain-specific language (DSL) designed to simplify the programming of robotic behaviors. <br>
 Grade: 18.95/20
 
 ## Structure of the Project
