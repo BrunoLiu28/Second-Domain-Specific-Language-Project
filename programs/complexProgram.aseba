@@ -1,0 +1,124 @@
+var obstacle = 2000
+var line = 400
+var mic = 150
+var motor = 250
+
+mic.threshold = 250
+
+onevent prox
+	if 0 != 0 then
+	elseif
+prox.horizontal[1] > obstacle  or prox.horizontal[2] > obstacle  or prox.horizontal[3] > obstacle 
+ then	
+motor.left.target = 0
+motor.right.target = 0	
+call leds.top(127 * 1 / 5
+, 0 ,0)
+	elseif
+prox.horizontal[0] > obstacle  or prox.horizontal[1] > obstacle 
+ then	
+motor.left.target = motor 
+motor.right.target = -motor 
+	elseif
+prox.horizontal[3] > obstacle  or prox.horizontal[4] > obstacle 
+ then	
+motor.left.target = -motor 
+motor.right.target = motor 
+	elseif
+(prox.ground.delta[1] < line 
+) and ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+ then	
+motor.left.target = -motor 
+motor.right.target = motor 
+	elseif
+(prox.ground.delta[0] < line 
+) and ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+ then	
+motor.left.target = motor 
+motor.right.target = -motor 
+	end
+
+onevent motor
+	if 0 != 0 then
+	elseif
+(prox.ground.delta[1] < line 
+) and ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+ then	
+motor.left.target = -motor 
+motor.right.target = motor 
+	elseif
+(prox.ground.delta[0] < line 
+) and ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+ then	
+motor.left.target = motor 
+motor.right.target = -motor 
+	elseif
+(button.center > 0
+) and (not ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+)
+ then	
+motor.left.target = motor 
+motor.right.target = motor 
+	elseif
+(button.center > 0
+) and ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+ then	
+motor.left.target = 0
+motor.right.target = 0	
+	elseif
+(motor.left.speed > 0 or motor.right.speed > 0)
+ then	
+motor.left.target = motor 
+motor.right.target = motor 
+call leds.top(0, 127 * 7 / 5
+, 0)
+	end
+
+onevent buttons
+	if 0 != 0 then
+	elseif
+button.left > 0
+ then	
+motor.left.target = -motor 
+motor.right.target = motor 
+call leds.top(127 * 5 / 5
+, 0 ,0)
+	elseif
+button.right > 0
+ then	
+motor.left.target = motor 
+motor.right.target = -motor 
+call leds.top(0, 0, 127 * 9 / 5
+)
+	elseif
+(button.center > 0
+) and (not ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+)
+ then	
+motor.left.target = motor 
+motor.right.target = motor 
+	elseif
+(button.center > 0
+) and ((motor.left.speed > 0 or motor.right.speed > 0)
+)
+ then	
+motor.left.target = 0
+motor.right.target = 0	
+	end
+
+onevent mic
+	if 0 != 0 then
+	elseif
+mic.intensity > mic 
+ then	
+motor.left.target = 0
+motor.right.target = 0	
+	end
+

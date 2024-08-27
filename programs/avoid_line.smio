@@ -1,0 +1,3 @@
+not obstacle front -> move forward
+line left -> led red @9, turn right
+line right -> led green @3, turn left

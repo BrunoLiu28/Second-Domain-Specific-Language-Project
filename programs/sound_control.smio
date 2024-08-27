@@ -1,0 +1,4 @@
+sound -> led blue
+button up -> move forward
+button down -> move backward
+button center -> stop

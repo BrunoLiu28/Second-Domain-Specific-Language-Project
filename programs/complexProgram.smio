@@ -1,0 +1,11 @@
+sound -> stop
+obstacle front -> stop, led red @1
+obstacle left -> turn right
+obstacle right -> turn left
+line right and motor -> turn left
+line left and motor -> turn right
+button left -> turn left, led red @5
+button right -> turn right, led blue @9
+button center and not motor -> move forward
+button center and motor -> stop
+motor -> move forward, led green @7

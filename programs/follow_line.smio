@@ -1,3 +1,4 @@
+not line left and not line left -> stop
 line left and not line right -> turn left
 line right and not line left -> turn right
 line left and line right -> move forward

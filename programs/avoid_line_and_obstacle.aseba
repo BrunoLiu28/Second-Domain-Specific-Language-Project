@@ -1,0 +1,52 @@
+var obstacle = 2000
+var line = 400
+var mic = 150
+var motor = 250
+
+mic.threshold = 250
+
+onevent prox
+	if 0 != 0 then
+	elseif
+prox.ground.delta[0] < line 
+ then	
+call leds.top(127 * 9 / 5
+, 0 ,0)
+motor.left.target = motor 
+motor.right.target = -motor 
+	elseif
+prox.ground.delta[1] < line 
+ then	
+call leds.top(0, 127 * 3 / 5
+, 0)
+motor.left.target = -motor 
+motor.right.target = motor 
+	elseif
+prox.horizontal[0] > obstacle  or prox.horizontal[1] > obstacle 
+ then	
+motor.left.target = motor 
+motor.right.target = -motor 
+	elseif
+prox.horizontal[3] > obstacle  or prox.horizontal[4] > obstacle 
+ then	
+motor.left.target = -motor 
+motor.right.target = motor 
+	elseif
+not (prox.horizontal[1] > obstacle  or prox.horizontal[2] > obstacle  or prox.horizontal[3] > obstacle 
+)
+ then	
+motor.left.target = motor 
+motor.right.target = motor 
+	end
+
+onevent motor
+	if 0 != 0 then
+	end
+
+onevent buttons
+	if 0 != 0 then
+	end
+
+onevent mic
+	if 0 != 0 then
+	end
