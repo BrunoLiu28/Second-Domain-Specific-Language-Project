@@ -7,10 +7,10 @@ Grade: 18.95/20
 
 `simplemioModel` is a folder with the meta-model of the dsl
 
-`org.xtext.example.simplemio*` are folders with all of the implmentation of the dsl
+`org.xtext.example.simplemio*` are folders with all of the implementation of the dsl
 
-`programs` is a folder with example of programs in simplemio
+`programs` is a folder with examples of programs in simplemio
 
-`User_Documentation.pdf` is document with information to help users use the dsl
+`User_Documentation.pdf` is a document with information to help users use the dsl
 
 `DSL_Implemetation.pdf` is a document with details of how was the dsl implemented
